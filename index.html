@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Professional academic and research engineering portfolio for robotics, embodied AI, machine learning, dynamics, and sensing."
+      content="Professional portfolio for a PhD researcher working across robotics, embodied AI, control, dynamics, and experimental sensing."
     />
-    <title>Your Name | Research Engineering Portfolio</title>
+    <title>Your Name | Robotics &amp; Embodied AI Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/refined.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -35,6 +36,7 @@
         >
           <span></span>
           <span></span>
+          <span></span>
         </button>
 
         <div class="nav-links" id="nav-links">
@@ -42,24 +44,26 @@
           <a href="#themes">Research Themes</a>
           <a href="#toolkit">Toolkit</a>
           <a href="#about">About</a>
+          <a href="#beyond">Beyond the Lab</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
     </header>
 
     <main id="main-content">
-      <!-- Replace the hero copy first. It sets the tone for the whole page. -->
+      <!-- Start by replacing the hero copy. It sets the voice of the whole site. -->
       <section class="hero section" id="hero">
         <div class="hero-grid">
           <div class="hero-copy reveal">
-            <p class="eyebrow">PhD Student · Research Engineer · Robotics & Intelligent Systems</p>
+            <p class="eyebrow">Research Engineering Portfolio</p>
             <h1>Your Name</h1>
             <p class="hero-identity">
-              Building embodied AI and robotic systems that connect learning, control, sensing, and real-world experimentation.
+              Robotics researcher building embodied systems across perception, reasoning, control, and experimental sensing.
             </p>
             <p class="hero-summary">
-              Replace this summary with a concise introduction to your current PhD work, the problems you care about,
-              and how you move between theory, implementation, and experimental validation across robotics and intelligent systems.
+              Replace this with a short introduction that sounds like you. A strong version usually mentions your PhD focus,
+              the kinds of systems you like to build, and the fact that you enjoy the hard boundary between ideas, code,
+              hardware, and evidence.
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="#projects">View Projects</a>
@@ -67,32 +71,44 @@
               <a class="button button-ghost" href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub</a>
               <a class="button button-ghost" href="https://www.linkedin.com/in/yourusername/" target="_blank" rel="noreferrer">LinkedIn</a>
             </div>
+            <ul class="identity-strip" aria-label="Core identity tags">
+              <li>Robotics</li>
+              <li>Embodied AI</li>
+              <li>Perception &amp; Control</li>
+              <li>Systems Engineering</li>
+              <li>Experimental Research</li>
+              <li>Speedcubing</li>
+            </ul>
           </div>
 
-          <div class="hero-visual reveal" aria-hidden="true">
-            <div class="signal-panel">
-              <div class="signal-header">
-                <span>Research Snapshot</span>
-                <span>Status: Active</span>
-              </div>
-              <div class="signal-grid">
-                <article>
-                  <h2>Embodied AI</h2>
-                  <p>Reasoning, perception, action, and grounded decision-making.</p>
-                </article>
-                <article>
-                  <h2>Robotics Systems</h2>
-                  <p>System integration, autonomy stacks, and hardware-informed design.</p>
-                </article>
-                <article>
-                  <h2>Dynamics & Control</h2>
-                  <p>Modeling, optimization, stability, and physically grounded behavior.</p>
-                </article>
-                <article>
-                  <h2>Sensing & Analysis</h2>
-                  <p>Acoustics, vibration, signal processing, and experimental interpretation.</p>
-                </article>
-              </div>
+          <div class="hero-visual">
+            <!-- Replace this image with a portrait, lab scene, robot platform, or simulation frame. -->
+            <figure class="hero-figure reveal" style="--reveal-delay: 100ms">
+              <img
+                src="images/hero-placeholder.svg"
+                alt="Placeholder hero visual for a portrait, robot platform, lab scene, or simulation snapshot"
+                loading="eager"
+              />
+              <div class="hero-figure-badge">Optional hero visual</div>
+              <figcaption>Replace with a portrait, lab image, robot system, or simulation snapshot.</figcaption>
+            </figure>
+
+            <div class="hero-note-grid">
+              <article class="hero-note reveal" style="--reveal-delay: 180ms">
+                <p class="micro-label">Working Range</p>
+                <h2>From models to deployed systems</h2>
+                <p>
+                  Use this card to describe the span of your work across reasoning, autonomy, control, experiments, and evaluation.
+                </p>
+              </article>
+
+              <article class="hero-note reveal" style="--reveal-delay: 240ms">
+                <p class="micro-label">What This Site Shows</p>
+                <h2>Build, test, interpret, refine</h2>
+                <p>
+                  Keep the emphasis on real implementation choices, technical tradeoffs, and what the results actually showed.
+                </p>
+              </article>
             </div>
           </div>
         </div>
@@ -100,191 +116,310 @@
           <div class="gradient-orb orb-a"></div>
           <div class="gradient-orb orb-b"></div>
           <div class="grid-haze"></div>
+          <div class="technical-lines"></div>
         </div>
       </section>
 
-      <!-- Duplicate or remove project cards as needed once you have final content. -->
-      <section class="section reveal" id="projects">
-        <div class="section-heading">
+      <!-- Replace the project images with real snapshots whenever you have them. -->
+      <section class="section" id="projects">
+        <div class="section-heading reveal">
           <p class="eyebrow">Selected Projects</p>
-          <h2>Research and engineering work with measurable technical substance.</h2>
+          <h2>Case studies in robotics, intelligent systems, and measurement-driven engineering.</h2>
           <p>
-            Use this section for the projects that best show how you design systems, run experiments, and translate ideas into working implementations.
+            Use this section for projects that show how you make technical decisions, integrate subsystems, and validate results with more than a polished demo.
           </p>
         </div>
 
         <div class="project-grid">
-          <article class="project-card">
-            <div class="project-topline">
-              <span class="project-index">01</span>
-              <span class="project-tag">Robotics + VLMs</span>
-            </div>
-            <h3>Project Title Placeholder</h3>
-            <p>
-              Briefly describe the core problem, why it matters, and what you built or investigated in one grounded paragraph.
-            </p>
-            <ul class="project-meta">
-              <li><strong>Role:</strong> Lead researcher / system builder</li>
-              <li><strong>Methods:</strong> VLM planning, manipulation, evaluation pipeline</li>
-              <li><strong>Outcome:</strong> Add a concrete result, dataset, benchmark, or deployment takeaway</li>
-            </ul>
-            <div class="project-links">
-              <a href="#">Repository</a>
-              <a href="#">Demo</a>
-              <a href="#">Writeup</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-topline">
-              <span class="project-index">02</span>
-              <span class="project-tag">Autonomy</span>
-            </div>
-            <h3>Project Title Placeholder</h3>
-            <p>
-              Summarize a serious autonomy, perception, or systems integration project with attention to the technical constraints you addressed.
-            </p>
-            <ul class="project-meta">
-              <li><strong>Role:</strong> Research engineer</li>
-              <li><strong>Methods:</strong> Sensor fusion, planning, middleware, testing</li>
-              <li><strong>Outcome:</strong> Add field tests, improved reliability, or analysis results</li>
-            </ul>
-            <div class="project-links">
-              <a href="#">Repository</a>
-              <a href="#">Demo</a>
-              <a href="#">Writeup</a>
+          <article class="project-card reveal" style="--reveal-delay: 40ms">
+            <figure class="project-media">
+              <img
+                src="images/project-placeholder.svg"
+                alt="Placeholder project thumbnail for a robotics and vision-language project"
+                loading="lazy"
+              />
+              <figcaption>Replace with a robot photo, system diagram, or evaluation snapshot.</figcaption>
+            </figure>
+            <div class="project-content">
+              <div class="project-topline">
+                <span class="project-index">01</span>
+                <span class="project-tag">Robotics + VLMs</span>
+              </div>
+              <h3>Project Title Placeholder</h3>
+              <p class="project-summary">
+                Summarize the problem, the system you built, and why it mattered in one technically grounded sentence.
+              </p>
+              <dl class="project-details">
+                <div>
+                  <dt>Role</dt>
+                  <dd>Lead researcher / system builder</dd>
+                </div>
+                <div>
+                  <dt>Tools</dt>
+                  <dd>VLM planning, manipulation, evaluation pipeline</dd>
+                </div>
+                <div>
+                  <dt>Outcome</dt>
+                  <dd>Add a measurable result, benchmark, or system insight here</dd>
+                </div>
+              </dl>
+              <div class="project-links">
+                <a class="project-link" href="#">Repository</a>
+                <a class="project-link" href="#">Demo</a>
+                <a class="project-link" href="#">Writeup</a>
+              </div>
             </div>
           </article>
 
-          <article class="project-card">
-            <div class="project-topline">
-              <span class="project-index">03</span>
-              <span class="project-tag">RL / Optimization</span>
-            </div>
-            <h3>Project Title Placeholder</h3>
-            <p>
-              Use this card for work at the interface of learning, control, optimization, or policy evaluation in robotic settings.
-            </p>
-            <ul class="project-meta">
-              <li><strong>Role:</strong> Algorithm development and experimentation</li>
-              <li><strong>Methods:</strong> Reinforcement learning, simulation, optimization</li>
-              <li><strong>Outcome:</strong> Add performance comparisons, ablations, or transfer findings</li>
-            </ul>
-            <div class="project-links">
-              <a href="#">Repository</a>
-              <a href="#">Demo</a>
-              <a href="#">Writeup</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-topline">
-              <span class="project-index">04</span>
-              <span class="project-tag">Dynamics & Control</span>
-            </div>
-            <h3>Project Title Placeholder</h3>
-            <p>
-              Highlight modeling, vibration, control, or system-identification work with clear emphasis on method and validation.
-            </p>
-            <ul class="project-meta">
-              <li><strong>Role:</strong> Modeling and analysis</li>
-              <li><strong>Methods:</strong> Dynamics, estimation, control design, experiments</li>
-              <li><strong>Outcome:</strong> Add quantitative accuracy, stability, or efficiency results</li>
-            </ul>
-            <div class="project-links">
-              <a href="#">Repository</a>
-              <a href="#">Demo</a>
-              <a href="#">Writeup</a>
+          <article class="project-card reveal" style="--reveal-delay: 80ms">
+            <figure class="project-media">
+              <img
+                src="images/project-placeholder.svg"
+                alt="Placeholder project thumbnail for an autonomy and systems integration project"
+                loading="lazy"
+              />
+              <figcaption>Replace with a field test image, middleware diagram, or autonomy stack view.</figcaption>
+            </figure>
+            <div class="project-content">
+              <div class="project-topline">
+                <span class="project-index">02</span>
+                <span class="project-tag">Autonomy</span>
+              </div>
+              <h3>Project Title Placeholder</h3>
+              <p class="project-summary">
+                Use this space for a serious autonomy or perception project where system integration mattered as much as the algorithm.
+              </p>
+              <dl class="project-details">
+                <div>
+                  <dt>Role</dt>
+                  <dd>Research engineer</dd>
+                </div>
+                <div>
+                  <dt>Tools</dt>
+                  <dd>Sensor fusion, planning, middleware, test infrastructure</dd>
+                </div>
+                <div>
+                  <dt>Outcome</dt>
+                  <dd>Add reliability gains, deployment results, or evaluation findings</dd>
+                </div>
+              </dl>
+              <div class="project-links">
+                <a class="project-link" href="#">Repository</a>
+                <a class="project-link" href="#">Demo</a>
+                <a class="project-link" href="#">Writeup</a>
+              </div>
             </div>
           </article>
 
-          <article class="project-card">
-            <div class="project-topline">
-              <span class="project-index">05</span>
-              <span class="project-tag">Sensing</span>
-            </div>
-            <h3>Project Title Placeholder</h3>
-            <p>
-              Use this project for acoustics, sensing, instrumentation, or signal-processing work tied to real measurements.
-            </p>
-            <ul class="project-meta">
-              <li><strong>Role:</strong> Experimental design and analysis</li>
-              <li><strong>Methods:</strong> Signal processing, sensing, statistical interpretation</li>
-              <li><strong>Outcome:</strong> Add measurement insights, robustness gains, or validated conclusions</li>
-            </ul>
-            <div class="project-links">
-              <a href="#">Repository</a>
-              <a href="#">Demo</a>
-              <a href="#">Writeup</a>
+          <article class="project-card reveal" style="--reveal-delay: 120ms">
+            <figure class="project-media">
+              <img
+                src="images/project-placeholder.svg"
+                alt="Placeholder project thumbnail for a reinforcement learning or optimization project"
+                loading="lazy"
+              />
+              <figcaption>Replace with a simulation frame, policy visualization, or experiment plot.</figcaption>
+            </figure>
+            <div class="project-content">
+              <div class="project-topline">
+                <span class="project-index">03</span>
+                <span class="project-tag">RL / Optimization</span>
+              </div>
+              <h3>Project Title Placeholder</h3>
+              <p class="project-summary">
+                Use this card for work that connects learning, optimization, or policy evaluation to embodied behavior.
+              </p>
+              <dl class="project-details">
+                <div>
+                  <dt>Role</dt>
+                  <dd>Algorithm development and experimentation</dd>
+                </div>
+                <div>
+                  <dt>Tools</dt>
+                  <dd>Reinforcement learning, simulation, optimization</dd>
+                </div>
+                <div>
+                  <dt>Outcome</dt>
+                  <dd>Add ablations, transfer results, or performance comparisons</dd>
+                </div>
+              </dl>
+              <div class="project-links">
+                <a class="project-link" href="#">Repository</a>
+                <a class="project-link" href="#">Demo</a>
+                <a class="project-link" href="#">Writeup</a>
+              </div>
             </div>
           </article>
 
-          <article class="project-card">
-            <div class="project-topline">
-              <span class="project-index">06</span>
-              <span class="project-tag">Systems Research</span>
+          <article class="project-card reveal" style="--reveal-delay: 160ms">
+            <figure class="project-media">
+              <img
+                src="images/project-placeholder.svg"
+                alt="Placeholder project thumbnail for a dynamics or control project"
+                loading="lazy"
+              />
+              <figcaption>Replace with a model plot, hardware rig, or controller experiment snapshot.</figcaption>
+            </figure>
+            <div class="project-content">
+              <div class="project-topline">
+                <span class="project-index">04</span>
+                <span class="project-tag">Dynamics &amp; Control</span>
+              </div>
+              <h3>Project Title Placeholder</h3>
+              <p class="project-summary">
+                Highlight modeling, vibration, or control work where technical rigor and validation were central to the contribution.
+              </p>
+              <dl class="project-details">
+                <div>
+                  <dt>Role</dt>
+                  <dd>Modeling and analysis</dd>
+                </div>
+                <div>
+                  <dt>Tools</dt>
+                  <dd>Dynamics, estimation, control design, experiments</dd>
+                </div>
+                <div>
+                  <dt>Outcome</dt>
+                  <dd>Add quantitative accuracy, stability, or efficiency results</dd>
+                </div>
+              </dl>
+              <div class="project-links">
+                <a class="project-link" href="#">Repository</a>
+                <a class="project-link" href="#">Demo</a>
+                <a class="project-link" href="#">Writeup</a>
+              </div>
             </div>
-            <h3>Project Title Placeholder</h3>
-            <p>
-              Reserve one card for a cross-disciplinary project that demonstrates breadth across robotics, learning, and physical systems.
-            </p>
-            <ul class="project-meta">
-              <li><strong>Role:</strong> End-to-end implementation</li>
-              <li><strong>Methods:</strong> Full-stack experimentation, evaluation, deployment</li>
-              <li><strong>Outcome:</strong> Add the system-level contribution or research insight</li>
-            </ul>
-            <div class="project-links">
-              <a href="#">Repository</a>
-              <a href="#">Demo</a>
-              <a href="#">Writeup</a>
+          </article>
+
+          <article class="project-card reveal" style="--reveal-delay: 200ms">
+            <figure class="project-media">
+              <img
+                src="images/project-placeholder.svg"
+                alt="Placeholder project thumbnail for a sensing or signal processing project"
+                loading="lazy"
+              />
+              <figcaption>Replace with an experiment image, sensor setup, or signal analysis snapshot.</figcaption>
+            </figure>
+            <div class="project-content">
+              <div class="project-topline">
+                <span class="project-index">05</span>
+                <span class="project-tag">Sensing</span>
+              </div>
+              <h3>Project Title Placeholder</h3>
+              <p class="project-summary">
+                Use this project for acoustics, instrumentation, or signal-processing work tied to real measurements and interpretation.
+              </p>
+              <dl class="project-details">
+                <div>
+                  <dt>Role</dt>
+                  <dd>Experimental design and analysis</dd>
+                </div>
+                <div>
+                  <dt>Tools</dt>
+                  <dd>Signal processing, sensing, statistical interpretation</dd>
+                </div>
+                <div>
+                  <dt>Outcome</dt>
+                  <dd>Add validated findings, robustness gains, or measurement insights</dd>
+                </div>
+              </dl>
+              <div class="project-links">
+                <a class="project-link" href="#">Repository</a>
+                <a class="project-link" href="#">Demo</a>
+                <a class="project-link" href="#">Writeup</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" style="--reveal-delay: 240ms">
+            <figure class="project-media">
+              <img
+                src="images/project-placeholder.svg"
+                alt="Placeholder project thumbnail for a cross-disciplinary systems research project"
+                loading="lazy"
+              />
+              <figcaption>Replace with the clearest image that represents the whole system.</figcaption>
+            </figure>
+            <div class="project-content">
+              <div class="project-topline">
+                <span class="project-index">06</span>
+                <span class="project-tag">Systems Research</span>
+              </div>
+              <h3>Project Title Placeholder</h3>
+              <p class="project-summary">
+                Reserve one slot for a project that shows breadth across robotics, learning, control, and physical experimentation.
+              </p>
+              <dl class="project-details">
+                <div>
+                  <dt>Role</dt>
+                  <dd>End-to-end implementation</dd>
+                </div>
+                <div>
+                  <dt>Tools</dt>
+                  <dd>System integration, evaluation, deployment, iteration</dd>
+                </div>
+                <div>
+                  <dt>Outcome</dt>
+                  <dd>Add the research contribution or practical systems takeaway</dd>
+                </div>
+              </dl>
+              <div class="project-links">
+                <a class="project-link" href="#">Repository</a>
+                <a class="project-link" href="#">Demo</a>
+                <a class="project-link" href="#">Writeup</a>
+              </div>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section reveal" id="themes">
-        <div class="section-heading">
+      <section class="section" id="themes">
+        <div class="section-heading reveal">
           <p class="eyebrow">Research Themes</p>
-          <h2>Core areas that structure the portfolio.</h2>
+          <h2>Areas that connect the theory, implementation, and experimental side of the work.</h2>
         </div>
 
         <div class="theme-grid">
-          <article class="theme-card">
+          <article class="theme-card reveal" style="--reveal-delay: 40ms">
+            <p class="micro-label">01</p>
             <h3>Embodied AI & Robot Reasoning</h3>
             <p>
-              Add a short description of your work on grounded reasoning, multimodal understanding, planning, and action in robotic settings.
+              Add a concise description of work on grounded reasoning, multimodal understanding, planning, and action in robotic settings.
             </p>
           </article>
-          <article class="theme-card">
+          <article class="theme-card reveal" style="--reveal-delay: 80ms">
+            <p class="micro-label">02</p>
             <h3>Robotics Systems & Autonomy</h3>
             <p>
-              Describe your work on integrated robotic systems, hardware-software coordination, autonomy pipelines, and real-world deployment.
+              Describe your work on integrated robotic systems, autonomy pipelines, hardware-software coordination, and deployment.
             </p>
           </article>
-          <article class="theme-card">
+          <article class="theme-card reveal" style="--reveal-delay: 120ms">
+            <p class="micro-label">03</p>
             <h3>Dynamics / Control / Optimization</h3>
             <p>
-              Summarize the modeling, control, and optimization methods you use to analyze and improve system behavior.
+              Summarize the modeling, estimation, and optimization tools you use to analyze and improve physical system behavior.
             </p>
           </article>
-          <article class="theme-card">
+          <article class="theme-card reveal" style="--reveal-delay: 160ms">
+            <p class="micro-label">04</p>
             <h3>Acoustics / Sensing / Experimental Analysis</h3>
             <p>
-              Use this block to explain your sensing, vibration, acoustics, or signal-processing work and its role in measurement-driven research.
+              Use this block to explain your sensing, vibration, acoustics, or signal-processing work and how it informs real experiments.
             </p>
           </article>
         </div>
       </section>
 
       <!-- Keep toolkit tags short so the layout stays clean across screen sizes. -->
-      <section class="section reveal" id="toolkit">
-        <div class="section-heading">
+      <section class="section" id="toolkit">
+        <div class="section-heading reveal">
           <p class="eyebrow">Technical Toolkit</p>
-          <h2>Methods, platforms, and tools used across research and implementation.</h2>
+          <h2>Platforms, methods, and tools used across research and implementation.</h2>
         </div>
 
         <div class="toolkit-grid">
-          <article class="toolkit-card">
+          <article class="toolkit-card reveal" style="--reveal-delay: 30ms">
             <h3>Robotics</h3>
             <div class="chip-group">
               <span>ROS / ROS 2</span>
@@ -295,7 +430,7 @@
               <span>Sensor Fusion</span>
             </div>
           </article>
-          <article class="toolkit-card">
+          <article class="toolkit-card reveal" style="--reveal-delay: 60ms">
             <h3>ML / AI</h3>
             <div class="chip-group">
               <span>PyTorch</span>
@@ -306,7 +441,7 @@
               <span>Evaluation Pipelines</span>
             </div>
           </article>
-          <article class="toolkit-card">
+          <article class="toolkit-card reveal" style="--reveal-delay: 90ms">
             <h3>Simulation</h3>
             <div class="chip-group">
               <span>Gazebo</span>
@@ -317,7 +452,7 @@
               <span>Benchmarking</span>
             </div>
           </article>
-          <article class="toolkit-card">
+          <article class="toolkit-card reveal" style="--reveal-delay: 120ms">
             <h3>Control / Math</h3>
             <div class="chip-group">
               <span>Optimization</span>
@@ -328,7 +463,7 @@
               <span>Statistics</span>
             </div>
           </article>
-          <article class="toolkit-card">
+          <article class="toolkit-card reveal" style="--reveal-delay: 150ms">
             <h3>Programming</h3>
             <div class="chip-group">
               <span>Python</span>
@@ -342,62 +477,151 @@
         </div>
       </section>
 
-      <section class="section reveal" id="about">
-        <div class="section-heading">
+      <section class="section" id="about">
+        <div class="section-heading reveal">
           <p class="eyebrow">About</p>
-          <h2>A concise overview of your current work and where you want to contribute.</h2>
+          <h2>How the work is oriented, what problems are interesting, and how I like to contribute.</h2>
         </div>
 
-        <div class="about-panel">
+        <div class="about-grid">
+          <article class="about-intro reveal">
+            <p class="about-lead">
+              Replace this lead paragraph with a concise overview of your current PhD and research direction. Aim for a few sentences that explain what you are studying now and why those questions matter to you.
+            </p>
+            <p>
+              Use the second paragraph for the kinds of hard technical problems you enjoy: systems that need careful modeling, embodied decision-making under real constraints, or experiments that force you to reconcile theory with messy reality.
+            </p>
+            <p>
+              Close with the kinds of conversations or collaborations you are open to, whether that means research partnerships, lab opportunities, internships, or technically serious interdisciplinary work.
+            </p>
+          </article>
+
+          <div class="about-notes">
+            <article class="about-card reveal" style="--reveal-delay: 60ms">
+              <p class="micro-label">Current Work</p>
+              <h3>What I am building now</h3>
+              <p>Replace with your current research stack, platforms, datasets, or system focus.</p>
+            </article>
+
+            <article class="about-card reveal" style="--reveal-delay: 100ms">
+              <p class="micro-label">Hard Problems</p>
+              <h3>Questions I like to stay with</h3>
+              <p>Add the kinds of technically difficult questions that keep your attention.</p>
+            </article>
+
+            <article class="about-card reveal" style="--reveal-delay: 140ms">
+              <p class="micro-label">Approach</p>
+              <h3>How I tend to work</h3>
+              <p>Describe your approach to modeling, implementation, testing, and technical iteration.</p>
+            </article>
+
+            <article class="about-card reveal" style="--reveal-delay: 180ms">
+              <p class="micro-label">Open To</p>
+              <h3>Collaborations and opportunities</h3>
+              <p>Add the kinds of teams, labs, or applied research settings you would like to contribute to.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-emphasis" id="beyond">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Beyond the Lab</p>
+          <h2>Signals of discipline, curiosity, and working style that sit next to the research rather than outside it.</h2>
           <p>
-            Replace this paragraph with your current PhD and research focus, including the main systems, methods, or questions you are studying.
+            Keep this section personal, but still intentional. The goal is to add texture to your identity without turning the site into a lifestyle page.
           </p>
-          <p>
-            Use this space to describe your broader interests across robotics, embodied intelligence, machine learning, dynamics, and sensing.
-          </p>
-          <p>
-            Add the types of collaborations, research discussions, internships, or academic opportunities you are open to pursuing.
-          </p>
+        </div>
+
+        <div class="beyond-grid">
+          <article class="beyond-card reveal" style="--reveal-delay: 40ms">
+            <p class="micro-label">Practice</p>
+            <h3>Speedcubing / WCA</h3>
+            <p>
+              Replace with a concise note about competitions, favorite events, or what repeated timed problem-solving has taught you about practice and precision.
+            </p>
+          </article>
+
+          <article class="beyond-card reveal" style="--reveal-delay: 80ms">
+            <p class="micro-label">Working Style</p>
+            <h3>How I like to think and build</h3>
+            <p>
+              Use this card for the way you approach ambiguity, debugging, collaboration, and difficult technical loops.
+            </p>
+          </article>
+
+          <article class="beyond-card reveal" style="--reveal-delay: 120ms">
+            <p class="micro-label">Curiosity</p>
+            <h3>Systems that hold my attention</h3>
+            <p>
+              Add the kinds of systems or problems that consistently pull you in, especially where physical and intelligent behavior meet.
+            </p>
+          </article>
+
+          <article class="beyond-card reveal" style="--reveal-delay: 160ms">
+            <p class="micro-label">Outside Research</p>
+            <h3>Interests that sharpen perspective</h3>
+            <p>
+              Include a few concise interests or technical curiosities outside formal research that still feel aligned with your identity.
+            </p>
+          </article>
         </div>
       </section>
 
       <!-- Point the CV link to docs/your-cv.pdf after adding your file there. -->
-      <section class="section reveal" id="contact">
-        <div class="section-heading">
+      <section class="section" id="contact">
+        <div class="section-heading reveal">
           <p class="eyebrow">Contact</p>
-          <h2>Professional links and research contact details.</h2>
+          <h2>Professional links, research contact details, and the easiest ways to reach me.</h2>
         </div>
 
-        <div class="contact-grid">
-          <a class="contact-card" href="mailto:your.email@university.edu">
-            <span class="contact-label">Email</span>
-            <span class="contact-value">your.email@university.edu</span>
-          </a>
-          <a class="contact-card" href="https://github.com/yourusername" target="_blank" rel="noreferrer">
-            <span class="contact-label">GitHub</span>
-            <span class="contact-value">github.com/yourusername</span>
-          </a>
-          <a class="contact-card" href="https://www.linkedin.com/in/yourusername/" target="_blank" rel="noreferrer">
-            <span class="contact-label">LinkedIn</span>
-            <span class="contact-value">linkedin.com/in/yourusername</span>
-          </a>
-          <a class="contact-card" href="docs/your-cv.pdf">
-            <span class="contact-label">CV</span>
-            <span class="contact-value">Download PDF</span>
-          </a>
-          <a class="contact-card" href="#" target="_blank" rel="noreferrer">
-            <span class="contact-label">Google Scholar</span>
-            <span class="contact-value">Add profile link</span>
-          </a>
+        <div class="contact-layout">
+          <article class="contact-intro reveal">
+            <p class="micro-label">Get In Touch</p>
+            <h3>Use this panel for a short closing note.</h3>
+            <p>
+              Replace this with one or two sentences about the kinds of research conversations, collaborations, or opportunities you would be glad to discuss.
+            </p>
+          </article>
+
+          <div class="contact-grid">
+            <a class="contact-card reveal" href="mailto:your.email@university.edu" style="--reveal-delay: 40ms">
+              <span class="contact-label">Email</span>
+              <span class="contact-value">your.email@university.edu</span>
+            </a>
+            <a class="contact-card reveal" href="https://github.com/yourusername" target="_blank" rel="noreferrer" style="--reveal-delay: 80ms">
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value">github.com/yourusername</span>
+            </a>
+            <a
+              class="contact-card reveal"
+              href="https://www.linkedin.com/in/yourusername/"
+              target="_blank"
+              rel="noreferrer"
+              style="--reveal-delay: 120ms"
+            >
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value">linkedin.com/in/yourusername</span>
+            </a>
+            <a class="contact-card reveal" href="docs/your-cv.pdf" style="--reveal-delay: 160ms">
+              <span class="contact-label">CV</span>
+              <span class="contact-value">Download PDF</span>
+            </a>
+            <a class="contact-card reveal" href="#" target="_blank" rel="noreferrer" style="--reveal-delay: 200ms">
+              <span class="contact-label">Google Scholar</span>
+              <span class="contact-value">Add profile link</span>
+            </a>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>&copy; 2026 Your Name. Replace with your preferred footer text.</p>
+      <p>&copy; <span data-current-year></span> Your Name. Replace with your preferred footer text.</p>
       <div class="footer-links">
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
+        <a href="#beyond">Beyond the Lab</a>
         <a href="#contact">Contact</a>
       </div>
     </footer>
