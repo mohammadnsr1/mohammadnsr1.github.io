@@ -51,7 +51,7 @@
     </header>
 
     <main id="main-content">
-      <!-- Start by replacing the hero copy. It sets the voice of the whole site. -->
+      <!-- Replace the hero copy first. It sets the voice of the whole site. -->
       <section class="hero section" id="hero">
         <div class="hero-grid">
           <div class="hero-copy reveal">
@@ -66,18 +66,18 @@
               hardware, and evidence.
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#projects">View Projects</a>
-              <a class="button button-secondary" href="docs/your-cv.pdf">Download CV</a>
+              <a class="button button-primary button-arrow" href="#projects">View Projects</a>
+              <a class="button button-secondary button-arrow" href="docs/your-cv.pdf">Download CV</a>
               <a class="button button-ghost" href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub</a>
               <a class="button button-ghost" href="https://www.linkedin.com/in/yourusername/" target="_blank" rel="noreferrer">LinkedIn</a>
             </div>
             <ul class="identity-strip" aria-label="Core identity tags">
-              <li>Robotics</li>
-              <li>Embodied AI</li>
-              <li>Perception &amp; Control</li>
-              <li>Systems Engineering</li>
-              <li>Experimental Research</li>
-              <li>Speedcubing</li>
+              <li class="chip-tone-cyan"><span class="chip-dot" aria-hidden="true"></span>Robotics</li>
+              <li class="chip-tone-violet"><span class="chip-dot" aria-hidden="true"></span>Embodied AI</li>
+              <li class="chip-tone-blue"><span class="chip-dot" aria-hidden="true"></span>Perception &amp; Control</li>
+              <li class="chip-tone-teal"><span class="chip-dot" aria-hidden="true"></span>Systems Engineering</li>
+              <li class="chip-tone-amber"><span class="chip-dot" aria-hidden="true"></span>Experimental Research</li>
+              <li class="chip-tone-violet-warm"><span class="chip-dot" aria-hidden="true"></span>Speedcubing</li>
             </ul>
           </div>
 
@@ -94,7 +94,7 @@
             </figure>
 
             <div class="hero-note-grid">
-              <article class="hero-note reveal" style="--reveal-delay: 180ms">
+              <article class="hero-note hero-note-cyan reveal" style="--reveal-delay: 180ms">
                 <p class="micro-label">Working Range</p>
                 <h2>From models to deployed systems</h2>
                 <p>
@@ -102,7 +102,7 @@
                 </p>
               </article>
 
-              <article class="hero-note reveal" style="--reveal-delay: 240ms">
+              <article class="hero-note hero-note-violet reveal" style="--reveal-delay: 240ms">
                 <p class="micro-label">What This Site Shows</p>
                 <h2>Build, test, interpret, refine</h2>
                 <p>
@@ -115,6 +115,7 @@
         <div class="hero-backdrop" aria-hidden="true">
           <div class="gradient-orb orb-a"></div>
           <div class="gradient-orb orb-b"></div>
+          <div class="gradient-orb orb-c"></div>
           <div class="grid-haze"></div>
           <div class="technical-lines"></div>
         </div>
@@ -131,7 +132,8 @@
         </div>
 
         <div class="project-grid">
-          <article class="project-card reveal" style="--reveal-delay: 40ms">
+          <article class="project-card project-robotics reveal" style="--reveal-delay: 40ms">
+            <!-- Replace each project image path with a real project thumbnail when available. -->
             <figure class="project-media">
               <img
                 src="images/project-placeholder.svg"
@@ -171,7 +173,7 @@
             </div>
           </article>
 
-          <article class="project-card reveal" style="--reveal-delay: 80ms">
+          <article class="project-card project-autonomy reveal" style="--reveal-delay: 80ms">
             <figure class="project-media">
               <img
                 src="images/project-placeholder.svg"
@@ -211,7 +213,7 @@
             </div>
           </article>
 
-          <article class="project-card reveal" style="--reveal-delay: 120ms">
+          <article class="project-card project-rl reveal" style="--reveal-delay: 120ms">
             <figure class="project-media">
               <img
                 src="images/project-placeholder.svg"
@@ -251,7 +253,7 @@
             </div>
           </article>
 
-          <article class="project-card reveal" style="--reveal-delay: 160ms">
+          <article class="project-card project-control reveal" style="--reveal-delay: 160ms">
             <figure class="project-media">
               <img
                 src="images/project-placeholder.svg"
@@ -291,7 +293,7 @@
             </div>
           </article>
 
-          <article class="project-card reveal" style="--reveal-delay: 200ms">
+          <article class="project-card project-sensing reveal" style="--reveal-delay: 200ms">
             <figure class="project-media">
               <img
                 src="images/project-placeholder.svg"
@@ -331,7 +333,7 @@
             </div>
           </article>
 
-          <article class="project-card reveal" style="--reveal-delay: 240ms">
+          <article class="project-card project-systems reveal" style="--reveal-delay: 240ms">
             <figure class="project-media">
               <img
                 src="images/project-placeholder.svg"
@@ -380,28 +382,28 @@
         </div>
 
         <div class="theme-grid">
-          <article class="theme-card reveal" style="--reveal-delay: 40ms">
+          <article class="theme-card theme-embodied reveal" style="--reveal-delay: 40ms">
             <p class="micro-label">01</p>
-            <h3>Embodied AI & Robot Reasoning</h3>
+            <h3>Embodied AI &amp; Robot Reasoning</h3>
             <p>
               Add a concise description of work on grounded reasoning, multimodal understanding, planning, and action in robotic settings.
             </p>
           </article>
-          <article class="theme-card reveal" style="--reveal-delay: 80ms">
+          <article class="theme-card theme-autonomy reveal" style="--reveal-delay: 80ms">
             <p class="micro-label">02</p>
-            <h3>Robotics Systems & Autonomy</h3>
+            <h3>Robotics Systems &amp; Autonomy</h3>
             <p>
               Describe your work on integrated robotic systems, autonomy pipelines, hardware-software coordination, and deployment.
             </p>
           </article>
-          <article class="theme-card reveal" style="--reveal-delay: 120ms">
+          <article class="theme-card theme-control reveal" style="--reveal-delay: 120ms">
             <p class="micro-label">03</p>
             <h3>Dynamics / Control / Optimization</h3>
             <p>
               Summarize the modeling, estimation, and optimization tools you use to analyze and improve physical system behavior.
             </p>
           </article>
-          <article class="theme-card reveal" style="--reveal-delay: 160ms">
+          <article class="theme-card theme-sensing reveal" style="--reveal-delay: 160ms">
             <p class="micro-label">04</p>
             <h3>Acoustics / Sensing / Experimental Analysis</h3>
             <p>
@@ -419,8 +421,9 @@
         </div>
 
         <div class="toolkit-grid">
-          <article class="toolkit-card reveal" style="--reveal-delay: 30ms">
+          <article class="toolkit-card toolkit-robotics reveal" style="--reveal-delay: 30ms">
             <h3>Robotics</h3>
+            <p class="toolkit-summary">Middleware, sensing, planning, and integration for full robotic systems.</p>
             <div class="chip-group">
               <span>ROS / ROS 2</span>
               <span>MoveIt</span>
@@ -430,8 +433,9 @@
               <span>Sensor Fusion</span>
             </div>
           </article>
-          <article class="toolkit-card reveal" style="--reveal-delay: 60ms">
+          <article class="toolkit-card toolkit-ml reveal" style="--reveal-delay: 60ms">
             <h3>ML / AI</h3>
+            <p class="toolkit-summary">Modeling, representation learning, and multimodal reasoning pipelines.</p>
             <div class="chip-group">
               <span>PyTorch</span>
               <span>Transformers</span>
@@ -441,8 +445,9 @@
               <span>Evaluation Pipelines</span>
             </div>
           </article>
-          <article class="toolkit-card reveal" style="--reveal-delay: 90ms">
+          <article class="toolkit-card toolkit-sim reveal" style="--reveal-delay: 90ms">
             <h3>Simulation</h3>
+            <p class="toolkit-summary">Simulation environments for iteration, transfer, benchmarking, and testing.</p>
             <div class="chip-group">
               <span>Gazebo</span>
               <span>MuJoCo</span>
@@ -452,8 +457,9 @@
               <span>Benchmarking</span>
             </div>
           </article>
-          <article class="toolkit-card reveal" style="--reveal-delay: 120ms">
+          <article class="toolkit-card toolkit-math reveal" style="--reveal-delay: 120ms">
             <h3>Control / Math</h3>
+            <p class="toolkit-summary">Optimization, estimation, and analysis tools for physically grounded behavior.</p>
             <div class="chip-group">
               <span>Optimization</span>
               <span>System Identification</span>
@@ -463,8 +469,9 @@
               <span>Statistics</span>
             </div>
           </article>
-          <article class="toolkit-card reveal" style="--reveal-delay: 150ms">
+          <article class="toolkit-card toolkit-code reveal" style="--reveal-delay: 150ms">
             <h3>Programming</h3>
+            <p class="toolkit-summary">Implementation, experimentation, and reproducible research workflows.</p>
             <div class="chip-group">
               <span>Python</span>
               <span>C++</span>
@@ -497,25 +504,25 @@
           </article>
 
           <div class="about-notes">
-            <article class="about-card reveal" style="--reveal-delay: 60ms">
+            <article class="about-card about-current reveal" style="--reveal-delay: 60ms">
               <p class="micro-label">Current Work</p>
               <h3>What I am building now</h3>
               <p>Replace with your current research stack, platforms, datasets, or system focus.</p>
             </article>
 
-            <article class="about-card reveal" style="--reveal-delay: 100ms">
+            <article class="about-card about-hard reveal" style="--reveal-delay: 100ms">
               <p class="micro-label">Hard Problems</p>
               <h3>Questions I like to stay with</h3>
               <p>Add the kinds of technically difficult questions that keep your attention.</p>
             </article>
 
-            <article class="about-card reveal" style="--reveal-delay: 140ms">
+            <article class="about-card about-approach reveal" style="--reveal-delay: 140ms">
               <p class="micro-label">Approach</p>
               <h3>How I tend to work</h3>
               <p>Describe your approach to modeling, implementation, testing, and technical iteration.</p>
             </article>
 
-            <article class="about-card reveal" style="--reveal-delay: 180ms">
+            <article class="about-card about-open reveal" style="--reveal-delay: 180ms">
               <p class="micro-label">Open To</p>
               <h3>Collaborations and opportunities</h3>
               <p>Add the kinds of teams, labs, or applied research settings you would like to contribute to.</p>
@@ -534,7 +541,15 @@
         </div>
 
         <div class="beyond-grid">
-          <article class="beyond-card reveal" style="--reveal-delay: 40ms">
+          <article class="beyond-card beyond-practice reveal" style="--reveal-delay: 40ms">
+            <!-- Replace this optional image with a speedcubing or personal visual if you want the section to feel more personal. -->
+            <figure class="beyond-media">
+              <img
+                src="images/beyond-placeholder.svg"
+                alt="Placeholder image for speedcubing, a personal portrait, or another personal visual"
+                loading="lazy"
+              />
+            </figure>
             <p class="micro-label">Practice</p>
             <h3>Speedcubing / WCA</h3>
             <p>
@@ -542,7 +557,7 @@
             </p>
           </article>
 
-          <article class="beyond-card reveal" style="--reveal-delay: 80ms">
+          <article class="beyond-card beyond-thinking reveal" style="--reveal-delay: 80ms">
             <p class="micro-label">Working Style</p>
             <h3>How I like to think and build</h3>
             <p>
@@ -550,7 +565,7 @@
             </p>
           </article>
 
-          <article class="beyond-card reveal" style="--reveal-delay: 120ms">
+          <article class="beyond-card beyond-curiosity reveal" style="--reveal-delay: 120ms">
             <p class="micro-label">Curiosity</p>
             <h3>Systems that hold my attention</h3>
             <p>
@@ -558,7 +573,7 @@
             </p>
           </article>
 
-          <article class="beyond-card reveal" style="--reveal-delay: 160ms">
+          <article class="beyond-card beyond-interests reveal" style="--reveal-delay: 160ms">
             <p class="micro-label">Outside Research</p>
             <h3>Interests that sharpen perspective</h3>
             <p>

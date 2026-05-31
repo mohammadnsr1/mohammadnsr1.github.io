@@ -1,0 +1,35 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" fill="#0D0D18"/>
+  <rect x="42" y="42" width="1116" height="676" rx="28" fill="url(#paint0_linear)" stroke="#7D69FF" stroke-opacity="0.25"/>
+  <circle cx="924" cy="170" r="124" fill="url(#paint1_radial)" opacity="0.72"/>
+  <circle cx="272" cy="596" r="152" fill="url(#paint2_radial)" opacity="0.54"/>
+  <circle cx="524" cy="280" r="86" stroke="#67E4FF" stroke-width="16"/>
+  <circle cx="612" cy="280" r="86" stroke="#8A6CFF" stroke-width="16"/>
+  <circle cx="568" cy="204" r="86" stroke="#FFB25E" stroke-width="16"/>
+  <path d="M334 412H866" stroke="#243447" stroke-width="2"/>
+  <path d="M334 470H866" stroke="#1D2B3C" stroke-width="2"/>
+  <path d="M334 528H866" stroke="#243447" stroke-width="2"/>
+  <rect x="122" y="118" width="288" height="126" rx="22" fill="#131A25" stroke="#3B5268"/>
+  <text x="156" y="176" fill="#F0F5FF" font-family="Arial, sans-serif" font-size="34" font-weight="700">Beyond the Lab</text>
+  <text x="156" y="220" fill="#B7C4D9" font-family="Arial, sans-serif" font-size="28">Image Placeholder</text>
+  <rect x="760" y="472" width="222" height="140" rx="24" fill="#121824" stroke="#48657E"/>
+  <path d="M810 522H920" stroke="#68E3FF" stroke-width="10" stroke-linecap="round"/>
+  <path d="M810 566H886" stroke="#FFB25E" stroke-width="10" stroke-linecap="round"/>
+  <text x="122" y="662" fill="#B7C4D9" font-family="Arial, sans-serif" font-size="24">
+    Replace with speedcubing, a personal portrait, or another warm personal visual.
+  </text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="600" y1="42" x2="600" y2="718" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151B28"/>
+      <stop offset="1" stop-color="#0D121D"/>
+    </linearGradient>
+    <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(924 170) rotate(90) scale(124)">
+      <stop stop-color="#8A6CFF"/>
+      <stop offset="1" stop-color="#8A6CFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="paint2_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(272 596) rotate(90) scale(152)">
+      <stop stop-color="#FFB25E"/>
+      <stop offset="1" stop-color="#FFB25E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

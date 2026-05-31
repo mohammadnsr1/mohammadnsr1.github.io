@@ -1,40 +1,45 @@
 <svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="760" fill="#0A1017"/>
-  <rect x="40" y="40" width="1120" height="680" rx="28" fill="url(#paint0_linear)" stroke="#284252"/>
-  <path d="M104 150H1096" stroke="#233B4C" stroke-width="2"/>
-  <path d="M104 220H1096" stroke="#1B2F3E" stroke-width="2"/>
-  <path d="M104 290H1096" stroke="#233B4C" stroke-width="2"/>
-  <path d="M104 360H1096" stroke="#1B2F3E" stroke-width="2"/>
-  <path d="M104 430H1096" stroke="#233B4C" stroke-width="2"/>
-  <path d="M104 500H1096" stroke="#1B2F3E" stroke-width="2"/>
-  <path d="M104 570H1096" stroke="#233B4C" stroke-width="2"/>
-  <circle cx="930" cy="188" r="116" fill="url(#paint1_radial)" opacity="0.7"/>
-  <circle cx="286" cy="540" r="140" fill="url(#paint2_radial)" opacity="0.5"/>
-  <rect x="130" y="118" width="308" height="132" rx="22" fill="#101923" stroke="#375A6D"/>
-  <text x="166" y="176" fill="#EEF4FA" font-family="Arial, sans-serif" font-size="34" font-weight="700">Project Image</text>
-  <text x="166" y="220" fill="#A7BBCF" font-family="Arial, sans-serif" font-size="28">Placeholder</text>
-  <rect x="628" y="330" width="320" height="198" rx="26" fill="#0F1721" stroke="#35586A"/>
-  <path d="M684 390H872" stroke="#7CCBDB" stroke-width="12" stroke-linecap="round"/>
-  <path d="M684 446H820" stroke="#6BA7F0" stroke-width="12" stroke-linecap="round"/>
-  <path d="M684 502H760" stroke="#C89E67" stroke-width="12" stroke-linecap="round"/>
-  <path d="M196 388C252 338 338 338 392 388C446 438 446 518 392 568C338 618 252 618 196 568" stroke="#7CCBDB" stroke-width="12" stroke-linecap="round"/>
-  <path d="M274 448H470" stroke="#7CCBDB" stroke-width="10" stroke-linecap="round"/>
-  <path d="M274 514H430" stroke="#6BA7F0" stroke-width="10" stroke-linecap="round"/>
-  <text x="130" y="650" fill="#A7BBCF" font-family="Arial, sans-serif" font-size="24">
+  <rect width="1200" height="760" fill="#0A0D18"/>
+  <rect x="40" y="40" width="1120" height="680" rx="28" fill="url(#paint0_linear)" stroke="#67E4FF" stroke-opacity="0.22"/>
+  <path d="M104 150H1096" stroke="#243448" stroke-width="2"/>
+  <path d="M104 220H1096" stroke="#1B2B3C" stroke-width="2"/>
+  <path d="M104 290H1096" stroke="#243448" stroke-width="2"/>
+  <path d="M104 360H1096" stroke="#1B2B3C" stroke-width="2"/>
+  <path d="M104 430H1096" stroke="#243448" stroke-width="2"/>
+  <path d="M104 500H1096" stroke="#1B2B3C" stroke-width="2"/>
+  <path d="M104 570H1096" stroke="#243448" stroke-width="2"/>
+  <circle cx="930" cy="184" r="118" fill="url(#paint1_radial)" opacity="0.74"/>
+  <circle cx="286" cy="544" r="144" fill="url(#paint2_radial)" opacity="0.52"/>
+  <circle cx="640" cy="520" r="126" fill="url(#paint3_radial)" opacity="0.36"/>
+  <rect x="130" y="118" width="308" height="132" rx="22" fill="#121A27" stroke="#425D76"/>
+  <text x="166" y="176" fill="#EEF4FF" font-family="Arial, sans-serif" font-size="34" font-weight="700">Project Image</text>
+  <text x="166" y="220" fill="#B4C2D7" font-family="Arial, sans-serif" font-size="28">Placeholder</text>
+  <rect x="628" y="330" width="320" height="198" rx="26" fill="#101823" stroke="#416079"/>
+  <path d="M684 390H878" stroke="#67E4FF" stroke-width="12" stroke-linecap="round"/>
+  <path d="M684 446H826" stroke="#8A6CFF" stroke-width="12" stroke-linecap="round"/>
+  <path d="M684 502H768" stroke="#FFB25E" stroke-width="12" stroke-linecap="round"/>
+  <path d="M196 388C252 338 338 338 392 388C446 438 446 518 392 568C338 618 252 618 196 568" stroke="#67E4FF" stroke-width="12" stroke-linecap="round"/>
+  <path d="M274 448H474" stroke="#67E4FF" stroke-width="10" stroke-linecap="round"/>
+  <path d="M274 514H432" stroke="#8A6CFF" stroke-width="10" stroke-linecap="round"/>
+  <text x="130" y="650" fill="#B4C2D7" font-family="Arial, sans-serif" font-size="24">
     Replace with a robot photo, simulation frame, experiment snapshot, or system diagram.
   </text>
   <defs>
     <linearGradient id="paint0_linear" x1="600" y1="40" x2="600" y2="720" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#111A24"/>
-      <stop offset="1" stop-color="#0A121A"/>
+      <stop stop-color="#131B29"/>
+      <stop offset="1" stop-color="#0A111A"/>
     </linearGradient>
-    <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(930 188) rotate(90) scale(116)">
-      <stop stop-color="#72C5D6"/>
-      <stop offset="1" stop-color="#72C5D6" stop-opacity="0"/>
+    <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(930 184) rotate(90) scale(118)">
+      <stop stop-color="#8A6CFF"/>
+      <stop offset="1" stop-color="#8A6CFF" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="paint2_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(286 540) rotate(90) scale(140)">
-      <stop stop-color="#3C86EF"/>
-      <stop offset="1" stop-color="#3C86EF" stop-opacity="0"/>
+    <radialGradient id="paint2_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(286 544) rotate(90) scale(144)">
+      <stop stop-color="#45DDB0"/>
+      <stop offset="1" stop-color="#45DDB0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="paint3_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(640 520) rotate(90) scale(126)">
+      <stop stop-color="#FFB25E"/>
+      <stop offset="1" stop-color="#FFB25E" stop-opacity="0"/>
     </radialGradient>
   </defs>
 </svg>
