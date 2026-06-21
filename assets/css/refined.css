@@ -776,8 +776,8 @@ a:focus-visible {
 }
 
 .section-heading h2 {
-  font-size: clamp(2.05rem, 4vw, 3.4rem);
-  line-height: 1.04;
+  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+  line-height: 1.08;
 }
 
 .project-grid,
