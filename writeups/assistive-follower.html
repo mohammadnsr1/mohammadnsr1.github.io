@@ -69,7 +69,6 @@
 
         <div class="project-links">
           <a class="project-link" href="https://github.com/RAS598-2025-S-Team07/Final_ROS2_Package" target="_blank" rel="noopener">Repository</a>
-          <a class="project-link" href="https://youtube.com/shorts/lw5F8Vkkgdc" target="_blank" rel="noopener">Demo</a>
           <a class="project-link" href="https://youtu.be/0gbAOOkDoLg" target="_blank" rel="noopener">Project Pitch</a>
         </div>
       </section>
@@ -79,10 +78,6 @@
         <p>
           The goal was hands free transport: a robot that can carry groceries, tools, or a camera while trailing its assigned user through a room full of other people and obstacles. That means two problems have to be solved together, not separately: knowing who to follow, and knowing how to move safely while following them.
         </p>
-        <figure class="writeup-figure">
-          <img src="../images/writeups/assistive-follower/project-idea.png" alt="Functional depiction of the assistive follower robot concept" loading="lazy" />
-          <figcaption>The original functional concept for the assistive follower robot.</figcaption>
-        </figure>
         <p>
           The initial scope was more ambitious: full SLAM integration, the robot leading the user rather than trailing, and a layered navigation stack combining reactive gap finding with a SLAM based fallback. Hardware limitations, mainly the depth camera and the turtlebot4_navigation package, forced a scope cut. The final system is narrower and it works: local path planning, obstacle avoidance, and user tracking through shoe detection.
         </p>
@@ -93,11 +88,6 @@
         <p>
           Rather than trying to recognize a face or a full body from a Raspberry Pi with a limited field of view camera, the team trained a lightweight model to detect and localize the user's shoes. A ResNet18 backbone, with its final layer replaced for regression, takes an image and outputs the shoe's horizontal offset, its distance from the camera, and an orientation angle.
         </p>
-
-        <figure class="writeup-figure">
-          <img src="../images/writeups/assistive-follower/sensor-integration.png" alt="Sensor integration diagram for the depth camera and LiDAR" loading="lazy" />
-          <figcaption>The depth camera handles user recognition and tracking, LiDAR handles obstacle detection and following distance.</figcaption>
-        </figure>
 
         <p>
           Training data collection was deliberately controlled: a camera fixed at 192 millimeters off the ground, a coordinate grid marked on the floor, and eight images captured per floor position across five distances, so the model learns how shoe size and screen position change with depth. Images were labeled with LabelMe for horizontal offset, distance, and orientation. The model was trained with PyTorch using mean squared error loss and the Adam optimizer, then exported to a .pth file for onboard inference.
@@ -117,60 +107,13 @@
           <li><span>LiDAR gap finding</span></li>
           <li><span>Velocity command</span></li>
         </ul>
-
-        <figure class="writeup-figure">
-          <img src="../images/writeups/assistive-follower/final-architecture.png" alt="Final ROS 2 node architecture rqt graph" loading="lazy" />
-          <figcaption>The finalized ROS 2 architecture: a predictor node, a live inference path used for debugging, and the gap finder node that turns heading and scan data into motion.</figcaption>
-        </figure>
       </section>
 
       <section class="writeup-section">
         <h2>What did not work, and the pivot</h2>
         <p>
-          The team's original design layered a reactive gap finder on top of a SLAM plus Nav2 fallback, so the robot could fall back on a mapped route whenever no gap was visible. It was demonstrated successfully in a controlled lab setting, but not reliably. Two integration problems drove the eventual descope.
+          Integrating Nav2 for global navigation did not pan out. Reconfiguring it to work alongside our custom <code>gap_finder</code> node for local obstacle avoidance turned out to be far more complex than expected, and the two never cooperated cleanly. On top of that, running the full orchestrated system, every node active at once, was not reliably achievable given the hardware we had to work with.
         </p>
-
-        <ul class="writeup-module-list">
-          <li>
-            <strong>Command conflicts</strong>
-            <span>Nav2's controller and the custom gap finder both published velocity commands to the same topic at once, producing erratic motion that parameter tuning could not fully resolve.</span>
-          </li>
-          <li>
-            <strong>Missing coordinate frames</strong>
-            <span>A custom A star planner was built to remove the Nav2 dependency entirely, but it could not consistently obtain the transforms between odometry, base link, and map frames it needed, so the robot could localize but not reliably follow its own generated path.</span>
-          </li>
-        </ul>
-
-        <div class="writeup-callout">
-          <p>
-            The fix that mattered most was not clever, it was structural: drop the fragile SLAM plus Nav2 fallback and commit to a single reliable reactive controller. Along the way, a recurring and non obvious issue was TF topics not resolving correctly under the robot's namespace, solved by explicitly remapping <code>/tf</code> and <code>/tf_static</code> to their namespaced equivalents at runtime, both for SLAM tools like <code>view_frames</code> and for the custom nodes themselves.
-          </p>
-        </div>
-      </section>
-
-      <section class="writeup-section">
-        <h2>Demo and debugging tools</h2>
-        <p>
-          A PyQt5 interface was built alongside a dummy NavigateToPose action server, mainly for debugging: it displays live LiDAR scans and camera images and tracks navigation status through the standard goal status topic, showing states like idle, navigating, or completed.
-        </p>
-        <figure class="writeup-figure">
-          <img src="../images/writeups/assistive-follower/gui.png" alt="PyQt5 debugging GUI showing sensor data and navigation status" loading="lazy" />
-          <figcaption>The debugging GUI, used to visualize sensor streams and navigation state during testing.</figcaption>
-        </figure>
-        <div class="writeup-video-grid">
-          <a class="project-link" href="https://youtu.be/6yrNDIciK04" target="_blank" rel="noopener">Navigation with Nav2</a>
-          <a class="project-link" href="https://youtube.com/shorts/lw5F8Vkkgdc" target="_blank" rel="noopener">Navigation with gap finder</a>
-          <a class="project-link" href="https://youtu.be/REP01mLDhJk" target="_blank" rel="noopener">GUI walkthrough</a>
-        </div>
-      </section>
-
-      <section class="writeup-section">
-        <h2>Team</h2>
-        <ul class="writeup-team">
-          <li><strong>Rhutvik Pachghare</strong><span>Systems and navigation development</span></li>
-          <li><strong>Mohammad Nasr</strong><span>Vision pipeline: shoe detection model, data collection, real time inference integration</span></li>
-          <li><strong>Shashank Singh Deo</strong><span>Systems integration and testing</span></li>
-        </ul>
       </section>
     </main>
   </body>
