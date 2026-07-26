@@ -1,0 +1,249 @@
+diff --git a/assets/css/refined.css b/assets/css/refined.css
+index 2933846..6a7208a 100644
+--- a/assets/css/refined.css
++++ b/assets/css/refined.css
+@@ -950,6 +950,113 @@ a:focus-visible {
+   box-shadow: 0 10px 22px rgba(var(--card-accent-rgb), 0.12);
+ }
+ 
++.project-feature {
++  grid-column: 1 / -1;
++  --card-accent-rgb: var(--accent-teal-rgb);
++  --card-accent-2-rgb: var(--accent-cyan-rgb);
++}
++
++.project-feature .project-content {
++  padding: 1.9rem 2rem 2.1rem;
++}
++
++.project-feature-header {
++  display: grid;
++  gap: 0.7rem;
++  max-width: 68ch;
++}
++
++.project-feature-header .project-tag {
++  width: fit-content;
++}
++
++.project-feature-header h3 {
++  margin: 0.2rem 0 0;
++  font-size: 1.5rem;
++  line-height: 1.24;
++}
++
++.project-feature-header p {
++  margin: 0;
++}
++
++.mobile-skills {
++  display: flex;
++  flex-wrap: wrap;
++  gap: 0.6rem;
++  padding: 0;
++  margin: 1.4rem 0 0;
++  list-style: none;
++}
++
++.mobile-subgrid {
++  display: grid;
++  grid-template-columns: repeat(3, minmax(0, 1fr));
++  gap: 1.1rem;
++  margin-top: 1.8rem;
++}
++
++.mobile-subcard {
++  position: relative;
++  display: flex;
++  flex-direction: column;
++  gap: 0.7rem;
++  padding: 1.2rem 1.25rem 1.35rem;
++  border: 1px solid rgba(var(--card-accent-rgb), 0.16);
++  border-radius: var(--radius-sm);
++  background: rgba(255, 255, 255, 0.02);
++}
++
++.mobile-subcard .project-tag {
++  width: fit-content;
++}
++
++.mobile-subcard h4 {
++  margin: 0.2rem 0 0;
++  font-size: 1.05rem;
++  line-height: 1.3;
++}
++
++.mobile-subcard p {
++  margin: 0;
++  font-size: 0.94rem;
++  color: var(--muted-strong);
++}
++
++.mobile-subcard dl {
++  margin: 0.3rem 0 0;
++  display: grid;
++  gap: 0.5rem;
++}
++
++.mobile-subcard dt {
++  color: rgb(var(--card-accent-rgb));
++  text-transform: uppercase;
++  letter-spacing: 0.1em;
++  font-size: 0.68rem;
++}
++
++.mobile-subcard dd {
++  margin: 0;
++  font-size: 0.88rem;
++}
++
++.mobile-subcard .project-links {
++  margin-top: auto;
++  padding-top: 0.95rem;
++}
++
++.mobile-subcard-pending {
++  border-style: dashed;
++  opacity: 0.7;
++}
++
++@media (max-width: 900px) {
++  .mobile-subgrid {
++    grid-template-columns: 1fr;
++  }
++}
++
+ .theme-grid {
+   grid-template-columns: repeat(2, minmax(0, 1fr));
+ }
+diff --git a/index.html b/index.html
+index efaa4dc..170ed87 100644
+--- a/index.html
++++ b/index.html
+@@ -169,42 +169,92 @@
+             </div>
+           </article>
+ 
+-          <article class="project-card project-autonomy reveal" style="--reveal-delay: 80ms">
+-            <figure class="project-media">
+-              <img
+-                src="images/project-placeholder.svg"
+-                alt="Placeholder project thumbnail for an autonomy and systems integration project"
+-                loading="lazy"
+-              />
+-              <figcaption>Replace with a field test image, middleware diagram, or autonomy stack view.</figcaption>
+-            </figure>
++          <article class="project-card project-feature project-mobile reveal" style="--reveal-delay: 80ms">
+             <div class="project-content">
+-              <div class="project-topline">
+-                <span class="project-index">02</span>
+-                <span class="project-tag">Autonomy</span>
++              <div class="project-feature-header">
++                <span class="project-tag">Mobile Robotics</span>
++                <h3>A semester of ROS 2, from pub/sub basics to a closed loop perception system</h3>
++                <p class="project-summary">
++                  RAS 598, Arizona State University. Three robot platforms, one shared arc: starting from scripted nodes and reactive controllers, then building systems that make their own calls about when to trust a sensor reading, when to move for a better view, and when to hold position. The most useful lesson repeated itself on every platform, real hardware rarely behaves like the diagram, and the part worth reporting honestly is exactly where it does not.
++                </p>
+               </div>
+-              <h3>Project Title Placeholder</h3>
+-              <p class="project-summary">
+-                Use this space for a serious autonomy or perception project where system integration mattered as much as the algorithm.
+-              </p>
+-              <dl class="project-details">
+-                <div>
+-                  <dt>Role</dt>
+-                  <dd>Research engineer</dd>
+-                </div>
+-                <div>
+-                  <dt>Tools</dt>
+-                  <dd>Sensor fusion, planning, middleware, test infrastructure</dd>
+-                </div>
+-                <div>
+-                  <dt>Outcome</dt>
+-                  <dd>Add reliability gains, deployment results, or evaluation findings</dd>
+-                </div>
+-              </dl>
+-              <div class="project-links">
+-                <a class="project-link" href="#">Repository</a>
+-                <a class="project-link" href="#">Demo</a>
+-                <a class="project-link" href="#">Writeup</a>
++
++              <div class="chip-group mobile-skills">
++                <span>ROS 2 and rclpy</span>
++                <span>Nav2</span>
++                <span>TF2 frames</span>
++                <span>LiDAR reactive navigation</span>
++                <span>RGB-D point cloud processing</span>
++                <span>Visual odometry (ORB SLAM3)</span>
++                <span>EKF sensor fusion</span>
++                <span>Computer vision (ResNet18)</span>
++                <span>Bayes filters</span>
++                <span>Safety monitoring</span>
++              </div>
++
++              <div class="mobile-subgrid">
++                <article class="mobile-subcard">
++                  <span class="project-tag">Active Perception</span>
++                  <h4>Active Perception for Object Localization</h4>
++                  <p>
++                    A TurtleBot4 system that estimates a target object pose from RGB-D data, scores its own confidence, and repositions itself for a better viewpoint until that confidence clears a threshold, with Nav2 handling the actual navigation.
++                  </p>
++                  <dl>
++                    <div>
++                      <dt>Role</dt>
++                      <dd>Perception and planning lead, team project</dd>
++                    </div>
++                    <div>
++                      <dt>Stack</dt>
++                      <dd>ROS 2, Nav2, RGB-D point cloud processing, ORB SLAM3 stereo visual odometry, EKF fusion</dd>
++                    </div>
++                    <div>
++                      <dt>Outcome</dt>
++                      <dd>Measured visual odometry drift against wheel odometry, about 0.05 m on straight paths versus 0.18 m on curved paths, and traced it to a left and right camera timing mismatch</dd>
++                    </div>
++                  </dl>
++                  <div class="project-links">
++                    <a class="project-link" href="https://github.com/mohammadnsr1/MobileRobots_Active_Perception/" target="_blank" rel="noopener">Repository</a>
++                    <a class="project-link" href="https://seasonedleo.github.io/RAS_Mobile_Robotics_Vision/" target="_blank" rel="noopener">Reports</a>
++                    <a class="project-link" href="https://youtu.be/R4nFs0lb5PI" target="_blank" rel="noopener">Full Demo</a>
++                    <a class="project-link" href="https://youtu.be/uHptjgO3Q7Y" target="_blank" rel="noopener">Perception Demo</a>
++                  </div>
++                </article>
++
++                <article class="mobile-subcard">
++                  <span class="project-tag">Vision and Reactive Navigation</span>
++                  <h4>Assistive Follower Robot</h4>
++                  <p>
++                    A TurtleBot4 that follows a specific person by detecting their shoes with a custom trained ResNet18 model on OAK D camera images, then fuses that heading with LiDAR based gap finding to avoid obstacles in real time.
++                  </p>
++                  <dl>
++                    <div>
++                      <dt>Role</dt>
++                      <dd>Vision and navigation, team of three</dd>
++                    </div>
++                    <div>
++                      <dt>Stack</dt>
++                      <dd>OAK D depth camera, ResNet18 regression model, PyTorch, LiDAR gap finding, TF2</dd>
++                    </div>
++                    <div>
++                      <dt>Outcome</dt>
++                      <dd>Shipped a working reactive follower after descoping a fragile SLAM plus Nav2 fallback that fought the custom controller for velocity commands, a real tradeoff between ambition and reliability</dd>
++                    </div>
++                  </dl>
++                  <div class="project-links">
++                    <a class="project-link" href="https://github.com/RAS598-2025-S-Team07/Final_ROS2_Package" target="_blank" rel="noopener">Repository</a>
++                    <a class="project-link" href="https://ras598-2025-s-team07.github.io" target="_blank" rel="noopener">Reports</a>
++                    <a class="project-link" href="https://youtube.com/shorts/lw5F8Vkkgdc" target="_blank" rel="noopener">Demo</a>
++                  </div>
++                </article>
++
++                <article class="mobile-subcard mobile-subcard-pending">
++                  <span class="project-tag">Coming Soon</span>
++                  <h4>F1TENTH Autonomous Racing</h4>
++                  <p>
++                    Repository and write up in progress. Check back soon for the full case study.
++                  </p>
++                </article>
+               </div>
+             </div>
+           </article>
