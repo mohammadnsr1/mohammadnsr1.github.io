@@ -156,11 +156,6 @@
           </li>
         </ul>
 
-        <figure class="writeup-figure">
-          <img src="../images/writeups/active-perception/vo-comparison.svg" alt="Visual odometry versus wheel odometry trajectory comparison" loading="lazy" />
-          <figcaption>Visual odometry (cyan) against wheel odometry (teal) on the same run. The two agree closely on the straight segment and drift apart on the loop.</figcaption>
-        </figure>
-
         <div class="writeup-callout">
           <p>
             The root cause traced back to hardware, not algorithms: the left and right stereo images were arriving roughly 33 milliseconds apart. That is enough offset to hurt stereo depth matching during motion, which is exactly when accurate depth matters most. Two pairing strategies, frame to frame and timestamp based, both degraded once that offset grew.
