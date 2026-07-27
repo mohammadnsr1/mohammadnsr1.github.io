@@ -78,6 +78,10 @@
         <p>
           The goal was hands free transport: a robot that can carry groceries, tools, or a camera while trailing its assigned user through a room full of other people and obstacles. That means two problems have to be solved together, not separately: knowing who to follow, and knowing how to move safely while following them.
         </p>
+        <figure class="writeup-figure">
+          <img src="../images/writeups/assistive-follower/mission-concept.svg" alt="A small wheeled robot follows a walking person through a room, its path curving around a chair" loading="lazy" />
+          <figcaption>The original functional concept for the assistive follower robot.</figcaption>
+        </figure>
         <p>
           The initial scope was more ambitious: full SLAM integration, the robot leading the user rather than trailing, and a layered navigation stack combining reactive gap finding with a SLAM based fallback. Hardware limitations, mainly the depth camera and the turtlebot4_navigation package, forced a scope cut. The final system is narrower and it works: local path planning, obstacle avoidance, and user tracking through shoe detection.
         </p>
@@ -88,6 +92,11 @@
         <p>
           Rather than trying to recognize a face or a full body from a Raspberry Pi with a limited field of view camera, the team trained a lightweight model to detect and localize the user's shoes. A ResNet18 backbone, with its final layer replaced for regression, takes an image and outputs the shoe's horizontal offset, its distance from the camera, and an orientation angle.
         </p>
+
+        <figure class="writeup-figure">
+          <img src="../images/writeups/assistive-follower/sensor-integration.svg" alt="Diagram showing a camera field of view cone aimed at a person's shoes and a wider LiDAR scan arc at the same origin" loading="lazy" />
+          <figcaption>The depth camera handles user recognition and tracking, LiDAR handles obstacle detection and following distance.</figcaption>
+        </figure>
 
         <p>
           Training data collection was deliberately controlled: a camera fixed at 192 millimeters off the ground, a coordinate grid marked on the floor, and eight images captured per floor position across five distances, so the model learns how shoe size and screen position change with depth. Images were labeled with LabelMe for horizontal offset, distance, and orientation. The model was trained with PyTorch using mean squared error loss and the Adam optimizer, then exported to a .pth file for onboard inference.
@@ -107,6 +116,11 @@
           <li><span>LiDAR gap finding</span></li>
           <li><span>Velocity command</span></li>
         </ul>
+
+        <figure class="writeup-figure">
+          <img src="../images/writeups/assistive-follower/final-architecture.svg" alt="Node graph: OAK-D camera to shoe detection model to heading prediction to LiDAR gap finder to velocity command" loading="lazy" />
+          <figcaption>The finalized ROS 2 architecture: a predictor node feeding heading, a gap finder node turning heading and scan data into motion.</figcaption>
+        </figure>
       </section>
 
       <section class="writeup-section">

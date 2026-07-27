@@ -1,0 +1,58 @@
+<svg viewBox="0 0 980 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Node graph: OAK-D camera to shoe detection model to heading prediction to LiDAR gap finder to velocity command">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#68e3ff"/>
+    </marker>
+    <linearGradient id="nodeFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141a30" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0f1221" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- connectors -->
+  <g stroke="#68e3ff" stroke-width="2" opacity="0.75" marker-end="url(#arrow)">
+    <line x1="182" y1="130" x2="216" y2="130"/>
+    <line x1="378" y1="130" x2="412" y2="130"/>
+    <line x1="592" y1="130" x2="626" y2="130"/>
+    <line x1="800" y1="130" x2="834" y2="130"/>
+  </g>
+
+  <!-- node: OAK-D Camera -->
+  <g transform="translate(20,90)">
+    <rect width="162" height="80" rx="16" fill="url(#nodeFill)" stroke="#4f7cff" stroke-width="1.5"/>
+    <circle cx="26" cy="26" r="9" fill="none" stroke="#68e3ff" stroke-width="2"/>
+    <circle cx="26" cy="26" r="3" fill="#68e3ff"/>
+    <text x="81" y="50" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="15" font-weight="600">OAK-D</text>
+    <text x="81" y="68" text-anchor="middle" fill="#8f9ab8" font-family="Manrope, sans-serif" font-size="12">Camera</text>
+  </g>
+
+  <!-- node: Shoe Detection Model -->
+  <g transform="translate(216,90)">
+    <rect width="162" height="80" rx="16" fill="url(#nodeFill)" stroke="#68e3ff" stroke-width="1.5"/>
+    <text x="81" y="42" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="14" font-weight="600">Shoe Detection</text>
+    <text x="81" y="60" text-anchor="middle" fill="#8f9ab8" font-family="Manrope, sans-serif" font-size="12">ResNet18 model</text>
+  </g>
+
+  <!-- node: Heading Prediction -->
+  <g transform="translate(412,90)">
+    <rect width="180" height="80" rx="16" fill="url(#nodeFill)" stroke="#68e3ff" stroke-width="1.5"/>
+    <text x="90" y="42" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="14" font-weight="600">Heading</text>
+    <text x="90" y="60" text-anchor="middle" fill="#8f9ab8" font-family="Manrope, sans-serif" font-size="12">Prediction node</text>
+  </g>
+
+  <!-- node: LiDAR Gap Finder -->
+  <g transform="translate(626,90)">
+    <rect width="174" height="80" rx="16" fill="url(#nodeFill)" stroke="#45ddb0" stroke-width="1.5"/>
+    <circle cx="26" cy="26" r="9" fill="none" stroke="#45ddb0" stroke-width="2"/>
+    <circle cx="26" cy="26" r="3" fill="#45ddb0"/>
+    <text x="90" y="50" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="14" font-weight="600">Gap Finder</text>
+    <text x="90" y="68" text-anchor="middle" fill="#8f9ab8" font-family="Manrope, sans-serif" font-size="12">LiDAR based</text>
+  </g>
+
+  <!-- node: Velocity Command -->
+  <g transform="translate(834,90)">
+    <rect width="146" height="80" rx="16" fill="url(#nodeFill)" stroke="#8a6cff" stroke-width="1.5"/>
+    <text x="73" y="42" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="14" font-weight="600">Velocity</text>
+    <text x="73" y="60" text-anchor="middle" fill="#8f9ab8" font-family="Manrope, sans-serif" font-size="12">Command</text>
+  </g>
+</svg>
