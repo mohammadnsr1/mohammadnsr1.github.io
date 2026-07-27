@@ -194,29 +194,33 @@
 
               <div class="mobile-subgrid">
                 <article class="mobile-subcard">
-                  <span class="project-tag">Active Perception</span>
-                  <h4>Active Perception for Object Localization</h4>
+                  <span class="project-tag">Fundamentals</span>
+                  <h4>Mobile Robots Fundamentals</h4>
                   <p>
-                    A TurtleBot4 system that estimates a target object pose from RGB-D data, scores its own confidence, and repositions itself for a better viewpoint until that confidence clears a threshold, with Nav2 handling the actual navigation.
+                    A semester of ROS 2 assignments that built the base for everything else: publisher and subscriber patterns, TF2 frame broadcasting, reactive LiDAR obstacle avoidance, point cloud based object detection, path planning and control, and Bayes filter tuning for sensor and motion models.
                   </p>
                   <dl>
                     <div>
                       <dt>Role</dt>
-                      <dd>Perception and planning lead, team project</dd>
+                      <dd>Perception, planning, and system integration</dd>
                     </div>
                     <div>
-                      <dt>Stack</dt>
-                      <dd>ROS 2, Nav2, RGB-D point cloud processing, ORB SLAM3 stereo visual odometry, EKF fusion</dd>
+                      <dt>Coursework</dt>
+                      <dd>ROS 2 pub and sub, TF2, reactive navigation, point cloud processing, path planning, Bayes filters</dd>
+                    </div>
+                    <div>
+                      <dt>Applied project</dt>
+                      <dd>Active Perception for Object Localization, a TurtleBot4 system that repositions itself for a better view before trusting a pose estimate</dd>
                     </div>
                     <div>
                       <dt>Outcome</dt>
-                      <dd>Measured visual odometry drift against wheel odometry, about 0.05 m on straight paths versus 0.18 m on curved paths, and traced it to a left and right camera timing mismatch</dd>
+                      <dd>Went from writing isolated nodes for each assignment to owning perception, planning, and integration on a full closed loop robot system, where a wrong Bayes filter tuning or a missed frame transform shows up immediately as bad robot behavior</dd>
                     </div>
                   </dl>
                   <div class="project-links">
-                    <a class="project-link" href="https://github.com/mohammadnsr1/MobileRobots_Active_Perception/" target="_blank" rel="noopener">Repository</a>
+                    <a class="project-link" href="https://github.com/mohammadnsr1/MobileRobots" target="_blank" rel="noopener">Coursework Repository</a>
+                    <a class="project-link" href="https://github.com/mohammadnsr1/MobileRobots_Active_Perception/" target="_blank" rel="noopener">Project Repository</a>
                     <a class="project-link" href="writeups/active-perception.html">Writeup</a>
-                    <a class="project-link" href="https://youtu.be/R4nFs0lb5PI" target="_blank" rel="noopener">Full Demo</a>
                     <a class="project-link" href="https://youtu.be/uHptjgO3Q7Y" target="_blank" rel="noopener">Perception Demo</a>
                   </div>
                 </article>
