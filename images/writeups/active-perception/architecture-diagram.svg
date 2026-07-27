@@ -1,0 +1,120 @@
+<svg viewBox="0 0 1850 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="System architecture diagram grouped into five stages: Perception with RGB-D camera, IMU, and LiDAR; Object Perception with point cloud and object pose; Robot Localization with visual odometry and EKF; Planning with confidence evaluation, next best view, Nav2 global planner, and reactive controller; and Actuation with differential drive controller and motor hardware interface">
+  <defs>
+    <marker id="mBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7cff"/>
+    </marker>
+    <marker id="mCyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#68e3ff"/>
+    </marker>
+    <marker id="mTeal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#45ddb0"/>
+    </marker>
+    <marker id="mViolet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8a6cff"/>
+    </marker>
+    <marker id="mAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ffb25e"/>
+    </marker>
+    <linearGradient id="nodeFillA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141a30" stop-opacity="0.94"/>
+      <stop offset="100%" stop-color="#0f1221" stop-opacity="0.94"/>
+    </linearGradient>
+  </defs>
+
+  <!-- group backgrounds -->
+  <rect x="20" y="50" width="200" height="410" rx="18" fill="#4f7cff" fill-opacity="0.06" stroke="#4f7cff" stroke-opacity="0.3" stroke-width="1.4"/>
+  <text x="40" y="76" fill="#4f7cff" font-family="Manrope, sans-serif" font-size="13" letter-spacing="0.08em">PERCEPTION</text>
+
+  <rect x="250" y="50" width="360" height="140" rx="18" fill="#68e3ff" fill-opacity="0.06" stroke="#68e3ff" stroke-opacity="0.3" stroke-width="1.4"/>
+  <text x="270" y="76" fill="#68e3ff" font-family="Manrope, sans-serif" font-size="13" letter-spacing="0.08em">OBJECT PERCEPTION</text>
+
+  <rect x="250" y="220" width="360" height="140" rx="18" fill="#45ddb0" fill-opacity="0.06" stroke="#45ddb0" stroke-opacity="0.3" stroke-width="1.4"/>
+  <text x="270" y="246" fill="#45ddb0" font-family="Manrope, sans-serif" font-size="13" letter-spacing="0.08em">ROBOT LOCALIZATION</text>
+
+  <rect x="630" y="170" width="790" height="150" rx="18" fill="#8a6cff" fill-opacity="0.06" stroke="#8a6cff" stroke-opacity="0.3" stroke-width="1.4"/>
+  <text x="650" y="196" fill="#8a6cff" font-family="Manrope, sans-serif" font-size="13" letter-spacing="0.08em">PLANNING</text>
+
+  <rect x="1430" y="170" width="390" height="150" rx="18" fill="#ffb25e" fill-opacity="0.06" stroke="#ffb25e" stroke-opacity="0.3" stroke-width="1.4"/>
+  <text x="1450" y="196" fill="#ffb25e" font-family="Manrope, sans-serif" font-size="13" letter-spacing="0.08em">ACTUATION</text>
+
+  <!-- connectors -->
+  <line x1="200" y1="120" x2="268" y2="120" stroke="#4f7cff" stroke-width="2" marker-end="url(#mBlue)"/>
+  <path d="M 200 140 L 270 290" fill="none" stroke="#4f7cff" stroke-width="2" marker-end="url(#mBlue)"/>
+  <path d="M 200 260 L 300 245 L 428 245 L 428 278 L 448 278" fill="none" stroke="#4f7cff" stroke-width="2" marker-end="url(#mBlue)"/>
+  <path d="M 200 410 L 200 486 L 1315 486 L 1315 284" fill="none" stroke="#4f7cff" stroke-width="2" marker-end="url(#mBlue)"/>
+
+  <line x1="410" y1="120" x2="448" y2="120" stroke="#68e3ff" stroke-width="2" marker-end="url(#mCyan)"/>
+  <path d="M 590 120 L 618 120 L 618 246 L 648 246" fill="none" stroke="#68e3ff" stroke-width="2" marker-end="url(#mCyan)"/>
+
+  <line x1="410" y1="290" x2="448" y2="290" stroke="#45ddb0" stroke-width="2" marker-end="url(#mTeal)"/>
+  <path d="M 590 290 L 622 290 L 622 260 L 648 260" fill="none" stroke="#45ddb0" stroke-width="2" marker-end="url(#mTeal)"/>
+
+  <line x1="810" y1="250" x2="838" y2="250" stroke="#8a6cff" stroke-width="2" marker-end="url(#mViolet)"/>
+  <line x1="1000" y1="250" x2="1028" y2="250" stroke="#8a6cff" stroke-width="2" marker-end="url(#mViolet)"/>
+  <line x1="1200" y1="250" x2="1228" y2="250" stroke="#8a6cff" stroke-width="2" marker-end="url(#mViolet)"/>
+
+  <line x1="1400" y1="250" x2="1448" y2="250" stroke="#ffb25e" stroke-width="2" marker-end="url(#mAmber)"/>
+  <line x1="1610" y1="250" x2="1638" y2="250" stroke="#ffb25e" stroke-width="2" marker-end="url(#mAmber)"/>
+
+  <!-- Perception nodes -->
+  <g transform="translate(40,90)">
+    <rect width="160" height="60" rx="14" fill="url(#nodeFillA)" stroke="#4f7cff" stroke-width="1.5"/>
+    <text x="80" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="14" font-weight="600">RGB-D Camera</text>
+  </g>
+  <g transform="translate(40,230)">
+    <rect width="160" height="60" rx="14" fill="url(#nodeFillA)" stroke="#4f7cff" stroke-width="1.5"/>
+    <text x="80" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="14" font-weight="600">IMU</text>
+  </g>
+  <g transform="translate(40,380)">
+    <rect width="160" height="60" rx="14" fill="url(#nodeFillA)" stroke="#4f7cff" stroke-width="1.5"/>
+    <text x="80" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="14" font-weight="600">LiDAR</text>
+  </g>
+
+  <!-- Object Perception nodes -->
+  <g transform="translate(270,90)">
+    <rect width="140" height="60" rx="14" fill="url(#nodeFillA)" stroke="#68e3ff" stroke-width="1.5"/>
+    <text x="70" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="14" font-weight="600">Point Cloud</text>
+  </g>
+  <g transform="translate(450,90)">
+    <rect width="140" height="60" rx="14" fill="url(#nodeFillA)" stroke="#68e3ff" stroke-width="1.5"/>
+    <text x="70" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="14" font-weight="600">Object Pose</text>
+  </g>
+
+  <!-- Robot Localization nodes -->
+  <g transform="translate(270,260)">
+    <rect width="140" height="60" rx="14" fill="url(#nodeFillA)" stroke="#45ddb0" stroke-width="1.5"/>
+    <text x="70" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="12" font-weight="600">Visual Odometry</text>
+  </g>
+  <g transform="translate(450,260)">
+    <rect width="140" height="60" rx="14" fill="url(#nodeFillA)" stroke="#45ddb0" stroke-width="1.5"/>
+    <text x="70" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="14" font-weight="600">EKF</text>
+  </g>
+
+  <!-- Planning nodes -->
+  <g transform="translate(650,220)">
+    <rect width="160" height="60" rx="14" fill="url(#nodeFillA)" stroke="#8a6cff" stroke-width="1.5"/>
+    <text x="80" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="12" font-weight="600">Confidence Evaluation</text>
+  </g>
+  <g transform="translate(840,220)">
+    <rect width="160" height="60" rx="14" fill="url(#nodeFillA)" stroke="#8a6cff" stroke-width="1.5"/>
+    <text x="80" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="14" font-weight="600">Next Best View</text>
+  </g>
+  <g transform="translate(1030,220)">
+    <rect width="170" height="60" rx="14" fill="url(#nodeFillA)" stroke="#8a6cff" stroke-width="1.5"/>
+    <text x="85" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="12" font-weight="600">Nav2 Global Planner</text>
+  </g>
+  <g transform="translate(1230,220)">
+    <rect width="170" height="60" rx="14" fill="url(#nodeFillA)" stroke="#8a6cff" stroke-width="1.5"/>
+    <text x="85" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="12" font-weight="600">Reactive Controller</text>
+  </g>
+
+  <!-- Actuation nodes -->
+  <g transform="translate(1450,220)">
+    <rect width="160" height="60" rx="14" fill="url(#nodeFillA)" stroke="#ffb25e" stroke-width="1.5"/>
+    <text x="80" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="12" font-weight="600">Diff Drive Controller</text>
+  </g>
+  <g transform="translate(1640,220)">
+    <rect width="160" height="60" rx="14" fill="url(#nodeFillA)" stroke="#ffb25e" stroke-width="1.5"/>
+    <text x="80" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="10.5" font-weight="600">Motor Hardware Interface</text>
+  </g>
+</svg>

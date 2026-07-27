@@ -87,28 +87,33 @@
       <section class="writeup-section">
         <h2>Mission</h2>
         <p>
-          The project addresses a simple sounding problem that gets hard fast: locate a target object with a mobile robot in an indoor space, without a pre built map, using only what the robot can see. The robot looks at the scene with its onboard RGB-D camera, estimates the object pose in its own local frame, then asks itself a question a single snapshot never has to answer: is this estimate actually good enough to act on?
+          The mission is to improve object pose estimation by pairing a next best view selection strategy with a confidence scoring algorithm, rather than trusting whatever the first observation happens to return. Given a capable navigation layer, that loop works whether or not a map is available.
         </p>
         <p>
-          When the answer is no, the robot picks a new nearby viewpoint expected to reduce that uncertainty, drives there with Nav2, and estimates again. The loop repeats until the pose estimate is stable and confident. That loop, not any single algorithm inside it, is the actual contribution: localization through closed loop active perception rather than one static observation.
+          With a map, Nav2 handles global and local planning to reach each requested viewpoint directly. Without one, the robot falls back to visual odometry for localization and a local A star planner working in the odometry frame, so it can still move toward a chosen viewpoint with no prebuilt map to lean on. Either way, the outer loop is the same: process the raw point cloud, detect the object through geometric feature finding computed directly on that raw data, decide how much to trust the resulting pose estimate, and if that trust is not high enough, move to a better view and try again.
         </p>
       </section>
 
       <section class="writeup-section">
         <h2>System architecture</h2>
-        <p>The system is organized as a perception to estimation to planning to actuation pipeline, with each stage owned by a different subsystem.</p>
+        <p>
+          Image data splits by what each stream is good for. RGB feeds visual odometry, which only needs texture and motion, not depth. RGB-D feeds object detection, which needs the extra depth channel to build the point cloud everything downstream depends on.
+        </p>
+        <p>
+          Object detection publishes its processed point cloud to two services at once: a pose estimator service, which returns a pose estimate and a confidence score, and a next best view planner service. An orchestrator node ties the two together. It asks the pose estimator for an estimate and a confidence value, and only if that confidence is low does it go on to ask the nbv planner service for the next viewpoint. Whichever viewpoint gets chosen becomes a Nav2 goal, and once the robot arrives, the whole loop runs again.
+        </p>
         <ul class="writeup-pipeline">
-          <li><span>RGB-D and LiDAR</span></li>
-          <li><span>Object pose and visual odometry</span></li>
-          <li><span>Confidence scoring</span></li>
-          <li><span>Next best view planning</span></li>
-          <li><span>Nav2 navigation</span></li>
-          <li><span>Differential drive actuation</span></li>
+          <li><span>RGB to VO, RGB-D to detection</span></li>
+          <li><span>Point cloud processing</span></li>
+          <li><span>Pose estimator service</span></li>
+          <li><span>Confidence check</span></li>
+          <li><span>NBV planner service</span></li>
+          <li><span>Nav2 goal</span></li>
         </ul>
 
         <figure class="writeup-figure">
-          <img src="../images/writeups/active-perception/ros-graph.png" alt="Annotated ROS 2 computational graph for the active perception pipeline" loading="lazy" />
-          <figcaption>Annotated ROS 2 computational graph. Solid arrows are topic connections, dashed red arrows are service calls, dashed blue arrows are the planned Nav2 action integration.</figcaption>
+          <img src="../images/writeups/active-perception/architecture-diagram.svg" alt="System architecture diagram grouped into Perception, Object Perception, Robot Localization, Planning, and Actuation stages" loading="lazy" />
+          <figcaption>The RGB-D camera feeds both point cloud detection and visual odometry. IMU and visual odometry fuse in an EKF. Object pose and the EKF estimate both feed confidence evaluation, which flows into next best view, Nav2's global planner, and a reactive controller that also takes LiDAR directly, before driving the differential drive controller and motor hardware.</figcaption>
         </figure>
 
         <h3>Perception</h3>
@@ -121,9 +126,9 @@
           A confidence evaluator watches a short history of pose estimates and scores four things: positional variance, yaw variance, mean point count, and mean anisotropy ratio. If that score clears the threshold, the robot stops and trusts the estimate. If not, a next best view planner samples candidate viewpoints around the target, scores them by radius error, travel distance, and heading change, and hands the best one to Nav2 as a new goal.
         </p>
 
-        <h3>Localization</h3>
+        <h3>Localization with or without a map</h3>
         <p>
-          Robot motion is estimated with ORB SLAM3 stereo visual odometry on the onboard OAK D camera, fused with the IMU in an EKF. This is the part of the system that ended up teaching the most, covered in the results section below.
+          When a map is available, Nav2 owns both global and local planning to each requested viewpoint. When it is not, robot motion is estimated with ORB SLAM3 stereo visual odometry on the onboard OAK D camera, fused with the IMU in an EKF, and a local A star planner works directly in the odometry frame to reach the next best view. Either path ends the same way, at a new viewpoint, ready for perception to try again. The visual odometry side of this is also the part of the system that ended up teaching the most, covered in the results section below.
         </p>
       </section>
 
@@ -152,8 +157,8 @@
         </ul>
 
         <figure class="writeup-figure">
-          <img src="../images/writeups/active-perception/vo-vs-odom.png" alt="Visual odometry versus wheel odometry trajectory comparison from recorded data" loading="lazy" />
-          <figcaption>Visual odometry (blue) against wheel odometry (green) on the same run. The two agree closely on the straight segment and drift apart on the loop.</figcaption>
+          <img src="../images/writeups/active-perception/vo-comparison.svg" alt="Visual odometry versus wheel odometry trajectory comparison" loading="lazy" />
+          <figcaption>Visual odometry (cyan) against wheel odometry (teal) on the same run. The two agree closely on the straight segment and drift apart on the loop.</figcaption>
         </figure>
 
         <div class="writeup-callout">
@@ -162,30 +167,9 @@
           </p>
         </div>
 
-        <figure class="writeup-figure">
-          <img src="../images/writeups/active-perception/vo-unscaled.png" alt="Unscaled visual odometry trajectory from ORB SLAM3" loading="lazy" />
-          <figcaption>Unscaled visual odometry path, raw ORB SLAM3 output, before odometry based scale correction.</figcaption>
-        </figure>
-
         <p>
           Other failure modes worth naming rather than hiding: point clouds did not publish automatically and needed explicit handling in the TurtleBot4 bringup stack, fast turns introduced motion blur that thinned out stable feature matches, and low texture scenes weakened tracking further. The mitigation path was practical rather than clever: pair frames by timestamp, tighten the sync tolerance, and record bags directly on the robot to avoid losing data over the network.
         </p>
-      </section>
-
-      <section class="writeup-section">
-        <h2>Safety design</h2>
-        <p>
-          Because the robot moves autonomously between viewpoints, the system was built to fail toward a stop rather than toward motion. A deadman timeout forces a zero velocity command if no fresh control command arrives in time. Sensor and localization dropout, on LiDAR scans or odometry, triggers an immediate safe stop that is not lifted until the sensor stream is healthy again for a sustained window. Every safety trigger is logged with its source, so debugging does not depend on memory of what happened during a run.
-        </p>
-      </section>
-
-      <section class="writeup-section">
-        <h2>Team</h2>
-        <ul class="writeup-team">
-          <li><strong>Mohammad Nasr</strong><span>Perception and planning: cylinder and box detection, pose estimation, confidence scoring, next best view planning, orchestration</span></li>
-          <li><strong>Vikas Narang</strong><span>Localization: ORB SLAM3 visual odometry integration and EKF fusion</span></li>
-          <li><strong>Khaled</strong><span>Navigation: Nav2 integration design, action and service interfaces, safety workflow documentation</span></li>
-        </ul>
       </section>
     </main>
   </body>
