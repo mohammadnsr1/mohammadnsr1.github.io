@@ -92,6 +92,11 @@
         <p>
           With a map, Nav2 handles global and local planning to reach each requested viewpoint directly. Without one, the robot falls back to visual odometry for localization and a local A star planner working in the odometry frame, so it can still move toward a chosen viewpoint with no prebuilt map to lean on. Either way, the outer loop is the same: process the raw point cloud, detect the object through geometric feature finding computed directly on that raw data, decide how much to trust the resulting pose estimate, and if that trust is not high enough, move to a better view and try again.
         </p>
+
+        <figure class="writeup-figure">
+          <img src="../images/writeups/active-perception/graphical-abstract.png" alt="Graphical abstract of the active perception loop: perceive, estimate pose and confidence, and reposition for a better view when confidence is low" loading="lazy" />
+          <figcaption>Graphical overview of the active perception loop, from raw sensor data to pose confidence to next best view.</figcaption>
+        </figure>
       </section>
 
       <section class="writeup-section">
