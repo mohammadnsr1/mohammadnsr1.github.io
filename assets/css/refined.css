@@ -986,14 +986,14 @@ a:focus-visible {
 
 .project-feature-header {
   max-width: 60ch;
-  padding-right: 170px;
+  padding-right: 380px;
 }
 
 .mobile-hero-figure {
   position: absolute;
   top: 1.9rem;
   right: 2rem;
-  width: 140px;
+  width: 360px;
   margin: 0;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
@@ -1016,7 +1016,7 @@ a:focus-visible {
   .mobile-hero-figure {
     position: static;
     width: 100%;
-    max-width: 220px;
+    max-width: 420px;
     margin: 1.2rem 0 0;
   }
 }
