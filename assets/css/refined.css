@@ -980,21 +980,26 @@ a:focus-visible {
   margin: 0;
 }
 
-.project-feature-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1.6rem;
+.project-feature .project-content {
+  position: relative;
+}
+
+.project-feature-header {
+  max-width: 60ch;
+  padding-right: 170px;
 }
 
 .mobile-hero-figure {
-  flex-shrink: 0;
-  width: 220px;
+  position: absolute;
+  top: 1.9rem;
+  right: 2rem;
+  width: 140px;
   margin: 0;
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   overflow: hidden;
   background: var(--surface);
+  box-shadow: 0 8px 20px rgba(4, 6, 16, 0.35);
 }
 
 .mobile-hero-figure img {
@@ -1004,23 +1009,16 @@ a:focus-visible {
 }
 
 @media (max-width: 760px) {
-  .project-feature-top {
-    flex-direction: column;
+  .project-feature-header {
+    padding-right: 0;
   }
 
   .mobile-hero-figure {
+    position: static;
     width: 100%;
-    max-width: 320px;
+    max-width: 220px;
+    margin: 1.2rem 0 0;
   }
-}
-
-.mobile-skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  padding: 0;
-  margin: 1.4rem 0 0;
-  list-style: none;
 }
 
 .mobile-subgrid {
