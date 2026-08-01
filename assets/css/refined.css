@@ -980,6 +980,40 @@ a:focus-visible {
   margin: 0;
 }
 
+.project-feature-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.6rem;
+}
+
+.mobile-hero-figure {
+  flex-shrink: 0;
+  width: 220px;
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.mobile-hero-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 760px) {
+  .project-feature-top {
+    flex-direction: column;
+  }
+
+  .mobile-hero-figure {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
 .mobile-skills {
   display: flex;
   flex-wrap: wrap;

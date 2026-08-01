@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Case study: a 1:10 scale F1TENTH autonomous racecar running emergency braking, PID wall following, and follow the gap, developed in simulation and ported to real hardware."
+    />
+    <title>F1TENTH Autonomous Racing | Mohammad Nasr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/refined.css" />
+    <link rel="stylesheet" href="../assets/css/writeup.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="brand-mark" href="../index.html" aria-label="Homepage">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-text">Mohammad Nasr</span>
+        </a>
+        <div class="nav-links" id="nav-links">
+          <a href="../index.html#projects">Projects</a>
+          <a href="../index.html#toolkit">Toolkit</a>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="writeup-main">
+      <div class="writeup-back">
+        <a href="../index.html#projects">Back to projects</a>
+      </div>
+
+      <section class="writeup-hero">
+        <span class="project-tag">Mobile Robotics &middot; Reactive Driving</span>
+        <h1>F1TENTH Autonomous Racing</h1>
+        <p class="writeup-dek">
+          A 1:10 scale autonomous racecar running three core driving behaviors, automatic emergency braking, PID based wall following, and follow the gap obstacle avoidance, each one proven first in simulation, then ported to run on the real car.
+        </p>
+
+        <dl class="writeup-meta">
+          <li>
+            <dt>Program</dt>
+            <dd>F1TENTH racing coursework, Arizona State University</dd>
+          </li>
+          <li>
+            <dt>Role</dt>
+            <dd>Individual project, perception, control, and safety</dd>
+          </li>
+          <li>
+            <dt>Platform</dt>
+            <dd>1:10 scale F1TENTH racecar, plus RViz and Gazebo simulation</dd>
+          </li>
+          <li>
+            <dt>Stack</dt>
+            <dd>ROS1 Melodic, LIDAR, Ackermann drive, PID control, LibTorch vision</dd>
+          </li>
+        </dl>
+
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/mohammadnsr1/F1_Tenth_Race" target="_blank" rel="noopener">Repository</a>
+          <a class="project-link" href="https://youtu.be/KE6Gm_n-vx4" target="_blank" rel="noopener">Emergency Stop Demo</a>
+          <a class="project-link" href="https://youtu.be/sH-kk-u68Sw" target="_blank" rel="noopener">Wall Following Demo</a>
+          <a class="project-link" href="https://youtube.com/shorts/PTzITnJQ0x0?feature=share" target="_blank" rel="noopener">Gap Following Demo</a>
+        </div>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Mission</h2>
+        <figure class="writeup-figure">
+          <img src="../images/writeups/f1tenth/graphical-abstract.png" alt="Graphical abstract of the F1TENTH project: LIDAR driven emergency braking, wall following, and follow the gap behaviors on a real racecar" loading="lazy" />
+          <figcaption>Graphical overview of the three reactive behaviors built for the F1TENTH platform.</figcaption>
+        </figure>
+        <p>
+          The F1TENTH platform is a 1:10 scale car with a real LIDAR, a real VESC motor controller, and real inertia, which makes it a very different environment from a simulated robot. The mission was the same for every behavior: get it working in RViz and Gazebo simulation first, then port the same idea onto the physical car's hardware topics and constants, and see what breaks. Almost everything broke a little. That gap between simulation and hardware is most of what this project actually taught.
+        </p>
+        <p>
+          Three behaviors carry the project: automatic emergency braking that watches time to collision and stops the car before impact, PID based wall following that keeps the car centered in a corridor using LIDAR geometry, and follow the gap, a reactive algorithm that steers toward the widest open space in the scan without needing a map or a planner. A larger checkpoint layered a vision stack on top of this, semantic segmentation and YOLO based object detection for lane following, built with LibTorch, but the three reactive behaviors above are the ones proven out on video and covered in detail below.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>System overview</h2>
+        <p>
+          All three behaviors read the same LIDAR scan and publish the same Ackermann drive message, they are separate checkpoints rather than one fused system, each one is its own node, tuned and demonstrated on its own.
+        </p>
+        <figure class="writeup-figure">
+          <img src="../images/writeups/f1tenth/architecture-diagram.svg" alt="Diagram showing LIDAR and odometry feeding three parallel behaviors, emergency braking, PID wall following, and follow the gap, which each publish an Ackermann drive command to the car" loading="lazy" />
+          <figcaption>LIDAR feeds all three behaviors, odometry additionally feeds emergency braking, and each behavior publishes its own Ackermann drive command to either the real car's VESC or the simulator.</figcaption>
+        </figure>
+
+        <h3>Emergency braking, time to collision</h3>
+        <p>
+          The safety node watches the LIDAR scan together with the car's own velocity from odometry, and for every beam roughly in the direction of travel, it computes time to collision, distance divided by closing speed. Only beams that are actually closing count, a beam pointed away from the direction of travel does not get evaluated.
+        </p>
+        <p>
+          On the real car, the same idea also needed a sign check for reverse motion, since the checkpoint that carries this safety node drives the car backward during its startup routine. The braking logic explicitly watches for negative velocity along each beam's angle rather than assuming the car only ever moves forward. When any beam's time to collision drops under a tuned threshold, the node publishes a hard stop, overriding whatever speed command was already in flight.
+        </p>
+
+        <h3>Wall following, PID control</h3>
+        <p>
+          Wall following keeps the car a fixed distance from the left wall using two single beam LIDAR readings instead of a full scan. One beam looks roughly sideways at the wall, the other looks forward at an angle, and simple trigonometry between the two gives both the car's current perpendicular distance to the wall and the angle it is drifting at. That angle lets the controller project the distance forward by a short lookahead distance, so the error fed into the PID loop reflects where the car is about to be, not just where it is right now.
+        </p>
+        <p>
+          The gains were tuned by hand on the real car, proportional gain carrying most of the correction, a small derivative term to damp oscillation, and a very small integral term to correct steady state drift without letting error accumulate out of control. Velocity is not constant either, the controller drops speed sharply whenever the commanded steering angle grows past a small threshold, so the car only goes fast when it is pointed roughly straight down the corridor.
+        </p>
+
+        <h3>Follow the gap</h3>
+        <p>
+          Follow the gap needs no wall reference and no map, only the LIDAR scan. Raw ranges are smoothed with a short moving average to remove single beam noise, clipped to a maximum useful range, and limited to a forward looking angular window so the car does not react to obstacles behind it. A small bubble is then cleared around whichever point is currently closest, since that point represents the obstacle the car is most at risk of clipping, and the algorithm searches the remaining ranges for the longest run of beams past a free space threshold. The midpoint of that widest gap becomes the new steering target.
+        </p>
+        <p>
+          Speed again scales with how sharp that steering angle is, small angle turns hold a higher speed, sharp turns slow the car down, since a wide gap found at a sharp angle usually means a corner rather than a straightaway.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>From simulation to the real car</h2>
+        <p>
+          Every one of these three behaviors exists twice in the repository, once as a simulation node built and tuned in RViz, and once as its real car counterpart with its own tuned constants and its own hardware topic, the same Ackermann drive command, but published to the actual VESC motor controller's input topic rather than a simulated one. Keeping both versions around instead of overwriting the simulation code was deliberate, the simulation copy is still the fastest way to sanity check a change in logic before ever touching the real hardware.
+        </p>
+
+        <ul class="writeup-stats">
+          <li>
+            <span class="stat-label">Braking threshold, simulation</span>
+            <span class="stat-value">0.4 s</span>
+            <span class="stat-note">Time to collision cutoff in RViz</span>
+          </li>
+          <li>
+            <span class="stat-label">Braking threshold, real car</span>
+            <span class="stat-value">0.9 s</span>
+            <span class="stat-note">More margin once real noise and inertia entered the loop</span>
+          </li>
+          <li>
+            <span class="stat-label">Wall follow gains</span>
+            <span class="stat-value">kp 0.55</span>
+            <span class="stat-note">kd 0.2, ki 0.0001, tuned on the physical car</span>
+          </li>
+        </ul>
+
+        <div class="writeup-callout">
+          <p>
+            The differences between the two versions are the actual lesson. A time to collision threshold that felt safe in simulation left barely enough stopping distance on the real car once real LIDAR noise and real wheel inertia were in the loop, more than doubling the threshold on hardware. PID gains tuned in a clean simulated corridor needed retuning against a real wall with real reflective noise. None of the algorithms changed between simulation and hardware, the constants around them did, and figuring out which constants mattered enough to retune was most of the actual work.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

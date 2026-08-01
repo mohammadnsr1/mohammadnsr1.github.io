@@ -171,12 +171,17 @@
 
           <article class="project-card project-feature project-mobile reveal" style="--reveal-delay: 80ms">
             <div class="project-content">
-              <div class="project-feature-header">
-                <span class="project-tag">Mobile Robotics</span>
-                <h3>ROS 2 Practices with Mobile Robots</h3>
-                <p class="project-summary">
-                  Here are my real world practices and struggles leading to understanding of advanced topics in ROS 2 Network and workflow.
-                </p>
+              <div class="project-feature-top">
+                <div class="project-feature-header">
+                  <span class="project-tag">Mobile Robotics</span>
+                  <h3>ROS 2 Practices with Mobile Robots</h3>
+                  <p class="project-summary">
+                    Three different robots, one shared foundation: here is what a semester of hands on ROS 2 work actually taught me.
+                  </p>
+                </div>
+                <figure class="mobile-hero-figure">
+                  <img src="images/mobile-robots-overview.png" alt="Illustration of the three mobile robotics projects: active perception, an assistive follower robot, and an F1TENTH racecar" loading="lazy" />
+                </figure>
               </div>
 
               <div class="chip-group mobile-skills">
@@ -251,12 +256,33 @@
                   </div>
                 </article>
 
-                <article class="mobile-subcard mobile-subcard-pending">
-                  <span class="project-tag">Coming Soon</span>
+                <article class="mobile-subcard">
+                  <span class="project-tag">Reactive Driving</span>
                   <h4>F1TENTH Autonomous Racing</h4>
                   <p>
-                    Repository and write up in progress. Check back soon for the full case study.
+                    A 1:10 scale racecar running automatic emergency braking, PID wall following, and follow the gap obstacle avoidance, the same three behaviors developed first in simulation, then ported to run on the real car.
                   </p>
+                  <dl>
+                    <div>
+                      <dt>Role</dt>
+                      <dd>Individual project, perception, control, and safety</dd>
+                    </div>
+                    <div>
+                      <dt>Stack</dt>
+                      <dd>ROS1 Melodic, LIDAR, Ackermann drive, PID control, LibTorch vision</dd>
+                    </div>
+                    <div>
+                      <dt>Outcome</dt>
+                      <dd>Learned that the algorithm was rarely the hard part, the real work was retuning every constant once real LIDAR noise and real inertia replaced their simulated counterparts</dd>
+                    </div>
+                  </dl>
+                  <div class="project-links">
+                    <a class="project-link" href="https://github.com/mohammadnsr1/F1_Tenth_Race" target="_blank" rel="noopener">Repository</a>
+                    <a class="project-link" href="writeups/f1tenth.html">Writeup</a>
+                    <a class="project-link" href="https://youtu.be/KE6Gm_n-vx4" target="_blank" rel="noopener">Emergency Stop</a>
+                    <a class="project-link" href="https://youtu.be/sH-kk-u68Sw" target="_blank" rel="noopener">Wall Following</a>
+                    <a class="project-link" href="https://youtube.com/shorts/PTzITnJQ0x0?feature=share" target="_blank" rel="noopener">Gap Following</a>
+                  </div>
                 </article>
               </div>
             </div>
