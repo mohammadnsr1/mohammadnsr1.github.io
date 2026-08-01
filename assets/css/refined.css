@@ -984,7 +984,7 @@ a:focus-visible {
   position: relative;
 }
 
-.project-feature-header {
+.project-mobile .project-feature-header {
   max-width: 60ch;
   padding-right: 380px;
 }
@@ -1009,7 +1009,7 @@ a:focus-visible {
 }
 
 @media (max-width: 760px) {
-  .project-feature-header {
+  .project-mobile .project-feature-header {
     padding-right: 0;
   }
 
@@ -1026,6 +1026,16 @@ a:focus-visible {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.1rem;
   margin-top: 1.8rem;
+}
+
+.mobile-subgrid--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 640px) {
+  .mobile-subgrid--two {
+    grid-template-columns: 1fr;
+  }
 }
 
 .mobile-subcard {
