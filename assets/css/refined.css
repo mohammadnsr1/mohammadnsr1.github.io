@@ -814,11 +814,6 @@ a:focus-visible {
   --card-accent-2-rgb: var(--accent-amber-rgb);
 }
 
-.project-control {
-  --card-accent-rgb: var(--accent-blue-rgb);
-  --card-accent-2-rgb: var(--accent-amber-rgb);
-}
-
 .project-sensing {
   --card-accent-rgb: var(--accent-teal-rgb);
   --card-accent-2-rgb: var(--accent-cyan-rgb);
@@ -984,16 +979,31 @@ a:focus-visible {
   position: relative;
 }
 
+.project-mobile .project-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.6rem 2.4rem;
+}
+
 .project-mobile .project-feature-header {
+  flex: 1 1 320px;
   max-width: 60ch;
-  padding-right: 380px;
+}
+
+.project-mobile .mobile-hero-figure {
+  flex: 0 1 360px;
+  width: 360px;
+  max-width: 100%;
+}
+
+.project-mobile .mobile-subgrid {
+  flex-basis: 100%;
+  width: 100%;
+  margin-top: 0;
 }
 
 .mobile-hero-figure {
-  position: absolute;
-  top: 1.9rem;
-  right: 2rem;
-  width: 360px;
   margin: 0;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
@@ -1006,19 +1016,6 @@ a:focus-visible {
   display: block;
   width: 100%;
   height: auto;
-}
-
-@media (max-width: 760px) {
-  .project-mobile .project-feature-header {
-    padding-right: 0;
-  }
-
-  .mobile-hero-figure {
-    position: static;
-    width: 100%;
-    max-width: 420px;
-    margin: 1.2rem 0 0;
-  }
 }
 
 .mobile-subgrid {
