@@ -147,12 +147,36 @@
                   </p>
                 </article>
 
-                <article class="mobile-subcard mobile-subcard-pending">
-                  <span class="project-tag">Coming Soon</span>
-                  <h4>MyCobot Robotic Football</h4>
+                <article class="mobile-subcard">
+                  <span class="project-tag">Vision and Kinematics</span>
+                  <h4>Ball Shooting Manipulator</h4>
+                  <figure class="mobile-subcard-media">
+                    <img src="images/ball-shooting-hero.png" alt="Ball Shooting Manipulator arm positioned behind a soccer ball with the goal in the background" loading="lazy" />
+                  </figure>
                   <p>
-                    Repository and write up in progress. Check back soon for the full case study.
+                    A camera guided robotic arm that finds a ball and a goal, then kicks the ball in. A Pixy camera locates the ball and the goal using color and pixel count based distance estimates, and inverse kinematics places a 3D printed leg behind the ball for a timed kick toward the goal.
                   </p>
+                  <figure class="mobile-subcard-media">
+                    <img src="images/ball-shooting-diagram.png" alt="Diagram of the Ball Shooting Manipulator vision and kinematics pipeline, from Pixy camera detection to end effector kick angle" loading="lazy" />
+                  </figure>
+                  <dl>
+                    <div>
+                      <dt>Role</dt>
+                      <dd>Perception and kinematics, team of three</dd>
+                    </div>
+                    <div>
+                      <dt>Stack</dt>
+                      <dd>Arduino Mega, Pixy camera, three degree of freedom arm with two added wrist servos, 3D printed leg end effector and goal</dd>
+                    </div>
+                    <div>
+                      <dt>Outcome</dt>
+                      <dd>Consistently found the ball and the goal, positioned the leg behind it, and kicked toward the goal, with most error coming from pixel based distance estimates and angle imprecision rather than the kinematics</dd>
+                    </div>
+                  </dl>
+                  <div class="project-links">
+                    <a class="project-link" href="https://github.com/mohammadnsr1/Robotic_Manipulation_UNL" target="_blank" rel="noopener">Repository</a>
+                    <a class="project-link" href="docs/ball-shooting-report.pdf">Report</a>
+                  </div>
                 </article>
               </div>
             </div>
