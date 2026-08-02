@@ -984,8 +984,7 @@ a:focus-visible {
   position: relative;
 }
 
-.project-mobile .project-feature-header,
-.project-arms .project-feature-header {
+.project-mobile .project-feature-header {
   max-width: 60ch;
   padding-right: 380px;
 }
@@ -1010,8 +1009,7 @@ a:focus-visible {
 }
 
 @media (max-width: 760px) {
-  .project-mobile .project-feature-header,
-  .project-arms .project-feature-header {
+  .project-mobile .project-feature-header {
     padding-right: 0;
   }
 
@@ -1093,6 +1091,21 @@ a:focus-visible {
 .mobile-subcard-pending {
   border-style: dashed;
   opacity: 0.7;
+}
+
+.mobile-subcard-media {
+  margin: 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid rgba(var(--card-accent-rgb), 0.16);
+  border-radius: var(--radius-sm);
+}
+
+.mobile-subcard-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media (max-width: 900px) {
