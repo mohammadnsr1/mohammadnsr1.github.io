@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Case study: robotic motion planning for gas leak localization using two microphone binaural hearing, validated on a robotic arm and a quadruped robot."
+    />
+    <title>Guided by Hearing | Mohammad Nasr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/refined.css" />
+    <link rel="stylesheet" href="../assets/css/writeup.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="brand-mark" href="../index.html" aria-label="Homepage">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-text">Mohammad Nasr</span>
+        </a>
+        <div class="nav-links" id="nav-links">
+          <a href="../index.html#projects">Projects</a>
+          <a href="../index.html#toolkit">Toolkit</a>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="writeup-main">
+      <div class="writeup-back">
+        <a href="../index.html#projects">Back to projects</a>
+      </div>
+
+      <section class="writeup-hero">
+        <span class="project-tag">Acoustics &middot; Binaural Localization</span>
+        <h1>Guided by Hearing</h1>
+        <p class="writeup-dek">
+          Robotic motion planning for gas leak localization using two microphone binaural hearing, the same trick animals use to find a sound source with only two ears instead of a microphone array.
+        </p>
+
+        <dl class="writeup-meta">
+          <li>
+            <dt>With</dt>
+            <dd>Nihar Masurkar, Pouria Meshkizadeh, and Ehsan Dehghan Niri, Intelligent Structures and Nondestructive Evaluation Lab, Arizona State University</dd>
+          </li>
+          <li>
+            <dt>Published</dt>
+            <dd>Materials Evaluation, April 2025</dd>
+          </li>
+          <li>
+            <dt>Platform</dt>
+            <dd>Collaborative robotic arm, then a quadruped robot, two microphone array</dd>
+          </li>
+          <li>
+            <dt>Stack</dt>
+            <dd>TDOA sensing with GCC PHAT, MATLAB</dd>
+          </li>
+        </dl>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Mission</h2>
+        <p>
+          Gas leaks are a major failure point in industries like oil and gas, hydrogen fuel systems, and automotive manufacturing, where catching one early matters for both safety and cost. Acoustic sensing is a strong candidate for detecting them, since sound travels fast and carries real information about where a leak is, but the signal weakens quickly with distance, and the usual fix, a large microphone array, adds cost, weight, and more data than a mobile robot can process quickly enough.
+        </p>
+        <p>
+          Nature already solved a version of this problem. Animals localize sound with only two ears, not an array, by moving, turning their head or body, to gather better information over time rather than adding more sensors. This project builds a robotic version of that idea, aimed squarely at gas leak localization.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Core idea</h2>
+        <p>
+          Instead of adding more microphones, the system uses only two, positioned like a pair of ears, and trades hardware complexity for strategic movement. The two microphones measure the time difference of arrival, TDOA, between sound reaching each one, using the GCC PHAT method for robustness against noise and echo.
+        </p>
+        <p>
+          A single TDOA reading only narrows the source down to a hyperbola of possible locations, not a point. Taking a second reading from a different position or orientation gives a second hyperbola, and where the two intersect is the estimated source location. The real research question was never the geometry itself, it was where the robot should move to take that second reading, since a poorly chosen second point gives almost no new information.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>From robotic arm to quadruped robot</h2>
+        <p>
+          The idea was tested in two stages: first isolated on a precise robotic arm to understand what motion actually helps, then carried over to a legged robot that has to search for a source on its own.
+        </p>
+
+        <h3>Validation on a robotic arm</h3>
+        <p>
+          The first phase used a fixed base collaborative robotic arm to systematically study how motion affects localization accuracy, since the arm's precise, repeatable motion let the team isolate that effect cleanly. Two microphones, spaced the way feline ears are spaced, were mounted on the arm's end effector and moved through a grid of positions and a range of rotation angles while sound played from a fixed source.
+        </p>
+        <p>
+          Horizontal movement between the two measurement points turned out to be far more informative than vertical movement, since vertical motion tends to produce nearly parallel hyperbolas that barely improve the estimate. With only two well chosen measurement points, the system reached direction accuracy better than one degree and distance accuracy around 40 millimeters.
+        </p>
+
+        <h3>Implementation on a quadruped robot</h3>
+        <p>
+          The strategy then moved onto a quadruped robot, with the two microphones mounted on its back and a simulated gas leak created with compressed air. The robot's motion mirrors how animals search for a sound source: rotate in place until the TDOA reading crosses zero, meaning the source is directly ahead, then move sideways to capture a second reading and solve for the source location.
+        </p>
+        <p>
+          Guided by the earlier finding that horizontal motion matters most, the strategy was later simplified further, using the sign of the very first TDOA reading to decide whether to move left or right, with no full rotational sweep needed at all.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Results and limitations</h2>
+        <p>
+          Comparing strategic motion against a robot that simply moved to random nearby points, strategic motion cut the average localization error from about 17 centimeters down to about 11 centimeters.
+        </p>
+
+        <ul class="writeup-stats">
+          <li>
+            <span class="stat-label">Direction accuracy</span>
+            <span class="stat-value">Better than 1 degree</span>
+            <span class="stat-note">On the robotic arm, with two well chosen points</span>
+          </li>
+          <li>
+            <span class="stat-label">Distance accuracy</span>
+            <span class="stat-value">About 40 mm</span>
+            <span class="stat-note">On the robotic arm</span>
+          </li>
+          <li>
+            <span class="stat-label">Error, strategic motion</span>
+            <span class="stat-value">About 11 cm</span>
+            <span class="stat-note">On the quadruped robot</span>
+          </li>
+          <li>
+            <span class="stat-label">Error, random motion</span>
+            <span class="stat-value">About 17 cm</span>
+            <span class="stat-note">Baseline comparison on the quadruped robot</span>
+          </li>
+        </ul>
+
+        <div class="writeup-callout">
+          <p>
+            The approach assumes the leak source sits somewhere in front of the robot, which will not always hold, and it has only been validated in a lab setting with one dominant sound source at a time. Planned next steps include telling front from behind, separating leak sounds from other industrial noise, and fully automating the motion decisions so the robot needs no manual input during a search.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
