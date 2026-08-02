@@ -981,6 +981,7 @@ a:focus-visible {
 
 .project-mobile .project-content {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 1.6rem 2.4rem;
@@ -991,31 +992,10 @@ a:focus-visible {
   max-width: 60ch;
 }
 
-.project-mobile .mobile-hero-figure {
-  flex: 0 1 360px;
-  width: 360px;
-  max-width: 100%;
-}
-
 .project-mobile .mobile-subgrid {
   flex-basis: 100%;
   width: 100%;
   margin-top: 0;
-}
-
-.mobile-hero-figure {
-  margin: 0;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  background: var(--surface);
-  box-shadow: 0 8px 20px rgba(4, 6, 16, 0.35);
-}
-
-.mobile-hero-figure img {
-  display: block;
-  width: 100%;
-  height: auto;
 }
 
 .mobile-subgrid {
