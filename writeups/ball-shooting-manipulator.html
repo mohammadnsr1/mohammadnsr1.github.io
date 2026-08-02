@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Case study: a five degree of freedom robotic arm that finds a ball and a goal with a Pixy camera, then kicks the ball toward the goal using inverse kinematics."
+    />
+    <title>Ball Shooting Manipulator | Mohammad Nasr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/refined.css" />
+    <link rel="stylesheet" href="../assets/css/writeup.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="brand-mark" href="../index.html" aria-label="Homepage">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-text">Mohammad Nasr</span>
+        </a>
+        <div class="nav-links" id="nav-links">
+          <a href="../index.html#projects">Projects</a>
+          <a href="../index.html#toolkit">Toolkit</a>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="writeup-main">
+      <div class="writeup-back">
+        <a href="../index.html#projects">Back to projects</a>
+      </div>
+
+      <section class="writeup-hero">
+        <span class="project-tag">Manipulation &middot; Vision and Kinematics</span>
+        <h1>Ball Shooting Manipulator</h1>
+        <p class="writeup-dek">
+          A five degree of freedom robotic arm that finds a ball and a goal with a Pixy camera, works out both objects' positions from pixel counts and viewing angle, then kicks the ball toward the goal using inverse kinematics and a timed servo sequence.
+        </p>
+
+        <dl class="writeup-meta">
+          <li>
+            <dt>Course</dt>
+            <dd>Mech 453 and 853, Robotics, Kinematics and Design, University of Nebraska Lincoln</dd>
+          </li>
+          <li>
+            <dt>Role</dt>
+            <dd>Perception and kinematics, team of three</dd>
+          </li>
+          <li>
+            <dt>Platform</dt>
+            <dd>Five degree of freedom robotic arm, three base joints plus two wrist servos added for kicking</dd>
+          </li>
+          <li>
+            <dt>Stack</dt>
+            <dd>Arduino Mega, Pixy camera, 3D printed end effector and goal</dd>
+          </li>
+        </dl>
+
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/mohammadnsr1/Robotic_Manipulation_UNL" target="_blank" rel="noopener">Repository</a>
+        </div>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Mission</h2>
+        <p>
+          Robot arms have done repetitive, dangerous, and high precision work since Devol and Engelberger introduced the first one in 1961 for a hot diecasting machine. Robots increasingly show up in sports too, with AI driven systems now making real time decisions in games like tennis and soccer. That is the direct inspiration for this project, a robotic arm that plays a simplified game of soccer by shooting a ball into a goal.
+        </p>
+        <p>
+          The task looks simple on paper. A ball sits somewhere inside the arm's reachable workspace, and a goal is placed at a random position and angle relative to the robot. The arm has to work out where the ball is, position its end effector directly behind it, and kick at the correct angle to send the ball toward a goal it can only see, not measure directly. A Pixy camera identifies both the ball and the goal by color, and a linear regression model turns the number of pixels each object returns into an estimated distance, paired with the angle at which the camera saw the object. Those two numbers feed inverse kinematics, which recovers the ball's position in the world frame and the end effector orientation needed to kick it toward the goal. The final step is a servo sequence that walks the end effector behind the ball before committing to the kick.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Hardware components</h2>
+        <p>
+          The base platform is a three degree of freedom robotic arm. Two servos were added at the third joint specifically to orient the end effector for kicking, bringing the arm to five degrees of freedom total. An Arduino Mega runs the whole system, paired with a Pixy camera for detecting the ball and the goal. The end effector itself, referred to throughout the project as the leg, is a custom 3D printed part attached to the final joint. The goal is also 3D printed, and yellow sticky notes were added along its top edge purely so the camera could detect it reliably.
+        </p>
+        <figure class="writeup-figure">
+          <img src="../images/Ball_shoot.png" alt="The physical Ball Shooting Manipulator setup, labeled with the two added servos, the leg, the ball, the Pixy camera, the Arduino Mega, and the goal" loading="lazy" />
+          <figcaption>The physical setup, labeled: two added servos, the leg, the ball, the Pixy camera, the Arduino Mega, and the goal.</figcaption>
+        </figure>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Operating principles</h2>
+        <p>
+          Two problems have to be solved before the arm can kick anything: where the ball and the goal actually are, and how to move the arm to hit that target. The first is a perception problem solved with the Pixy camera, the second is a kinematics problem solved once the camera hands off a position estimate.
+        </p>
+
+        <h3>Object distance and angle</h3>
+        <p>
+          Detection relies entirely on the Pixy camera's RGB and color based algorithms, tracking the red ball and the yellow markers on the goal. The camera has no depth sensing, so distance has to be inferred another way. At several known distances the team recorded how many pixels each object returned, then fit a linear regression line through those points using the least squares formula, producing a separate distance model for the ball and for the goal.
+        </p>
+        <p>
+          Position also needs an angle, not just a distance. The camera's angle is tracked dynamically while it sweeps, and the angle at the moment the pixel count peaks is taken as the object's true bearing, since that is when the object is most fully in view. That captured angle gets a fixed 10 degree correction, tuned so the end effector consistently lines up behind the ball rather than beside it.
+        </p>
+        <figure class="writeup-figure">
+          <img src="../images/ball_shoot_estimate.png" alt="Calibration diagram showing pixel count plotted against known distance for the ball and the goal, with a linear regression fit for each" loading="lazy" />
+          <figcaption>Calibration curves used to turn pixel count into an estimated distance for the ball and the goal.</figcaption>
+        </figure>
+
+        <h3>Inverse kinematics and trajectory</h3>
+        <p>
+          Once the ball's location is known, the arm still has to reach it. Keeping the third link parallel to the ground removes a degree of freedom from the problem, so theta 1 and theta 2 come directly from trigonometry, and theta 3 is simply set equal to theta 2 to hold that constraint.
+        </p>
+        <p>
+          Orienting the leg for the kick itself is a separate calculation, solved with the law of cosines together with the relative angles of the ball and the goal, which gives the kick angle needed to send the ball toward wherever the goal happens to be sitting.
+        </p>
+        <figure class="writeup-figure">
+          <img src="../images/ball_shoot_math.png" alt="Geometry diagram of the ball to goal aiming triangle, solved with the law of cosines to find the required kick angle" loading="lazy" />
+          <figcaption>The ball to goal aiming geometry, solved with the law of cosines to find the required kick angle.</figcaption>
+        </figure>
+        <p>
+          Servo movement is sequenced deliberately: the end effector always finishes positioning itself behind the ball first, and only then does the arm execute the motion that actually kicks it, so the ball cannot be clipped early by a leg that is still getting into place.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Results and conclusion</h2>
+        <p>
+          The finished system reliably found the ball and the goal, positioned the leg behind the ball, and executed a kick toward the goal, run after run. What error remained was traceable, not random.
+        </p>
+
+        <div class="writeup-callout">
+          <p>
+            Most trajectory deviation traced back to two sources: pixel count is an approximate stand in for real distance, and the camera angle measurement carries its own small imprecision. Neither one broke the system, but both nudged the final kick angle enough to matter over a full length shot.
+          </p>
+        </div>
+
+        <p>
+          The real value of the project was forcing computer vision and kinematics to work together on a single, real, physical task instead of staying separate exercises, which is exactly what a semester of Mech 453 and 853 was building toward.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
