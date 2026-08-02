@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Case study: a stepper motor driven modal hammer that uses a predictor corrector control loop to converge on a requested excitation force in a handful of automated strikes."
+    />
+    <title>Smart Automatic Modal Hammer | Mohammad Nasr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/refined.css" />
+    <link rel="stylesheet" href="../assets/css/writeup.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="brand-mark" href="../index.html" aria-label="Homepage">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-text">Mohammad Nasr</span>
+        </a>
+        <div class="nav-links" id="nav-links">
+          <a href="../index.html#projects">Projects</a>
+          <a href="../index.html#toolkit">Toolkit</a>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="writeup-main">
+      <div class="writeup-back">
+        <a href="../index.html#projects">Back to projects</a>
+      </div>
+
+      <section class="writeup-hero">
+        <span class="project-tag">Dynamics &middot; Automated Modal Testing</span>
+        <h1>Smart Automatic Modal Hammer</h1>
+        <p class="writeup-dek">
+          A modal hammer that swings itself with a stepper motor, measures the force it actually produced, and corrects its own aim strike by strike until it lands within a chosen tolerance of the requested force, replacing the trial and error a person needs to hit consistently by hand.
+        </p>
+
+        <dl class="writeup-meta">
+          <li>
+            <dt>With</dt>
+            <dd>Aryan Singh and Keegan J. Moore, University of Nebraska Lincoln</dd>
+          </li>
+          <li>
+            <dt>Role</dt>
+            <dd>Regression model, control loop, and validation</dd>
+          </li>
+          <li>
+            <dt>Platform</dt>
+            <dd>Commercial modal hammer on a stepper motor swing, Raspberry Pi, National Instruments DAQ</dd>
+          </li>
+          <li>
+            <dt>Stack</dt>
+            <dd>MATLAB, Python, closed loop servo control</dd>
+          </li>
+        </dl>
+
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/mohammadnsr1/SmartAutomaticModalhammer" target="_blank" rel="noopener">Repository</a>
+        </div>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Mission</h2>
+        <p>
+          Understanding how a structure vibrates usually starts with hitting it with a modal hammer and measuring how it responds. Doing that by hand is harder than it sounds. A person cannot reliably reproduce the same strike force at the same location twice, and for nonlinear structures the entire response depends on how hard the structure gets hit, so an inconsistent strike makes the resulting data close to meaningless.
+        </p>
+        <p>
+          Commercial automatic hammers exist, but they tend to be expensive, cover a narrow force range, or cannot target a specific force value directly, only reach one through a slow trial and error process. The goal here was a system that hits a requested force, converges quickly, and costs a fraction of the commercial alternative.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>System</h2>
+        <p>
+          The system pairs a commercial modal hammer with a stepper motor that swings it, controlled by a Raspberry Pi. The motor has a built in encoder and a closed loop servo driver, which corrects for missed steps and shaft misalignment when the hammer impact suddenly loads the motor mid swing. A custom 3D printed mount connects the hammer to the motor shaft.
+        </p>
+        <p>
+          Force and structural response are measured through a National Instruments data acquisition system running through MATLAB, which talks to the Raspberry Pi over a serial link so the loop between commanded motor motion and measured force can close automatically, with no person needed between strikes. Total hardware cost came out to roughly 350 dollars, well below what a commercial automatic hammer with a comparable range would cost.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Predictor corrector control</h2>
+        <p>
+          The core contribution is a regression model that learns the relationship between the hammer's velocity at impact and the resulting force, trained on hundreds of real strikes the system collected on its own. Given a desired force, the model predicts the motor velocity that should produce it.
+        </p>
+        <p>
+          That prediction is not perfect, so the system measures the force it actually produced and applies a successive approximation correction: it adjusts velocity by the same percentage the measured force missed the target by, then strikes again, repeating until the result lands within the user's chosen error tolerance. In practice this converges in six iterations or fewer, usually two or three, compared to the ten or more strikes a skilled person typically needs to get a consistent hit by hand.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Validation and limitations</h2>
+        <p>
+          The system was validated on two structures: a linear two story tower, which is what the regression models were trained on, and a model fighter jet wing fitted with a nonlinear vibration absorber, a structure the models had never seen before. Across force levels ranging from tens of newtons up to 3000 newtons, and across two different hammer tip stiffnesses, the system consistently converged to within about 2 to 4 percent of the requested force, including on the unseen wing structure, which is the result that matters most: the approach generalizes rather than memorizing the training structure.
+        </p>
+
+        <ul class="writeup-stats">
+          <li>
+            <span class="stat-label">Convergence</span>
+            <span class="stat-value">6 iterations or fewer</span>
+            <span class="stat-note">Usually 2 or 3, versus 10 plus strikes by hand</span>
+          </li>
+          <li>
+            <span class="stat-label">Accuracy</span>
+            <span class="stat-value">2 to 4 percent</span>
+            <span class="stat-note">Of requested force, across both structures</span>
+          </li>
+          <li>
+            <span class="stat-label">Force range</span>
+            <span class="stat-value">Tens of N to 3000 N</span>
+            <span class="stat-note">Across two hammer tip stiffnesses</span>
+          </li>
+          <li>
+            <span class="stat-label">Hardware cost</span>
+            <span class="stat-value">About $350</span>
+            <span class="stat-note">Well below commercial automatic hammers</span>
+          </li>
+        </ul>
+
+        <div class="writeup-callout">
+          <p>
+            Repeatability gets worse at high force levels, especially with the softer rubber tip, so high force strikes need their own iteration run rather than reusing motor settings that converged before. The system also has no way to recalibrate its aim if a structure shifts position between strikes, since that would require adding a robotic arm and computer vision on top of an already capable, comparatively cheap system.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
