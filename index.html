@@ -139,12 +139,34 @@
               </div>
 
               <div class="mobile-subgrid mobile-subgrid--two">
-                <article class="mobile-subcard mobile-subcard-pending">
-                  <span class="project-tag">Coming Soon</span>
-                  <h4>MyCobot Maze Solving</h4>
+                <article class="mobile-subcard">
+                  <span class="project-tag">Digital Twin and Vision</span>
+                  <h4>MyCobot Pro 600, From Digital Twin to Solving a Maze</h4>
+                  <figure class="mobile-subcard-media">
+                    <img src="images/MyCobot_foreground.png" alt="The MyCobot Pro 600 arm solving a physical maze board" loading="lazy" />
+                  </figure>
                   <p>
-                    Repository and write up in progress. Check back soon for the full case study.
+                    A six axis MyCobot Pro 600 built up from a validated digital twin, to a camera and marker based perception loop, to solving a physical maze end to end. Hand derived kinematics were checked against a MATLAB SimScape model, ArUco markers hand off maze waypoints from vision to the arm, and A* pathfinding turns a photographed maze into a full inverse kinematics solve executed over TCP/IP.
                   </p>
+                  <dl>
+                    <div>
+                      <dt>Role</dt>
+                      <dd>Kinematics, digital twin, perception, and motion planning</dd>
+                    </div>
+                    <div>
+                      <dt>Stack</dt>
+                      <dd>MATLAB, SimScape, URDF from SolidWorks CAD, OpenCV, ArUco markers, TCP/IP socket control</dd>
+                    </div>
+                    <div>
+                      <dt>Outcome</dt>
+                      <dd>Solved a 4x4 maze end to end, from a single camera image to executed joint motion, validated in simulation before every run on the physical arm</dd>
+                    </div>
+                  </dl>
+                  <div class="project-links">
+                    <a class="project-link" href="https://github.com/mohammadnsr1/Robotic-Systems-1" target="_blank" rel="noopener">Repository</a>
+                    <a class="project-link" href="writeups/mycobot-pro-600.html">Writeup</a>
+                    <a class="project-link" href="https://www.youtube.com/shorts/yxIhqgxqiWA" target="_blank" rel="noopener">Maze Solving Demo</a>
+                  </div>
                 </article>
 
                 <article class="mobile-subcard">
