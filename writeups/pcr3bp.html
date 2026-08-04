@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Derivation: the planar circular restricted three body problem for the Earth and Moon system, the Lagrange points, the Jacobi constant, and the resulting zero velocity curves."
+    />
+    <title>The Planar Circular Restricted Three Body Problem | Mohammad Nasr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/refined.css" />
+    <link rel="stylesheet" href="../assets/css/writeup.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="brand-mark" href="../index.html" aria-label="Homepage">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-text">Mohammad Nasr</span>
+        </a>
+        <div class="nav-links" id="nav-links">
+          <a href="../index.html#projects">Projects</a>
+          <a href="../index.html#toolkit">Toolkit</a>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="writeup-main">
+      <div class="writeup-back">
+        <a href="../index.html#projects">Back to projects</a>
+      </div>
+
+      <section class="writeup-hero">
+        <span class="project-tag">Dynamics &middot; Orbital Mechanics</span>
+        <h1>The Planar Circular Restricted Three Body Problem</h1>
+        <p class="writeup-dek">
+          The circular restricted three body problem for the Earth and Moon system, derived from Newton's second law in a rotating frame, reduced to the Lagrange points and the Jacobi constant that together map out where a third body can and cannot go.
+        </p>
+
+        <dl class="writeup-meta">
+          <li>
+            <dt>Course</dt>
+            <dd>Orbital mechanics coursework</dd>
+          </li>
+          <li>
+            <dt>Role</dt>
+            <dd>Derivation, numerical solution, and simulation</dd>
+          </li>
+          <li>
+            <dt>Primaries</dt>
+            <dd>Earth and Moon</dd>
+          </li>
+          <li>
+            <dt>Stack</dt>
+            <dd>MATLAB, fsolve, ode45</dd>
+          </li>
+        </dl>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Introduction</h2>
+        <p>
+          When two massive bodies orbit their common center of mass in a circle, and a third body is too small to affect their motion, the problem of that third body's motion is the circular restricted three body problem, CR3BP. Restricting the third body to the same orbital plane as the other two gives the planar circular restricted three body problem, PCR3BP, the case studied here using the Earth and Moon as the two primaries.
+        </p>
+        <p>
+          The PCR3BP is a standard first model for real astronomical problems, for example the resonance transitions of Jupiter family comets, whose motion is mostly governed by the Sun but meaningfully perturbed by Jupiter, largely within Jupiter's own orbital plane. More generally, the PCR3BP gives a systematic way to construct the initial pieces from which a full N body trajectory can later be built.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Reference frames and equations of motion</h2>
+        <p>
+          Let X, Y, Z be an inertial frame and x, y, z be a rotating frame with its origin at the center of mass of the two primaries m1 and m2, with the X and Y axes forming the primaries' orbital plane.
+        </p>
+
+        <figure class="writeup-figure">
+          <img src="../images/writeups/pcr3bp/reference-frames.svg" alt="Diagram of the inertial X, Y frame and the rotating x, y frame sharing the same origin, offset by the angle theta equal to omega t" loading="lazy" />
+          <figcaption>The rotating frame turns with the two primaries, offset from the fixed inertial frame by the angle theta equal to omega t.</figcaption>
+        </figure>
+
+        <figure class="writeup-figure">
+          <img src="../images/writeups/pcr3bp/position-vectors.svg" alt="Diagram of the position vectors from the origin to the third body P and to each primary m1 and m2, drawn in the rotating frame" loading="lazy" />
+          <figcaption>Position vectors of the third body and the two primaries, all measured from the center of mass origin in the rotating frame.</figcaption>
+        </figure>
+
+        <p>
+          The position of the third body P in the rotating frame is:
+        </p>
+        <p>
+          $$r_{P/O} = x\,\hat{b}_1 + y\,\hat{b}_2$$
+          $$r_{m_1/O} = x_1\,\hat{b}_1, \qquad r_{m_2/O} = x_2\,\hat{b}_1$$
+        </p>
+        <p>
+          Applying the transport theorem gives the velocity and acceleration of P in the inertial frame, expressed in rotating frame components:
+        </p>
+        <p>
+          $$V_{P/O} = (\dot{x} - \omega y)\,\hat{b}_1 + (\dot{y} + \omega x)\,\hat{b}_2$$
+          $$a_{P/O} = (\ddot{x} - 2\omega\dot{y} - \omega^2 x)\,\hat{b}_1 + (\ddot{y} + 2\omega\dot{x} - \omega^2 y)\,\hat{b}_2$$
+        </p>
+
+        <figure class="writeup-figure">
+          <img src="../images/writeups/pcr3bp/free-body-diagram.svg" alt="Free body diagram of the third body P showing the vectors r1 and r2 toward each primary m1 and m2" loading="lazy" />
+          <figcaption>The vectors r1 and r2 from each primary to the third body, used to write Newton's second law for P.</figcaption>
+        </figure>
+
+        <p>
+          The vectors from each primary to P are:
+        </p>
+        <p>
+          $$r_1 = (x - x_1)\,\hat{b}_1 + y\,\hat{b}_2, \qquad r_2 = (x - x_2)\,\hat{b}_1 + y\,\hat{b}_2$$
+        </p>
+        <p>
+          Applying Newton's second law, with $\mu_1 = Gm_1$ and $\mu_2 = Gm_2$, and separating into $\hat{b}_1$ and $\hat{b}_2$ components, gives the nonlinear, nondimensionalized equations of motion in the rotating frame:
+        </p>
+        <p>
+          $$\ddot{x} - 2\omega\dot{y} - \omega^2 x = -\frac{\mu_1(x - x_1)}{r_1^3} - \frac{\mu_2(x - x_2)}{r_2^3}$$
+          $$\ddot{y} + 2\omega\dot{x} - \omega^2 y = -\frac{\mu_1 y}{r_1^3} - \frac{\mu_2 y}{r_2^3}$$
+        </p>
+        <p>where</p>
+        <p>
+          $$r_1 = \sqrt{(x - x_1)^2 + y^2}, \qquad r_2 = \sqrt{(x - x_2)^2 + y^2}$$
+        </p>
+        <p>
+          These equations have no closed form analytical solution, but they are the basis for everything that follows.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Equilibrium points, the Lagrange points</h2>
+        <p>
+          An equilibrium point is a location where the third body would have zero velocity and zero acceleration relative to the rotating frame, appearing permanently at rest relative to m1 and m2:
+        </p>
+        <p>
+          $$\dot{x} = \dot{y} = \dot{z} = 0, \qquad \ddot{x} = \ddot{y} = \ddot{z} = 0$$
+        </p>
+        <p>
+          Substituting these conditions into the equations of motion gives:
+        </p>
+        <p>
+          $$-\omega^2 x = -\frac{\mu_1(x - x_1)}{r_1^3} - \frac{\mu_2(x - x_2)}{r_2^3}$$
+          $$-\omega^2 y = -\frac{\mu_1 y}{r_1^3} - \frac{\mu_2 y}{r_2^3}$$
+        </p>
+        <p>
+          Using Kepler's law, $\omega^2 = (\mu_1 + \mu_2)/r^3$, and writing everything in terms of the reduced mass ratio $\mu = m_2/(m_1+m_2)$, with $x_1 = -\mu\,r_{12}$ and $x_2 = (1-\mu)\,r_{12}$ from the center of mass condition $m_1 x_1 + m_2 x_2 = 0$, the equilibrium equations for $y \neq 0$ become:
+        </p>
+        <p>
+          $$-x = -\frac{(1-\mu)(x - x_1)}{r_1^3} - \frac{\mu(x - x_2)}{r_2^3} \quad (i)$$
+          $$-1 = -\frac{(1-\mu)}{r_1^3} - \frac{\mu}{r_2^3} \quad (ii)$$
+        </p>
+        <p>
+          Solving (i) and (ii) together shows that $r_1 = r_2 = r_{12}$, which forces:
+        </p>
+        <p>
+          $$x = \frac{r_{12}}{2} - \mu r_{12}, \qquad y = \pm\frac{\sqrt{3}}{2}r_{12}$$
+        </p>
+        <p>
+          This closed form pair is the two triangular Lagrange points, L4 and L5, each forming an equilateral triangle with the two primaries. The remaining three collinear points, L1, L2, L3, lie along $y = 0$ and do not have a closed form solution, they were found numerically in MATLAB using fsolve.
+        </p>
+
+        <figure class="writeup-figure">
+          <img src="../images/PCR3BD_fig3.png" alt="Plot of the five Lagrange points L1 through L5 around the Earth and Moon in the rotating frame" loading="lazy" />
+          <figcaption>The five Lagrange points plotted around Earth and Moon, L4 and L5 in closed form, L1 through L3 solved numerically with fsolve.</figcaption>
+        </figure>
+      </section>
+
+      <section class="writeup-section">
+        <h2>The Jacobi constant</h2>
+        <p>
+          Multiplying the two equations of motion by $\dot{x}$ and $\dot{y}$ respectively, summing them, and using the identities
+        </p>
+        <p>
+          $$\ddot{x}\dot{x} + \ddot{y}\dot{y} = \frac{1}{2}\frac{d}{dt}(\dot{x}^2 + \dot{y}^2) = \frac{1}{2}\frac{dv^2}{dt}$$
+          $$x\dot{x} + y\dot{y} = \frac{1}{2}\frac{d}{dt}(x^2 + y^2)$$
+          $$\frac{d}{dt}\frac{1}{r_1} = -\frac{1}{r_1^3}\left(x\dot{x} + \mu r_{12}\dot{x} + y\dot{y}\right), \qquad \frac{d}{dt}\frac{1}{r_2} = -\frac{1}{r_2^3}\left(x\dot{x} + (1-\mu)r_{12}\dot{x} + y\dot{y}\right)$$
+        </p>
+        <p>
+          collapses the whole thing into a single conserved quantity:
+        </p>
+        <p>
+          $$\frac{d}{dt}\left[\frac{1}{2}v^2 - \frac{1}{2}\omega^2(x^2+y^2) - \frac{\mu_1}{r_1} - \frac{\mu_2}{r_2}\right] = 0$$
+        </p>
+        <p>
+          $$\frac{1}{2}v^2 - \frac{1}{2}\omega^2(x^2+y^2) - \frac{\mu_1}{r_1} - \frac{\mu_2}{r_2} = C$$
+        </p>
+        <p>
+          C is the Jacobi constant, the total energy of the third body relative to the rotating frame, made of kinetic energy per unit mass, the gravitational potential of each primary, and the centrifugal potential from the rotating frame. Like energy and angular momentum in the two body problem, C is conserved along the third body's motion. Solving for $v^2$:
+        </p>
+        <p>
+          $$v^2 = \omega^2(x^2+y^2) + \frac{2\mu_1}{r_1} + \frac{2\mu_2}{r_2} + 2C$$
+        </p>
+        <p>
+          Since $v^2$ can never be negative, motion is only possible where:
+        </p>
+        <p>
+          $$\omega^2(x^2+y^2) + \frac{2\mu_1}{r_1} + \frac{2\mu_2}{r_2} + 2C \geq 0$$
+        </p>
+        <p>
+          The boundary between allowed and forbidden motion, the zero velocity curve, is found by setting $v^2 = 0$:
+        </p>
+        <p>
+          $$\omega^2(x^2+y^2) + \frac{2\mu_1}{r_1} + \frac{2\mu_2}{r_2} + 2C = 0$$
+        </p>
+        <p>
+          For each value of C this traces a curve in the x, y plane, and everywhere outside the accessible region the third body simply cannot go, no matter its initial velocity direction.
+        </p>
+
+        <figure class="writeup-figure">
+          <img src="../images/PC3BD_fig4.png" alt="Three dimensional plot of the zero velocity surface over a range of Jacobi constant values" loading="lazy" />
+          <figcaption>The zero velocity surface across a range of Jacobi constant values, the boundary between where a third body can and cannot go.</figcaption>
+        </figure>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Motion at different energy levels</h2>
+        <p>
+          Five Jacobi constant values were used, $C = -1.65$, $-1.588$, $-1.57$, $-1.5$, and $-1.49$, each tightening or loosening the accessible region around Earth, the Moon, and the Lagrange points. For each value, the allowed and forbidden zones were plotted as a contour of the zero velocity condition, and a test particle was released from a fixed starting position and integrated forward in time with ode45, both in the rotating frame and, after transforming back, in the inertial frame.
+        </p>
+
+        <figure class="writeup-figure">
+          <img src="../images/writeups/pcr3bp/rotating-frame.gif" alt="Animation cycling through five Jacobi constant levels, each showing the allowable zone contour and the resulting test particle trajectory in the rotating frame" loading="lazy" />
+          <figcaption>The accessible zone and the resulting trajectory in the rotating frame, for five different Jacobi constant values.</figcaption>
+        </figure>
+
+        <figure class="writeup-figure">
+          <img src="../images/writeups/pcr3bp/inertial-frame.gif" alt="Animation showing the same five Jacobi constant cases transformed into the inertial frame, where the rotating frame's loops unwind into the particle's true path around Earth" loading="lazy" />
+          <figcaption>The same five cases transformed back into the inertial frame, where the rotating frame's near periodic loops unwind into the particle's true path.</figcaption>
+        </figure>
+
+        <p>
+          As C increases toward the energy of a nearby Lagrange point, the accessible region around that point opens up and the particle's trajectory is able to range further from its starting neighborhood, a direct visual reading of the Jacobi constant as a budget on where the particle is allowed to go.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Conclusion</h2>
+        <p>
+          This project derived the equations of motion for the planar circular restricted three body problem from Newton's second law in a rotating frame, found the five Lagrange points, two in closed form and three numerically, derived the Jacobi constant as the system's conserved energy, and used it to map out the regions of space a third body is and is not allowed to reach at a given energy. Motion was then simulated and visualized for five different energy levels in both the rotating and inertial frames, showing how the accessible region and the resulting trajectory shape change together as energy changes.
+        </p>
+      </section>
+    </main>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false }
+          ]
+        });
+      });
+    </script>
+  </body>
+</html>
