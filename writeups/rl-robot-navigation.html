@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Case study: a Q-learning agent for shortest path navigation on the Cliff Walking grid world, connected back to the numerical optimization methods behind it."
+    />
+    <title>Application of Reinforcement Learning in Robot Navigation | Mohammad Nasr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/refined.css" />
+    <link rel="stylesheet" href="../assets/css/writeup.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="brand-mark" href="../index.html" aria-label="Homepage">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-text">Mohammad Nasr</span>
+        </a>
+        <div class="nav-links" id="nav-links">
+          <a href="../index.html#projects">Projects</a>
+          <a href="../index.html#toolkit">Toolkit</a>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="writeup-main">
+      <div class="writeup-back">
+        <a href="../index.html#projects">Back to projects</a>
+      </div>
+
+      <section class="writeup-hero">
+        <span class="project-tag">RL and Optimization &middot; Q-Learning Navigation</span>
+        <h1>Application of Reinforcement Learning in Robot Navigation</h1>
+        <p class="writeup-dek">
+          Q-learning for shortest path navigation, connected back to the numerical optimization methods behind it.
+        </p>
+
+        <dl class="writeup-meta">
+          <li>
+            <dt>Course</dt>
+            <dd>Reinforcement Learning Specialization, Coursera, based on Sutton and Barto</dd>
+          </li>
+          <li>
+            <dt>Role</dt>
+            <dd>Algorithm implementation, testing, and connecting theory back to optimization</dd>
+          </li>
+          <li>
+            <dt>Environment</dt>
+            <dd>OpenAI Gym, Cliff Walking grid world</dd>
+          </li>
+          <li>
+            <dt>Stack</dt>
+            <dd>Q-learning, epsilon greedy exploration, exploration decay</dd>
+          </li>
+        </dl>
+
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/mohammadnsr1/RL-and-Optimization" target="_blank" rel="noopener">Repository</a>
+          <a class="project-link" href="https://www.coursera.org/account/accomplishments/specialization/GT99WLRD7AQ9" target="_blank" rel="noopener">Reinforcement Learning Specialization, Coursera</a>
+        </div>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Mission</h2>
+        <p>
+          Given a starting position and a target position, how does a robot find the shortest path between them without being told the answer directly. Reinforcement learning offers one answer: an agent that learns through trial and error, taking actions, observing rewards, and gradually discovering which behavior leads to the best long term outcome, rather than following labeled examples the way supervised learning does.
+        </p>
+        <p>
+          This project works through the underlying theory first, Markov decision processes, the Bellman equation, and policy evaluation and improvement, then implements the Q-learning algorithm and tests it in a navigation setting. The Q-learning implementation and the surrounding theory follow a Reinforcement Learning Specialization completed on Coursera, based on the Sutton and Barto reinforcement learning textbook.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Method</h2>
+        <p>
+          Q-learning is a sample based method, meaning it needs no prior model of how the environment behaves, it learns purely from experience. At each state the agent follows an epsilon greedy policy, mostly choosing its current best known action but occasionally exploring a random one, then updates its estimate of that action's value based on the reward received and the value of the resulting state.
+        </p>
+        <p>
+          Repeating this cycle across many episodes causes the agent's value estimates to converge toward the true optimal policy, without ever being told what that policy is in advance.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Test environment and results</h2>
+        <p>
+          The method was tested on the Cliff Walking environment from OpenAI Gym, a grid world where the agent starts at one corner and must reach a goal at the opposite corner, with a strip of cells along the bottom acting as a cliff. Falling off the cliff carries a large penalty and resets the agent to the start, while every other move carries a small penalty, which pushes the agent toward the shortest safe route rather than a longer, safer detour.
+        </p>
+        <p>
+          With a fixed exploration rate, the agent reliably learned the optimal path that hugs the cliff edge, but its episode rewards kept oscillating, since random exploratory moves occasionally sent it over the edge even after it already knew better.
+        </p>
+
+        <div class="writeup-callout">
+          <p>
+            Adding exploration decay, so the agent explores less as it gains more experience, sharply reduced that oscillation and pushed the agent toward a fully deterministic optimal policy. The agent was not wrong about the best path early on, it just kept testing the drop out of habit until exploration itself was reined in.
+          </p>
+        </div>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Connecting back to optimization</h2>
+        <p>
+          A core part of this project was recognizing how much reinforcement learning shares with the numerical optimization methods studied earlier in the same coursework. Policy iteration in RL mirrors iterative methods like steepest descent and Newton's method: an initial guess, here a policy, is progressively refined rather than solved in one step.
+        </p>
+        <p>
+          The reward function plays a role similar to penalty and barrier methods in constrained optimization, shaping the objective by penalizing undesirable outcomes, here falling off the cliff, rather than being optimized directly itself. The learning rate in Q-learning plays a role similar to step size selection in backtracking line search, controlling how large an update is applied at each step so learning is substantial without overshooting.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

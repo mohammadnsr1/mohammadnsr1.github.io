@@ -289,42 +289,54 @@
             </div>
           </article>
 
-          <article class="project-card project-rl reveal" style="--reveal-delay: 120ms">
-            <figure class="project-media">
-              <img
-                src="images/project-placeholder.svg"
-                alt="Placeholder project thumbnail for a reinforcement learning or optimization project"
-                loading="lazy"
-              />
-              <figcaption>Replace with a simulation frame, policy visualization, or experiment plot.</figcaption>
-            </figure>
+          <article class="project-card project-feature project-rl reveal" style="--reveal-delay: 120ms">
             <div class="project-content">
-              <div class="project-topline">
-                <span class="project-index">03</span>
-                <span class="project-tag">RL / Optimization</span>
+              <div class="project-feature-header">
+                <span class="project-tag">Reinforcement Learning</span>
+                <h3>RL and Optimization</h3>
+                <p class="project-summary">
+                  Two connected pieces of the same coursework: a Q-learning agent that learns the shortest safe path through a grid world, and the numerical optimization methods, line search, trust region, conjugate gradient, and constrained optimization, that help explain why the learning process converges the way it does.
+                </p>
               </div>
-              <h3>Project Title Placeholder</h3>
-              <p class="project-summary">
-                Use this card for work that connects learning, optimization, or policy evaluation to embodied behavior.
-              </p>
-              <dl class="project-details">
-                <div>
-                  <dt>Role</dt>
-                  <dd>Algorithm development and experimentation</dd>
-                </div>
-                <div>
-                  <dt>Tools</dt>
-                  <dd>Reinforcement learning, simulation, optimization</dd>
-                </div>
-                <div>
-                  <dt>Outcome</dt>
-                  <dd>Add ablations, transfer results, or performance comparisons</dd>
-                </div>
-              </dl>
-              <div class="project-links">
-                <a class="project-link" href="#">Repository</a>
-                <a class="project-link" href="#">Demo</a>
-                <a class="project-link" href="#">Writeup</a>
+
+              <div class="mobile-subgrid mobile-subgrid--two">
+                <article class="mobile-subcard">
+                  <span class="project-tag">Q-Learning Navigation</span>
+                  <h4>Application of Reinforcement Learning in Robot Navigation</h4>
+                  <figure class="mobile-subcard-media">
+                    <img src="images/RL_navigation_foreground.png" alt="A Q-learning agent navigating the Cliff Walking grid world toward its goal" loading="lazy" />
+                  </figure>
+                  <p>
+                    Q-learning for shortest path navigation, learned entirely through trial and error rather than labeled examples. An agent follows an epsilon greedy policy, mostly acting on its best known move but occasionally exploring, and updates its value estimates from the rewards it receives. Tested on the Cliff Walking grid world, the agent learns the shortest safe route that hugs the cliff edge, and adding exploration decay turns an initially noisy policy into a fully deterministic optimal one.
+                  </p>
+                  <dl>
+                    <div>
+                      <dt>Role</dt>
+                      <dd>Algorithm implementation, testing, and connecting theory back to optimization</dd>
+                    </div>
+                    <div>
+                      <dt>Stack</dt>
+                      <dd>Q-learning, epsilon greedy exploration, OpenAI Gym Cliff Walking environment</dd>
+                    </div>
+                    <div>
+                      <dt>Outcome</dt>
+                      <dd>Learned the optimal cliff hugging path, and exploration decay removed the reward oscillation caused by continued random exploration after convergence</dd>
+                    </div>
+                  </dl>
+                  <div class="project-links">
+                    <a class="project-link" href="https://github.com/mohammadnsr1/RL-and-Optimization" target="_blank" rel="noopener">Repository</a>
+                    <a class="project-link" href="writeups/rl-robot-navigation.html">Writeup</a>
+                    <a class="project-link" href="https://www.coursera.org/account/accomplishments/specialization/GT99WLRD7AQ9" target="_blank" rel="noopener">Reinforcement Learning Specialization, Coursera</a>
+                  </div>
+                </article>
+
+                <article class="mobile-subcard">
+                  <span class="project-tag">Coursework</span>
+                  <h4>Numerical Optimization Coursework</h4>
+                  <p>
+                    The coursework followed Nocedal and Wright's Numerical Optimization, second edition, covering unconstrained optimization fundamentals, line search methods including Newton's method and steepest descent, trust region methods including the dogleg method and Hessian modification, conjugate gradient methods for both linear and nonlinear problems, the BFGS quasi Newton method, and constrained optimization through KKT conditions and the active set method, implemented and tested on problems ranging from root finding and the Rosenbrock function to the ill conditioned Hilbert matrix and n dimensional optimization with up to 60 variables.
+                  </p>
+                </article>
               </div>
             </div>
           </article>
