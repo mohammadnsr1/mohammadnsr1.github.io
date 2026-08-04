@@ -222,7 +222,7 @@
         </p>
 
         <figure class="writeup-figure">
-          <img src="../images/PC3BD_fig4.png" alt="Three dimensional plot of the zero velocity surface over a range of Jacobi constant values" loading="lazy" />
+          <img src="../images/PCR3BD_fig4.png" alt="Three dimensional plot of the zero velocity surface over a range of Jacobi constant values" loading="lazy" />
           <figcaption>The zero velocity surface across a range of Jacobi constant values, the boundary between where a third body can and cannot go.</figcaption>
         </figure>
       </section>
@@ -232,19 +232,32 @@
         <p>
           Five Jacobi constant values were used, $C = -1.65$, $-1.588$, $-1.57$, $-1.5$, and $-1.49$, each tightening or loosening the accessible region around Earth, the Moon, and the Lagrange points. For each value, the allowed and forbidden zones were plotted as a contour of the zero velocity condition, and a test particle was released from a fixed starting position and integrated forward in time with ode45, both in the rotating frame and, after transforming back, in the inertial frame.
         </p>
+        <p>
+          Two representative energy levels, $C = -1.5$ and $C = -1.57$, are animated below in both frames.
+        </p>
 
         <figure class="writeup-figure">
-          <img src="../images/writeups/pcr3bp/rotating-frame.gif" alt="Animation cycling through five Jacobi constant levels, each showing the allowable zone contour and the resulting test particle trajectory in the rotating frame" loading="lazy" />
-          <figcaption>The accessible zone and the resulting trajectory in the rotating frame, for five different Jacobi constant values.</figcaption>
+          <img src="../images/PCR3BD_rotating_frame_C_neg1p5.gif" alt="Animation of the allowable zone contour and the resulting test particle trajectory in the rotating frame, for C equal to negative 1.5" loading="lazy" />
+          <figcaption>Rotating frame, C = -1.5. The accessible zone and the resulting test particle trajectory.</figcaption>
         </figure>
 
         <figure class="writeup-figure">
-          <img src="../images/writeups/pcr3bp/inertial-frame.gif" alt="Animation showing the same five Jacobi constant cases transformed into the inertial frame, where the rotating frame's loops unwind into the particle's true path around Earth" loading="lazy" />
-          <figcaption>The same five cases transformed back into the inertial frame, where the rotating frame's near periodic loops unwind into the particle's true path.</figcaption>
+          <img src="../images/PCR3BD_inertial_frame_C_neg1p5.gif" alt="Animation of the same C equal to negative 1.5 case transformed into the inertial frame, where the rotating frame's loops unwind into the particle's true path around Earth" loading="lazy" />
+          <figcaption>Inertial frame, C = -1.5. The same case transformed back, where the rotating frame's near periodic loops unwind into the particle's true path.</figcaption>
+        </figure>
+
+        <figure class="writeup-figure">
+          <img src="../images/PCR3BD_rotating_frame_C_neg1p57.gif" alt="Animation of the allowable zone contour and the resulting test particle trajectory in the rotating frame, for C equal to negative 1.57" loading="lazy" />
+          <figcaption>Rotating frame, C = -1.57. A tighter energy level, with a smaller accessible zone than the -1.5 case.</figcaption>
+        </figure>
+
+        <figure class="writeup-figure">
+          <img src="../images/PCR3BD_inertial_frame_C_neg1p57.gif" alt="Animation of the same C equal to negative 1.57 case transformed into the inertial frame, where the rotating frame's loops unwind into the particle's true path around Earth" loading="lazy" />
+          <figcaption>Inertial frame, C = -1.57. The same tighter case transformed back into the particle's true path around Earth.</figcaption>
         </figure>
 
         <p>
-          As C increases toward the energy of a nearby Lagrange point, the accessible region around that point opens up and the particle's trajectory is able to range further from its starting neighborhood, a direct visual reading of the Jacobi constant as a budget on where the particle is allowed to go.
+          As C increases toward the energy of a nearby Lagrange point, the accessible region around that point opens up and the particle's trajectory is able to range further from its starting neighborhood, a direct visual reading of the Jacobi constant as a budget on where the particle is allowed to go. The jump from C = -1.57 to C = -1.5 above is a direct look at that opening up in progress.
         </p>
       </section>
 
