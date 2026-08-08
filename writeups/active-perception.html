@@ -120,7 +120,7 @@
         </ul>
 
         <figure class="writeup-figure">
-          <img src="../images/writeups/active-perception/architecture-diagram.svg" alt="System architecture diagram showing perception feeding an object pose estimator and confidence score service, a next best view planner triggered only on low confidence, navigation through Nav2 or a custom A star planner with PD control, and visual odometry feeding that planning and control stage directly as localization feedback" loading="lazy" />
+          <img src="../images/Active_architecture.png" alt="System architecture diagram showing perception feeding an object pose estimator and confidence score service, a next best view planner triggered only on low confidence, navigation through Nav2 or a custom A star planner with PD control, and visual odometry feeding that planning and control stage directly as localization feedback" loading="lazy" />
           <figcaption>The RGB-D camera feeds the point cloud into an object pose estimator. The orchestrator scores that estimate through a confidence service, and only asks the next best view planner when the score is too low. Confident estimates go straight to navigation, Nav2 when a map is available, a custom A star planner with a PD controller when it is not. Visual odometry and the EKF feed that planning and control side directly as localization feedback, separate from the confidence and next best view decision.</figcaption>
         </figure>
 
