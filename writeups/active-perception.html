@@ -51,7 +51,7 @@
         <dl class="writeup-meta">
           <li>
             <dt>Course</dt>
-            <dd>RAS 598, Arizona State University</dd>
+            <dd>RAS 598, Arizona State University, Spring 2026</dd>
           </li>
           <li>
             <dt>Role</dt>
@@ -105,20 +105,23 @@
           Image data splits by what each stream is good for. RGB feeds visual odometry, which only needs texture and motion, not depth. RGB-D feeds object detection, which needs the extra depth channel to build the point cloud everything downstream depends on.
         </p>
         <p>
-          Object detection publishes its processed point cloud to two services at once: a pose estimator service, which returns a pose estimate and a confidence score, and a next best view planner service. An orchestrator node ties the two together. It asks the pose estimator for an estimate and a confidence value, and only if that confidence is low does it go on to ask the nbv planner service for the next viewpoint. Whichever viewpoint gets chosen becomes a Nav2 goal, and once the robot arrives, the whole loop runs again.
+          The point cloud goes to an object pose estimator, which returns a pose estimate. An orchestrator node then asks a confidence score service to score that estimate, and only if the score is not good enough does it go on to ask a next best view planner for where to look next. If the confidence is good enough, the orchestrator hands off to navigation instead, which routes through Nav2's global planner when a map is available, or a custom A star planner with a PD controller when it is not. Whichever goal gets chosen, next viewpoint or navigation target, the robot moves there and the whole loop runs again.
+        </p>
+        <p>
+          Localization runs on a separate track from this decision loop, not through it. Visual odometry from the RGB stream, fused with the IMU in an EKF, feeds the planning and control side directly, giving the A star planner and PD controller the odometry feedback they need to actually drive the robot, whether the goal came from Nav2 or from the next best view planner.
         </p>
         <ul class="writeup-pipeline">
           <li><span>RGB to VO, RGB-D to detection</span></li>
           <li><span>Point cloud processing</span></li>
           <li><span>Pose estimator service</span></li>
           <li><span>Confidence check</span></li>
-          <li><span>NBV planner service</span></li>
-          <li><span>Nav2 goal</span></li>
+          <li><span>NBV planner or navigation goal</span></li>
+          <li><span>Nav2 or A star with PD control</span></li>
         </ul>
 
         <figure class="writeup-figure">
-          <img src="../images/writeups/active-perception/architecture-diagram.svg" alt="System architecture diagram grouped into Perception, Object Perception, Robot Localization, Planning, and Actuation stages" loading="lazy" />
-          <figcaption>The RGB-D camera feeds both point cloud detection and visual odometry. IMU and visual odometry fuse in an EKF. Object pose and the EKF estimate both feed confidence evaluation, which flows into next best view, Nav2's global planner, and a reactive controller that also takes LiDAR directly, before driving the differential drive controller and motor hardware.</figcaption>
+          <img src="../images/writeups/active-perception/architecture-diagram.svg" alt="System architecture diagram showing perception feeding an object pose estimator and confidence score service, a next best view planner triggered only on low confidence, navigation through Nav2 or a custom A star planner with PD control, and visual odometry feeding that planning and control stage directly as localization feedback" loading="lazy" />
+          <figcaption>The RGB-D camera feeds the point cloud into an object pose estimator. The orchestrator scores that estimate through a confidence service, and only asks the next best view planner when the score is too low. Confident estimates go straight to navigation, Nav2 when a map is available, a custom A star planner with a PD controller when it is not. Visual odometry and the EKF feed that planning and control side directly as localization feedback, separate from the confidence and next best view decision.</figcaption>
         </figure>
 
         <h3>Perception</h3>
@@ -139,6 +142,9 @@
 
       <section class="writeup-section">
         <h2>Results and honest limitations</h2>
+        <p>
+          Worth separating out first: the perception pipeline and the next best view planner both work completely and reliably. What follows is entirely about the visual odometry localization path, not about perception or next best view.
+        </p>
         <p>
           The headline finding was not a success metric, it was a diagnosis. Comparing the visual odometry path against wheel odometry on recorded runs showed strong agreement on straight segments and a clear divergence on curved ones.
         </p>

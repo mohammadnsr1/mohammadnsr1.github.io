@@ -1,4 +1,4 @@
-<svg viewBox="0 0 1850 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="System architecture diagram grouped into five stages: Perception with RGB-D camera, IMU, and LiDAR; Object Perception with point cloud and object pose; Robot Localization with visual odometry and EKF; Planning with confidence evaluation, next best view, Nav2 global planner, and reactive controller; and Actuation with differential drive controller and motor hardware interface">
+<svg viewBox="0 0 2300 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="System architecture diagram grouped into five stages: Perception with RGB-D camera, IMU, and LiDAR; Object Perception with point cloud and object pose; Robot Localization with visual odometry and EKF; Planning with a confidence score service, a next best view planner reached only on low confidence, a navigation decision forking to Nav2 or a custom A star planner, and a shared PD controller; and Actuation with differential drive controller and motor hardware interface">
   <defs>
     <marker id="mBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7cff"/>
@@ -31,30 +31,35 @@
   <rect x="250" y="220" width="360" height="140" rx="18" fill="#45ddb0" fill-opacity="0.06" stroke="#45ddb0" stroke-opacity="0.3" stroke-width="1.4"/>
   <text x="270" y="246" fill="#45ddb0" font-family="Manrope, sans-serif" font-size="13" letter-spacing="0.08em">ROBOT LOCALIZATION</text>
 
-  <rect x="630" y="170" width="790" height="150" rx="18" fill="#8a6cff" fill-opacity="0.06" stroke="#8a6cff" stroke-opacity="0.3" stroke-width="1.4"/>
-  <text x="650" y="196" fill="#8a6cff" font-family="Manrope, sans-serif" font-size="13" letter-spacing="0.08em">PLANNING</text>
+  <rect x="630" y="60" width="1230" height="330" rx="18" fill="#8a6cff" fill-opacity="0.06" stroke="#8a6cff" stroke-opacity="0.3" stroke-width="1.4"/>
+  <text x="650" y="86" fill="#8a6cff" font-family="Manrope, sans-serif" font-size="13" letter-spacing="0.08em">PLANNING</text>
 
-  <rect x="1430" y="170" width="390" height="150" rx="18" fill="#ffb25e" fill-opacity="0.06" stroke="#ffb25e" stroke-opacity="0.3" stroke-width="1.4"/>
-  <text x="1450" y="196" fill="#ffb25e" font-family="Manrope, sans-serif" font-size="13" letter-spacing="0.08em">ACTUATION</text>
+  <rect x="1850" y="170" width="390" height="150" rx="18" fill="#ffb25e" fill-opacity="0.06" stroke="#ffb25e" stroke-opacity="0.3" stroke-width="1.4"/>
+  <text x="1870" y="196" fill="#ffb25e" font-family="Manrope, sans-serif" font-size="13" letter-spacing="0.08em">ACTUATION</text>
 
   <!-- connectors -->
   <line x1="200" y1="120" x2="268" y2="120" stroke="#4f7cff" stroke-width="2" marker-end="url(#mBlue)"/>
   <path d="M 200 140 L 270 290" fill="none" stroke="#4f7cff" stroke-width="2" marker-end="url(#mBlue)"/>
   <path d="M 200 260 L 300 245 L 428 245 L 428 278 L 448 278" fill="none" stroke="#4f7cff" stroke-width="2" marker-end="url(#mBlue)"/>
-  <path d="M 200 410 L 200 486 L 1315 486 L 1315 284" fill="none" stroke="#4f7cff" stroke-width="2" marker-end="url(#mBlue)"/>
+  <path d="M 200 410 L 200 500 L 1710 500 L 1710 293" fill="none" stroke="#4f7cff" stroke-width="2" marker-end="url(#mBlue)"/>
 
   <line x1="410" y1="120" x2="448" y2="120" stroke="#68e3ff" stroke-width="2" marker-end="url(#mCyan)"/>
-  <path d="M 590 120 L 618 120 L 618 246 L 648 246" fill="none" stroke="#68e3ff" stroke-width="2" marker-end="url(#mCyan)"/>
+  <path d="M 590 120 L 618 120 L 618 250 L 648 250" fill="none" stroke="#68e3ff" stroke-width="2" marker-end="url(#mCyan)"/>
 
   <line x1="410" y1="290" x2="448" y2="290" stroke="#45ddb0" stroke-width="2" marker-end="url(#mTeal)"/>
-  <path d="M 590 290 L 622 290 L 622 260 L 648 260" fill="none" stroke="#45ddb0" stroke-width="2" marker-end="url(#mTeal)"/>
+  <path d="M 590 290 L 622 290 L 622 130 L 1710 130 L 1710 207" fill="none" stroke="#45ddb0" stroke-width="2" marker-end="url(#mTeal)"/>
 
-  <line x1="810" y1="250" x2="838" y2="250" stroke="#8a6cff" stroke-width="2" marker-end="url(#mViolet)"/>
-  <line x1="1000" y1="250" x2="1028" y2="250" stroke="#8a6cff" stroke-width="2" marker-end="url(#mViolet)"/>
-  <line x1="1200" y1="250" x2="1228" y2="250" stroke="#8a6cff" stroke-width="2" marker-end="url(#mViolet)"/>
+  <!-- Planning internal: confidence branch -->
+  <path d="M 840 235 L 870 235 L 870 150 L 898 150" fill="none" stroke="#8a6cff" stroke-width="2" marker-end="url(#mViolet)"/>
+  <path d="M 840 250 L 1148 250" fill="none" stroke="#8a6cff" stroke-width="2" marker-end="url(#mViolet)"/>
+  <path d="M 1090 150 L 1120 150 L 1120 235 L 1148 235" fill="none" stroke="#8a6cff" stroke-width="2" marker-end="url(#mViolet)"/>
+  <path d="M 1310 235 L 1340 235 L 1340 167 L 1368 167" fill="none" stroke="#8a6cff" stroke-width="2" marker-end="url(#mViolet)"/>
+  <path d="M 1310 265 L 1340 265 L 1340 327 L 1368 327" fill="none" stroke="#8a6cff" stroke-width="2" marker-end="url(#mViolet)"/>
+  <path d="M 1550 167 L 1580 167 L 1580 225 L 1608 225" fill="none" stroke="#8a6cff" stroke-width="2" marker-end="url(#mViolet)"/>
+  <path d="M 1550 327 L 1580 327 L 1580 275 L 1608 275" fill="none" stroke="#8a6cff" stroke-width="2" marker-end="url(#mViolet)"/>
 
-  <line x1="1400" y1="250" x2="1448" y2="250" stroke="#ffb25e" stroke-width="2" marker-end="url(#mAmber)"/>
-  <line x1="1610" y1="250" x2="1638" y2="250" stroke="#ffb25e" stroke-width="2" marker-end="url(#mAmber)"/>
+  <line x1="1810" y1="250" x2="1868" y2="250" stroke="#ffb25e" stroke-width="2" marker-end="url(#mAmber)"/>
+  <line x1="2030" y1="250" x2="2058" y2="250" stroke="#ffb25e" stroke-width="2" marker-end="url(#mAmber)"/>
 
   <!-- Perception nodes -->
   <g transform="translate(40,90)">
@@ -92,28 +97,37 @@
 
   <!-- Planning nodes -->
   <g transform="translate(650,220)">
+    <rect width="190" height="60" rx="14" fill="url(#nodeFillA)" stroke="#8a6cff" stroke-width="1.5"/>
+    <text x="95" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="11.5" font-weight="600">Confidence Score Service</text>
+  </g>
+  <g transform="translate(900,120)">
+    <rect width="190" height="60" rx="14" fill="url(#nodeFillA)" stroke="#8a6cff" stroke-width="1.5"/>
+    <text x="95" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="12" font-weight="600">Next Best View Planner</text>
+  </g>
+  <g transform="translate(1150,220)">
     <rect width="160" height="60" rx="14" fill="url(#nodeFillA)" stroke="#8a6cff" stroke-width="1.5"/>
-    <text x="80" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="12" font-weight="600">Confidence Evaluation</text>
+    <text x="80" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="12" font-weight="600">Navigation Decision</text>
   </g>
-  <g transform="translate(840,220)">
-    <rect width="160" height="60" rx="14" fill="url(#nodeFillA)" stroke="#8a6cff" stroke-width="1.5"/>
-    <text x="80" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="14" font-weight="600">Next Best View</text>
+  <g transform="translate(1370,140)">
+    <rect width="180" height="55" rx="14" fill="url(#nodeFillA)" stroke="#8a6cff" stroke-width="1.5"/>
+    <text x="90" y="33" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="12" font-weight="600">Nav2 Global Planner</text>
   </g>
-  <g transform="translate(1030,220)">
-    <rect width="170" height="60" rx="14" fill="url(#nodeFillA)" stroke="#8a6cff" stroke-width="1.5"/>
-    <text x="85" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="12" font-weight="600">Nav2 Global Planner</text>
+  <g transform="translate(1370,300)">
+    <rect width="180" height="55" rx="14" fill="url(#nodeFillA)" stroke="#8a6cff" stroke-width="1.5"/>
+    <text x="90" y="33" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="13" font-weight="600">A star Planner</text>
   </g>
-  <g transform="translate(1230,220)">
-    <rect width="170" height="60" rx="14" fill="url(#nodeFillA)" stroke="#8a6cff" stroke-width="1.5"/>
-    <text x="85" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="12" font-weight="600">Reactive Controller</text>
+  <g transform="translate(1610,205)">
+    <rect width="200" height="90" rx="14" fill="url(#nodeFillA)" stroke="#8a6cff" stroke-width="1.5"/>
+    <text x="100" y="40" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="12" font-weight="600">PD Controller /</text>
+    <text x="100" y="58" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="12" font-weight="600">Reactive Controller</text>
   </g>
 
   <!-- Actuation nodes -->
-  <g transform="translate(1450,220)">
+  <g transform="translate(1870,220)">
     <rect width="160" height="60" rx="14" fill="url(#nodeFillA)" stroke="#ffb25e" stroke-width="1.5"/>
     <text x="80" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="12" font-weight="600">Diff Drive Controller</text>
   </g>
-  <g transform="translate(1640,220)">
+  <g transform="translate(2060,220)">
     <rect width="160" height="60" rx="14" fill="url(#nodeFillA)" stroke="#ffb25e" stroke-width="1.5"/>
     <text x="80" y="35" text-anchor="middle" fill="#e7ebf7" font-family="Manrope, sans-serif" font-size="10.5" font-weight="600">Motor Hardware Interface</text>
   </g>

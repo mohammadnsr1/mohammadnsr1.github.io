@@ -67,14 +67,13 @@
               <a class="button button-secondary button-arrow" href="docs/your-cv.pdf">Download CV</a>
               <a class="button button-ghost" href="https://github.com/mohammadnsr1" target="_blank" rel="noreferrer">GitHub</a>
               <a class="button button-ghost" href="https://www.linkedin.com/in/mohammad-nasr-359a68147/" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="button button-ghost" href="https://scholar.google.com/citations?user=4rzGs6wAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
             </div>
             <ul class="identity-strip" aria-label="Core identity tags">
               <li class="chip-tone-cyan"><span class="chip-dot" aria-hidden="true"></span>Robotics</li>
               <li class="chip-tone-violet"><span class="chip-dot" aria-hidden="true"></span>Embodied AI</li>
-              <li class="chip-tone-blue"><span class="chip-dot" aria-hidden="true"></span>Smart Manufacturing</li>
               <li class="chip-tone-teal"><span class="chip-dot" aria-hidden="true"></span>Dynamics &amp; Vibration</li>
               <li class="chip-tone-amber"><span class="chip-dot" aria-hidden="true"></span>Acoustics</li>
-              <li class="chip-tone-violet-warm"><span class="chip-dot" aria-hidden="true"></span>Speedcubing</li>
             </ul>
           </div>
 
@@ -120,11 +119,7 @@
       <!-- Replace the project images with real snapshots whenever you have them. -->
       <section class="section" id="projects">
         <div class="section-heading reveal">
-          <p class="eyebrow">Selected Projects</p>
           <h2>Case studies in robotics, dynamics, and acoustics.</h2>
-          <p>
-            Use this section for projects that show how you make technical decisions, integrate subsystems, and validate results with more than a polished demo.
-          </p>
         </div>
 
         <div class="project-grid">
@@ -133,9 +128,6 @@
               <div class="project-feature-header">
                 <span class="project-tag">Manipulation</span>
                 <h3>Robotic Manipulation</h3>
-                <p class="project-summary">
-                  Two different robotic arms, two different tasks: a custom manipulator we just finished that finds a ball and a goal by camera and kicks the ball in, and a MyCobot Pro solving a physical maze by sight, paired with a digital twin built in MATLAB. Both come down to the same core loop, perceive the workspace, plan a sequence of moves, and execute them precisely enough that small errors do not compound.
-                </p>
               </div>
 
               <div class="mobile-subgrid mobile-subgrid--two">
@@ -206,9 +198,6 @@
               <div class="project-feature-header">
                 <span class="project-tag">Mobile Robotics</span>
                 <h3>ROS 2 Practices with Mobile Robots</h3>
-                <p class="project-summary">
-                  Three different robots, one shared foundation: here is what a semester of hands on ROS 2 work actually taught me.
-                </p>
               </div>
 
               <div class="mobile-subgrid">
@@ -317,7 +306,7 @@
                 <span class="project-tag">Reinforcement Learning</span>
                 <h3>RL and Optimization</h3>
                 <p class="project-summary">
-                  Two connected pieces of the same coursework: a Q-learning agent that learns the shortest safe path through a grid world, and the numerical optimization methods, line search, trust region, conjugate gradient, and constrained optimization, that help explain why the learning process converges the way it does.
+                  Two separate learning tracks that ended up connecting conceptually: a numerical optimization course covering line search, trust region, conjugate gradient, and constrained optimization methods, and a self driven Coursera specialization in reinforcement learning, taken to see the same underlying ideas from both sides. The optimization course solidified the math behind how machine learning models actually train, and the RL specialization made the case that reinforcement learning is itself a form of optimization, over policies and expected reward rather than over a fixed loss surface, which is the thread connecting the Q-learning project below to the optimization coursework beside it.
                 </p>
               </div>
 
@@ -381,7 +370,7 @@
                     <img src="images/Guided_by_hearing_foreground.png" alt="A robot using two microphone binaural hearing to localize a gas leak" loading="lazy" />
                   </figure>
                   <p>
-                    Robotic motion planning for gas leak localization using two microphone binaural hearing, the same trick animals use to find a sound source with only two ears. Two microphones measure the time difference of arrival between sound reaching each one, and moving to a second, well chosen position resolves where the two resulting hyperbolas cross into a single estimated source location.
+                    Robotic motion planning for gas leak localization using two microphones mimicking binaural hearing, the same trick animals use to find a sound source with only two ears. Two microphones measure the time difference of arrival between sound reaching each one, and moving to a second, well chosen position resolves where the two resulting hyperbolas cross into a single estimated source location.
                   </p>
                   <dl>
                     <div>
@@ -402,6 +391,7 @@
                     </div>
                   </dl>
                   <div class="project-links">
+                    <a class="project-link" href="https://doi.org/10.32548/2025.me-04491" target="_blank" rel="noopener">Paper</a>
                     <a class="project-link" href="writeups/guided-by-hearing.html">Writeup</a>
                   </div>
                 </article>
@@ -431,7 +421,7 @@
                 <span class="project-tag">Dynamics</span>
                 <h3>Dynamics and Vibration</h3>
                 <p class="project-summary">
-                  Analytical and computational dynamics work spanning orbital mechanics, automated experimental modal analysis, and nonlinear vibration, three problems that share very little on the surface but the same underlying habit: write down the equations of motion, question every simplifying assumption, and check the model against something real whenever possible.
+                  Analytical and experimental dynamics work spanning orbital mechanics, automated experimental modal analysis, and nonlinear vibration, three problems that share very little on the surface but the same underlying habit: write down the equations of motion, question every simplifying assumption, and check the model against something real whenever possible.
                 </p>
               </div>
 
@@ -489,6 +479,7 @@
                   </dl>
                   <div class="project-links">
                     <a class="project-link" href="https://github.com/mohammadnsr1/SmartAutomaticModalhammer" target="_blank" rel="noopener">Repository</a>
+                    <a class="project-link" href="https://doi.org/10.1007/s42417-024-01461-6" target="_blank" rel="noopener">Paper</a>
                     <a class="project-link" href="writeups/smart-automatic-modal-hammer.html">Writeup</a>
                   </div>
                 </article>

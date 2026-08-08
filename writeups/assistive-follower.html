@@ -51,7 +51,7 @@
         <dl class="writeup-meta">
           <li>
             <dt>Course</dt>
-            <dd>RAS 598, Arizona State University, Team 07</dd>
+            <dd>RAS 598, Arizona State University, Spring 2025, Team 07</dd>
           </li>
           <li>
             <dt>Role</dt>
@@ -127,6 +127,9 @@
         <h2>What did not work, and the pivot</h2>
         <p>
           Integrating Nav2 for global navigation did not pan out. Reconfiguring it to work alongside our custom <code>gap_finder</code> node for local obstacle avoidance turned out to be far more complex than expected, and the two never cooperated cleanly. On top of that, running the full orchestrated system, every node active at once, was not reliably achievable given the hardware we had to work with.
+        </p>
+        <p>
+          Hardware and networking issues were the deeper cause behind the Nav2 integration failing to cooperate with the custom gap finder for local and dynamic obstacle avoidance. Chasing those networking issues down turned into its own education, it pushed the team into advanced ROS 2 topics like the Discovery Server and middleware implementations such as Cyclone DDS and Fast DDS, and building a solid working understanding of how ROS 2 networking actually operates under the hood.
         </p>
       </section>
     </main>
