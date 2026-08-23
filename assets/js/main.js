@@ -9,6 +9,7 @@ const sections = document.querySelectorAll("main section[id]");
 const revealItems = document.querySelectorAll(".reveal");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const yearTarget = document.querySelector("[data-current-year]");
+const themeToggle = document.querySelector("[data-theme-toggle]");
 
 function updateHeaderState() {
   if (!header) return;
@@ -79,10 +80,31 @@ function setCurrentYear() {
   }
 }
 
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  if (!themeToggle) return;
+  themeToggle.setAttribute("aria-pressed", String(theme === "light"));
+  themeToggle.setAttribute("aria-label", theme === "light" ? "Switch to dark theme" : "Switch to light theme");
+}
+
+function setupThemeToggle() {
+  applyTheme(document.documentElement.getAttribute("data-theme") || "dark");
+
+  if (!themeToggle) return;
+
+  themeToggle.addEventListener("click", () => {
+    const isLight = document.documentElement.getAttribute("data-theme") === "light";
+    const next = isLight ? "dark" : "light";
+    localStorage.setItem("theme", next);
+    applyTheme(next);
+  });
+}
+
 updateHeaderState();
 setActiveLink();
 setCurrentYear();
 setupRevealAnimations();
+setupThemeToggle();
 
 window.addEventListener("scroll", () => {
   updateHeaderState();

@@ -2,6 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var theme = stored || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -27,24 +34,36 @@
           <span class="brand-text">Mohammad Nasr</span>
         </a>
 
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="nav-links"
-          aria-label="Open navigation menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <div class="nav-actions">
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nav-links"
+            aria-label="Open navigation menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
 
-        <div class="nav-links" id="nav-links">
-          <a href="#projects">Projects</a>
-          <a href="#toolkit">Toolkit</a>
-          <a href="#about">About</a>
-          <a href="#beyond">Beyond the Lab</a>
-          <a href="#contact">Contact</a>
+          <div class="nav-links" id="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#toolkit">Toolkit</a>
+            <a href="#about">About</a>
+            <a href="#beyond">Beyond the Lab</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
+            <svg class="theme-toggle-icon theme-toggle-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+            </svg>
+            <svg class="theme-toggle-icon theme-toggle-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
+            </svg>
+          </button>
         </div>
       </nav>
     </header>
@@ -54,8 +73,15 @@
       <section class="hero section" id="hero">
         <div class="hero-grid">
           <div class="hero-copy reveal">
-            <p class="eyebrow">Research Engineering Portfolio</p>
-            <h1>Mohammad Nasr</h1>
+            <div class="hero-name-row">
+              <figure class="hero-portrait">
+                <img src="images/portfolio_portrait_option_3.png" alt="Portrait of Mohammad Nasr" loading="eager" />
+              </figure>
+              <div class="hero-name-block">
+                <p class="eyebrow">Research Engineering Portfolio</p>
+                <h1>Mohammad Nasr</h1>
+              </div>
+            </div>
             <p class="hero-identity">
               Robotics PhD student working on embodied and agentic AI and Robotics with direct applications in industry.
             </p>
@@ -93,7 +119,7 @@
                 <p class="micro-label">Working Range</p>
                 <h2>From models to deployed systems</h2>
                 <p>
-                  My work runs the full span. Deriving the models and control, building the perception and learning that sit on top, and validating the whole thing on real systems, where noise, nonlinearity, and hard constraints actually bite.
+                  My work runs the full span: deriving the models and control, building the perception and learning on top, and validating all of it on real systems, where noise and hard constraints actually bite.
                 </p>
               </article>
 
@@ -101,7 +127,7 @@
                 <p class="micro-label">What This Site Shows</p>
                 <h2>Build, test, interpret, refine</h2>
                 <p>
-                  Every project here is an engineering case study: the design choices, the tradeoffs, the experiments, and what the evidence actually showed. Less polish, more what worked, what didn't, and why.
+                  Every project here is an engineering case study: the design choices, the tradeoffs, and what the evidence actually showed.
                 </p>
               </article>
             </div>
@@ -122,6 +148,24 @@
           <h2>Case studies in robotics, dynamics, and acoustics.</h2>
         </div>
 
+        <article class="featured-case reveal">
+          <figure class="featured-case-media">
+            <img src="images/MyCobot_foreground.png" alt="The MyCobot Pro 600 arm solving a physical maze board" loading="lazy" />
+          </figure>
+          <div class="featured-case-content">
+            <span class="micro-label">Featured Case Study</span>
+            <h3>MyCobot Pro 600, From Digital Twin to Solving a Maze</h3>
+            <p class="featured-case-quote">
+              Solved a 4x4 maze end to end, from a single photograph of the board to executed joint motion on the real arm.
+            </p>
+            <div class="project-links">
+              <a class="project-link" href="writeups/mycobot-pro-600.html">Read the full writeup</a>
+              <a class="project-link" href="https://github.com/mohammadnsr1/Robotic-Systems-1" target="_blank" rel="noopener">Repository</a>
+              <a class="project-link" href="https://www.youtube.com/shorts/yxIhqgxqiWA" target="_blank" rel="noopener">Maze Solving Demo</a>
+            </div>
+          </div>
+        </article>
+
         <div class="project-grid">
           <article class="project-card project-feature project-arms reveal" style="--reveal-delay: 40ms">
             <div class="project-content">
@@ -130,37 +174,7 @@
                 <h3>Robotic Manipulation</h3>
               </div>
 
-              <div class="mobile-subgrid mobile-subgrid--two">
-                <article class="mobile-subcard">
-                  <span class="project-tag">Digital Twin and Vision</span>
-                  <h4>MyCobot Pro 600, From Digital Twin to Solving a Maze</h4>
-                  <figure class="mobile-subcard-media">
-                    <img src="images/MyCobot_foreground.png" alt="The MyCobot Pro 600 arm solving a physical maze board" loading="lazy" />
-                  </figure>
-                  <p>
-                    A six axis MyCobot Pro 600 built up from a validated digital twin, to a camera and marker based perception loop, to solving a physical maze end to end. Hand derived kinematics were checked against a MATLAB SimScape model, ArUco markers hand off maze waypoints from vision to the arm, and A* pathfinding turns a photographed maze into a full inverse kinematics solve executed over TCP/IP.
-                  </p>
-                  <dl>
-                    <div>
-                      <dt>Role</dt>
-                      <dd>Kinematics, digital twin, perception, and motion planning</dd>
-                    </div>
-                    <div>
-                      <dt>Stack</dt>
-                      <dd>MATLAB, SimScape, URDF from SolidWorks CAD, OpenCV, ArUco markers, TCP/IP socket control</dd>
-                    </div>
-                    <div>
-                      <dt>Outcome</dt>
-                      <dd>Solved a 4x4 maze end to end, from a single camera image to executed joint motion, validated in simulation before every run on the physical arm</dd>
-                    </div>
-                  </dl>
-                  <div class="project-links">
-                    <a class="project-link" href="https://github.com/mohammadnsr1/Robotic-Systems-1" target="_blank" rel="noopener">Repository</a>
-                    <a class="project-link" href="writeups/mycobot-pro-600.html">Writeup</a>
-                    <a class="project-link" href="https://www.youtube.com/shorts/yxIhqgxqiWA" target="_blank" rel="noopener">Maze Solving Demo</a>
-                  </div>
-                </article>
-
+              <div class="mobile-subgrid mobile-subgrid--one">
                 <article class="mobile-subcard">
                   <span class="project-tag">Vision and Kinematics</span>
                   <h4>Ball Shooting Manipulator</h4>
@@ -168,22 +182,8 @@
                     <img src="images/Ball_shoot_foreground.png" alt="The robotic arm positioned behind the ball, aiming toward the goal, from the Ball Shooting Manipulator project" loading="lazy" />
                   </figure>
                   <p>
-                    A camera guided robotic arm that finds a ball and a goal, then kicks the ball in. A Pixy camera locates the ball and the goal using color and pixel count based distance estimates, and inverse kinematics places a 3D printed leg behind the ball for a timed kick toward the goal.
+                    A camera guided robotic arm that finds a ball and a goal, then kicks the ball in using inverse kinematics and a timed servo sequence.
                   </p>
-                  <dl>
-                    <div>
-                      <dt>Role</dt>
-                      <dd>Perception and kinematics, team of three</dd>
-                    </div>
-                    <div>
-                      <dt>Stack</dt>
-                      <dd>Arduino Mega, Pixy camera, three degree of freedom arm with two added wrist servos, 3D printed leg end effector and goal</dd>
-                    </div>
-                    <div>
-                      <dt>Outcome</dt>
-                      <dd>Consistently found the ball and the goal, positioned the leg behind it, and kicked toward the goal, with most error coming from pixel based distance estimates and angle imprecision rather than the kinematics</dd>
-                    </div>
-                  </dl>
                   <div class="project-links">
                     <a class="project-link" href="https://github.com/mohammadnsr1/Robotic_Manipulation_UNL" target="_blank" rel="noopener">Repository</a>
                     <a class="project-link" href="writeups/ball-shooting-manipulator.html">Writeup</a>
@@ -208,26 +208,8 @@
                     <img src="images/Active_perception_foreground.png" alt="The TurtleBot4 active perception system repositioning itself for a better view before trusting a pose estimate" loading="lazy" />
                   </figure>
                   <p>
-                    A semester of ROS 2 assignments that built the base for everything else: publisher and subscriber patterns, TF2 frame broadcasting, reactive LiDAR obstacle avoidance, point cloud based object detection, path planning and control, and Bayes filter tuning for sensor and motion models.
+                    A semester of ROS 2 coursework in perception, planning, and estimation, applied in a TurtleBot4 system that repositions itself for a better view before trusting a pose estimate.
                   </p>
-                  <dl>
-                    <div>
-                      <dt>Role</dt>
-                      <dd>Perception, planning, and system integration</dd>
-                    </div>
-                    <div>
-                      <dt>Coursework</dt>
-                      <dd>ROS 2 pub and sub, TF2, reactive navigation, point cloud processing, path planning, Bayes filters</dd>
-                    </div>
-                    <div>
-                      <dt>Applied project</dt>
-                      <dd>Active Perception for Object Localization, a TurtleBot4 system that repositions itself for a better view before trusting a pose estimate</dd>
-                    </div>
-                    <div>
-                      <dt>Outcome</dt>
-                      <dd>Went from writing isolated nodes for each assignment to owning perception, planning, and integration on a full closed loop robot system, where a wrong Bayes filter tuning or a missed frame transform shows up immediately as bad robot behavior</dd>
-                    </div>
-                  </dl>
                   <div class="project-links">
                     <a class="project-link" href="https://github.com/mohammadnsr1/MobileRobots" target="_blank" rel="noopener">Coursework Repository</a>
                     <a class="project-link" href="https://github.com/mohammadnsr1/MobileRobots_Active_Perception/" target="_blank" rel="noopener">Project Repository</a>
@@ -243,22 +225,8 @@
                     <img src="images/Assistive_foreground.png" alt="The TurtleBot4 assistive follower robot tracking and following a specific person" loading="lazy" />
                   </figure>
                   <p>
-                    A TurtleBot4 that follows a specific person by detecting their shoes with a custom trained ResNet18 model on OAK D camera images, then fuses that heading with LiDAR based gap finding to avoid obstacles in real time.
+                    A TurtleBot4 that follows a specific person by detecting their shoes, then fuses that heading with LiDAR based gap finding to avoid obstacles in real time.
                   </p>
-                  <dl>
-                    <div>
-                      <dt>Role</dt>
-                      <dd>Vision and navigation, team of three</dd>
-                    </div>
-                    <div>
-                      <dt>Stack</dt>
-                      <dd>OAK D depth camera, LiDAR, TurtleBot4</dd>
-                    </div>
-                    <div>
-                      <dt>Outcome</dt>
-                      <dd>Built a working understanding of ROS 2 networking, including Discovery Server and middleware implementations like Fast DDS and Cyclone DDS, and worked around real hardware constraints in networking and vision model deployment</dd>
-                    </div>
-                  </dl>
                   <div class="project-links">
                     <a class="project-link" href="https://github.com/RAS598-2025-S-Team07/Final_ROS2_Package" target="_blank" rel="noopener">Repository</a>
                     <a class="project-link" href="writeups/assistive-follower.html">Writeup</a>
@@ -272,22 +240,8 @@
                     <img src="images/F1_Tenth_foreground.png" alt="The F1TENTH autonomous racecar running on the physical track" loading="lazy" />
                   </figure>
                   <p>
-                    A 1:10 scale racecar running automatic emergency braking, PID wall following, and follow the gap obstacle avoidance, the same three behaviors developed first in simulation, then ported to run on the real car.
+                    A 1:10 scale racecar running automatic emergency braking, PID wall following, and follow the gap obstacle avoidance, proven first in simulation, then on the real car.
                   </p>
-                  <dl>
-                    <div>
-                      <dt>Role</dt>
-                      <dd>Individual project, perception, control, and safety</dd>
-                    </div>
-                    <div>
-                      <dt>Stack</dt>
-                      <dd>ROS1 Melodic, LIDAR, Ackermann drive, PID control, LibTorch vision</dd>
-                    </div>
-                    <div>
-                      <dt>Outcome</dt>
-                      <dd>Learned that the algorithm was rarely the hard part, the real work was retuning every constant once real LIDAR noise and real inertia replaced their simulated counterparts</dd>
-                    </div>
-                  </dl>
                   <div class="project-links">
                     <a class="project-link" href="https://github.com/mohammadnsr1/F1_Tenth_Race" target="_blank" rel="noopener">Repository</a>
                     <a class="project-link" href="writeups/f1tenth.html">Writeup</a>
@@ -318,22 +272,8 @@
                     <img src="images/RL_navigation_foreground.png" alt="A Q-learning agent navigating the Cliff Walking grid world toward its goal" loading="lazy" />
                   </figure>
                   <p>
-                    Q-learning for shortest path navigation, learned entirely through trial and error rather than labeled examples. An agent follows an epsilon greedy policy, mostly acting on its best known move but occasionally exploring, and updates its value estimates from the rewards it receives. Tested on the Cliff Walking grid world, the agent learns the shortest safe route that hugs the cliff edge, and adding exploration decay turns an initially noisy policy into a fully deterministic optimal one.
+                    Q-learning for shortest path navigation in a grid world, learned entirely through trial and error rather than labeled examples.
                   </p>
-                  <dl>
-                    <div>
-                      <dt>Role</dt>
-                      <dd>Algorithm implementation, testing, and connecting theory back to optimization</dd>
-                    </div>
-                    <div>
-                      <dt>Stack</dt>
-                      <dd>Q-learning, epsilon greedy exploration, OpenAI Gym Cliff Walking environment</dd>
-                    </div>
-                    <div>
-                      <dt>Outcome</dt>
-                      <dd>Learned the optimal cliff hugging path, and exploration decay removed the reward oscillation caused by continued random exploration after convergence</dd>
-                    </div>
-                  </dl>
                   <div class="project-links">
                     <a class="project-link" href="https://github.com/mohammadnsr1/RL-and-Optimization" target="_blank" rel="noopener">Repository</a>
                     <a class="project-link" href="writeups/rl-robot-navigation.html">Writeup</a>
@@ -345,7 +285,7 @@
                   <span class="project-tag">Coursework</span>
                   <h4>Numerical Optimization Coursework</h4>
                   <p>
-                    The coursework followed Nocedal and Wright's Numerical Optimization, second edition, covering unconstrained optimization fundamentals, line search methods including Newton's method and steepest descent, trust region methods including the dogleg method and Hessian modification, conjugate gradient methods for both linear and nonlinear problems, the BFGS quasi Newton method, and constrained optimization through KKT conditions and the active set method, implemented and tested on problems ranging from root finding and the Rosenbrock function to the ill conditioned Hilbert matrix and n dimensional optimization with up to 60 variables.
+                    Coursework in numerical optimization, covering line search, trust region, conjugate gradient, and constrained optimization methods.
                   </p>
                 </article>
               </div>
@@ -370,26 +310,8 @@
                     <img src="images/Guided_by_hearing_foreground.png" alt="A robot using two microphone binaural hearing to localize a gas leak" loading="lazy" />
                   </figure>
                   <p>
-                    Robotic motion planning for gas leak localization using two microphones mimicking binaural hearing, the same trick animals use to find a sound source with only two ears. Two microphones measure the time difference of arrival between sound reaching each one, and moving to a second, well chosen position resolves where the two resulting hyperbolas cross into a single estimated source location.
+                    Robotic motion planning for gas leak localization using two microphones mimicking binaural hearing to triangulate a sound source.
                   </p>
-                  <dl>
-                    <div>
-                      <dt>With</dt>
-                      <dd>Nihar Masurkar, Pouria Meshkizadeh, and Ehsan Dehghan Niri, Intelligent Structures and Nondestructive Evaluation Lab, Arizona State University</dd>
-                    </div>
-                    <div>
-                      <dt>Stack</dt>
-                      <dd>Two microphone TDOA sensing with GCC PHAT, validated on a collaborative robotic arm and a quadruped robot</dd>
-                    </div>
-                    <div>
-                      <dt>Outcome</dt>
-                      <dd>Cut average localization error from about 17 centimeters with random motion to about 11 centimeters with strategic motion</dd>
-                    </div>
-                    <div>
-                      <dt>Published</dt>
-                      <dd>Materials Evaluation, April 2025</dd>
-                    </div>
-                  </dl>
                   <div class="project-links">
                     <a class="project-link" href="https://doi.org/10.32548/2025.me-04491" target="_blank" rel="noopener">Paper</a>
                     <a class="project-link" href="writeups/guided-by-hearing.html">Writeup</a>
@@ -400,7 +322,7 @@
                   <span class="project-tag">Coming Soon</span>
                   <h4>Sound Source Localization II</h4>
                   <p>
-                    Paper and write up in progress. Check back soon for the full case study.
+                    Paper and write up in progress.
                   </p>
                 </article>
 
@@ -408,7 +330,7 @@
                   <span class="project-tag">Coming Soon</span>
                   <h4>Bio-Inspired Bat Hearing</h4>
                   <p>
-                    Paper and write up in progress. Check back soon for the full case study.
+                    Paper and write up in progress.
                   </p>
                 </article>
               </div>
@@ -433,22 +355,8 @@
                     <img src="images/PCR3BD_foreground.png" alt="The zero velocity curves and Lagrange points of the planar circular restricted three body problem for Earth and Moon" loading="lazy" />
                   </figure>
                   <p>
-                    The circular restricted three body problem for the Earth and Moon system, derived from Newton's second law in a rotating frame and restricted to a single orbital plane. The same equations give the five Lagrange points, two in closed form and three solved numerically, and a single conserved quantity, the Jacobi constant, that maps out exactly which regions of space a third body can and cannot reach at a given energy.
+                    The circular restricted three body problem for the Earth and Moon system, mapped through the Lagrange points and the Jacobi constant.
                   </p>
-                  <dl>
-                    <div>
-                      <dt>Role</dt>
-                      <dd>Derivation, numerical solution, and simulation</dd>
-                    </div>
-                    <div>
-                      <dt>Stack</dt>
-                      <dd>MATLAB, fsolve, ode45</dd>
-                    </div>
-                    <div>
-                      <dt>Outcome</dt>
-                      <dd>Derived the equations of motion, found all five Lagrange points, derived the Jacobi constant, and mapped accessible regions of motion at five different energy levels</dd>
-                    </div>
-                  </dl>
                   <div class="project-links">
                     <a class="project-link" href="writeups/pcr3bp.html">Writeup</a>
                   </div>
@@ -461,22 +369,8 @@
                     <img src="images/Modal_hammer_foreground.png" alt="The stepper motor driven modal hammer striking a test structure" loading="lazy" />
                   </figure>
                   <p>
-                    A stepper motor driven modal hammer that swings itself, measures the force it actually produced, and corrects its own aim strike by strike until it converges on the requested force, instead of the trial and error a person needs to hit consistently by hand.
+                    A stepper motor driven modal hammer that swings itself and corrects its own aim until it converges on a requested strike force.
                   </p>
-                  <dl>
-                    <div>
-                      <dt>With</dt>
-                      <dd>Aryan Singh and Keegan J. Moore, University of Nebraska Lincoln</dd>
-                    </div>
-                    <div>
-                      <dt>Stack</dt>
-                      <dd>Raspberry Pi, stepper motor with closed loop servo driver, National Instruments DAQ, MATLAB and Python</dd>
-                    </div>
-                    <div>
-                      <dt>Outcome</dt>
-                      <dd>Converges to within about 2 to 4 percent of a requested force in six iterations or fewer, validated on both the training structure and an unseen nonlinear wing structure</dd>
-                    </div>
-                  </dl>
                   <div class="project-links">
                     <a class="project-link" href="https://github.com/mohammadnsr1/SmartAutomaticModalhammer" target="_blank" rel="noopener">Repository</a>
                     <a class="project-link" href="https://doi.org/10.1007/s42417-024-01461-6" target="_blank" rel="noopener">Paper</a>
@@ -488,7 +382,7 @@
                   <span class="project-tag">Coming Soon</span>
                   <h4>Nonlinear Vibration and Dynamics</h4>
                   <p>
-                    Paper and write up in progress. Check back soon for the full case study.
+                    Paper and write up in progress.
                   </p>
                 </article>
               </div>
