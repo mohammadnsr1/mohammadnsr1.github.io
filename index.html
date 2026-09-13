@@ -12,626 +12,410 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Professional portfolio for a PhD researcher working across robotics, embodied AI, control, dynamics, and experimental sensing."
+      content="Mohammad Nasr, Robotics PhD student at Arizona State University working on embodied and agentic AI."
     />
-    <title>Mohammad Nasr | Robotics &amp; Embodied AI Portfolio</title>
+    <title>Mohammad Nasr | Robotics PhD Student</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/refined.css" />
+    <link rel="stylesheet" href="assets/css/home.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <header class="site-header" id="top">
+    <!-- Icon sprite: every icon uses currentColor so it recolors with the theme. -->
+    <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3.5 6.5 8.5 6.5 8.5-6.5" />
+      </symbol>
+      <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.3-.5-1.5.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3" />
+      </symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0h.01Z" />
+      </symbol>
+      <symbol id="i-scholar" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M5.24 13.77 0 9.5 12 0l12 9.5-5.24 4.27A7.5 7.5 0 0 0 12 9.5a7.5 7.5 0 0 0-6.76 4.27ZM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14Z" />
+      </symbol>
+      <symbol id="i-cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z" />
+        <path d="M14 3v5h5M9 13h6M9 17h6M9 9h2" />
+      </symbol>
+    </svg>
+
+    <header class="site-header">
       <nav class="site-nav" aria-label="Primary navigation">
-        <a class="brand-mark" href="#top" aria-label="Homepage">
-          <span class="brand-dot" aria-hidden="true"></span>
-          <span class="brand-text">Mohammad Nasr</span>
-        </a>
+        <a class="brand" href="#home">Mohammad Nasr</a>
 
-        <div class="nav-actions">
-          <button
-            class="nav-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="nav-links"
-            aria-label="Open navigation menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-
-          <div class="nav-links" id="nav-links">
-            <a href="#projects">Projects</a>
-            <a href="#toolkit">Toolkit</a>
-            <a href="#about">About</a>
-            <a href="#beyond">Beyond the Lab</a>
-            <a href="#contact">Contact</a>
-          </div>
-
-          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
-            <svg class="theme-toggle-icon theme-toggle-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="4"></circle>
-              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
-            </svg>
-            <svg class="theme-toggle-icon theme-toggle-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
-            </svg>
-          </button>
+        <div class="nav-links" id="nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#projects">Projects</a>
+          <a href="#publications">Publications</a>
+          <a href="docs/mohammad-nasr-cv.pdf" target="_blank" rel="noopener">CV</a>
+          <a href="#contact">Contact</a>
         </div>
+
+        <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" />
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+          </svg>
+        </button>
+
+        <button class="icon-button nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
       </nav>
     </header>
 
     <main id="main-content">
-      <!-- Replace the hero copy first. It sets the voice of the whole site. -->
-      <section class="hero section" id="hero">
-        <div class="hero-grid">
-          <div class="hero-copy reveal">
-            <div class="hero-name-row">
-              <figure class="hero-portrait">
-                <img src="images/portfolio_portrait_option_3.png" alt="Portrait of Mohammad Nasr" loading="eager" />
-              </figure>
-              <div class="hero-name-block">
-                <p class="eyebrow">Research Engineering Portfolio</p>
-                <h1>Mohammad Nasr</h1>
-              </div>
-            </div>
-            <p class="hero-identity">
-              Robotics PhD student working on embodied and agentic AI and Robotics with direct applications in industry.
+      <!-- 1. Home -->
+      <section class="section home" id="home">
+        <img class="home-photo" src="images/portfolio_portrait_option_3.png" alt="Portrait of Mohammad Nasr" width="184" height="184" />
+        <h1>Mohammad Nasr</h1>
+        <p class="home-role">Robotics PhD Student, Arizona State University</p>
+        <ul class="icon-row" aria-label="Links">
+          <li><a href="mailto:nasrmohammad661@gmail.com" aria-label="Email" title="Email"><svg aria-hidden="true"><use href="#i-mail" /></svg></a></li>
+          <li><a href="https://github.com/mohammadnsr1" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg aria-hidden="true"><use href="#i-github" /></svg></a></li>
+          <li><a href="https://www.linkedin.com/in/mohammad-nasr-359a68147/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin" /></svg></a></li>
+          <li><a href="https://scholar.google.com/citations?user=4rzGs6wAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg aria-hidden="true"><use href="#i-scholar" /></svg></a></li>
+          <li><a href="docs/mohammad-nasr-cv.pdf" target="_blank" rel="noopener" aria-label="CV (PDF)" title="CV (PDF)"><svg aria-hidden="true"><use href="#i-cv" /></svg></a></li>
+        </ul>
+      </section>
+
+      <!-- 2. About -->
+      <section class="section" id="about">
+        <h2 class="section-title">About</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I am a robotics PhD student at Arizona State University working on embodied and agentic AI with direct
+              applications in industry. My background is in mechanical engineering, with earlier work in dynamics and
+              vibration and in acoustics.
             </p>
-            <p class="hero-summary">
-              Earlier I worked on nonlinear dynamics and vibration developing a system for autonomous testing of vibrating systems that makes characterizing nonlinear, real-world dynamical behavior far more tractable. In acoustics, I have worked on binaural hearing, specifically on animals auditory systems leading to potential bioinspired hearing designs. For me, working across disciplines isn't a detour, it's how I think.
-            </p>
-            <div class="hero-actions">
-              <a class="button button-primary button-arrow" href="#projects">View Projects</a>
-              <a class="button button-secondary button-arrow" href="docs/mohammad-nasr-cv.pdf">Download CV</a>
-              <a class="button button-ghost" href="https://github.com/mohammadnsr1" target="_blank" rel="noreferrer">GitHub</a>
-              <a class="button button-ghost" href="https://www.linkedin.com/in/mohammad-nasr-359a68147/" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a class="button button-ghost" href="https://scholar.google.com/citations?user=4rzGs6wAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
-            </div>
-            <ul class="identity-strip" aria-label="Core identity tags">
-              <li class="chip-tone-cyan"><span class="chip-dot" aria-hidden="true"></span>Robotics</li>
-              <li class="chip-tone-violet"><span class="chip-dot" aria-hidden="true"></span>Embodied AI</li>
-              <li class="chip-tone-teal"><span class="chip-dot" aria-hidden="true"></span>Dynamics &amp; Vibration</li>
-              <li class="chip-tone-amber"><span class="chip-dot" aria-hidden="true"></span>Acoustics</li>
+            <p class="list-title">I work on:</p>
+            <ul class="topic-list">
+              <li>Perception and active perception for mobile robots</li>
+              <li>Manipulation, digital twins, and kinematics</li>
+              <li>Bio-inspired acoustic sensing</li>
+              <li>Nonlinear dynamics and automated experimental testing</li>
             </ul>
           </div>
 
-          <div class="hero-visual">
-            <!-- Replace this image with a portrait, lab scene, robot platform, or simulation frame. -->
-            <figure class="hero-figure reveal" style="--reveal-delay: 100ms">
-              <img
-                src="images/hero-davinci.svg"
-                alt="Codex-style proportion study of a sensing machine"
-                loading="eager"
-              />
-              <div class="hero-figure-badge">Proportion study</div>
-            </figure>
-
-            <div class="hero-note-grid">
-              <article class="hero-note hero-note-cyan reveal" style="--reveal-delay: 180ms">
-                <p class="micro-label">Working Range</p>
-                <h2>From models to deployed systems</h2>
-                <p>
-                  My work runs the full span: deriving the models and control, building the perception and learning on top, and validating all of it on real systems, where noise and hard constraints actually bite.
-                </p>
-              </article>
-
-              <article class="hero-note hero-note-violet reveal" style="--reveal-delay: 240ms">
-                <p class="micro-label">What This Site Shows</p>
-                <h2>Build, test, interpret, refine</h2>
-                <p>
-                  Every project here is an engineering case study: the design choices, the tradeoffs, and what the evidence actually showed.
-                </p>
-              </article>
+          <!-- id="toolkit" kept so the writeup pages' "Toolkit" nav link still lands here. -->
+          <div class="toolkit" id="toolkit" aria-label="Toolkit">
+            <div class="toolkit-row">
+              <h3>Robotics</h3>
+              <div class="chips"><span>ROS / ROS 2</span><span>MoveIt</span><span>SLAM</span><span>Motion Planning</span><span>Sensor Fusion</span></div>
+            </div>
+            <div class="toolkit-row">
+              <h3>ML / AI</h3>
+              <div class="chips"><span>PyTorch</span><span>Transformers</span><span>VLMs</span><span>LLMs</span><span>Reinforcement Learning</span></div>
+            </div>
+            <div class="toolkit-row">
+              <h3>Simulation</h3>
+              <div class="chips"><span>Gazebo</span><span>MuJoCo</span><span>Isaac Sim</span><span>MATLAB / Simulink</span><span>Digital Twins</span></div>
+            </div>
+            <div class="toolkit-row">
+              <h3>Control / Math</h3>
+              <div class="chips"><span>Optimization</span><span>System Identification</span><span>State Estimation</span><span>Numerical Methods</span></div>
+            </div>
+            <div class="toolkit-row">
+              <h3>Programming</h3>
+              <div class="chips"><span>Python</span><span>C++</span><span>MATLAB</span><span>Linux</span><span>Git</span></div>
             </div>
           </div>
         </div>
-        <div class="hero-backdrop" aria-hidden="true">
-          <div class="gradient-orb orb-a"></div>
-          <div class="gradient-orb orb-b"></div>
-          <div class="gradient-orb orb-c"></div>
-          <div class="grid-haze"></div>
-          <div class="technical-lines"></div>
+      </section>
+
+      <!-- 3. Education. Swap each .edu-logo div for <img class="edu-logo" src="images/logos/..." alt="..."> later. -->
+      <section class="section" id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="edu-list">
+          <div class="edu-item">
+            <div class="edu-logo" aria-hidden="true"></div>
+            <div>
+              <div class="edu-degree">Ph.D. in Robotics and Autonomous Systems</div>
+              <div class="edu-school">Arizona State University</div>
+            </div>
+            <div class="edu-years">2024 – present (expected 2029)</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-logo" aria-hidden="true"></div>
+            <div>
+              <div class="edu-degree">M.Sc. in Mechanical Engineering and Applied Mechanics</div>
+              <div class="edu-school">University of Nebraska-Lincoln</div>
+              <ul>
+                <li>Advisor: Keegan J. Moore, Ph.D.</li>
+                <li>Major in Dynamics and Vibration</li>
+              </ul>
+            </div>
+            <div class="edu-years">2024</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-logo" aria-hidden="true"></div>
+            <div>
+              <div class="edu-degree">B.Sc. in Mechanical Engineering</div>
+              <div class="edu-school">University of Tabriz</div>
+            </div>
+            <div class="edu-years">2021</div>
+          </div>
         </div>
       </section>
 
-      <!-- Replace the project images with real snapshots whenever you have them. -->
+      <!-- 4. Projects -->
       <section class="section" id="projects">
-        <div class="section-heading reveal">
-          <h2>Case studies in robotics, dynamics, and acoustics.</h2>
-        </div>
+        <h2 class="section-title">Projects</h2>
 
-        <article class="featured-case reveal">
-          <figure class="featured-case-media">
-            <img src="images/MyCobot_foreground.png" alt="The MyCobot Pro 600 arm solving a physical maze board" loading="lazy" />
-          </figure>
-          <div class="featured-case-content">
-            <span class="micro-label">Featured Case Study</span>
-            <h3>MyCobot Pro 600, From Digital Twin to Solving a Maze</h3>
-            <p class="featured-case-quote">
-              Solved a 4x4 maze end to end, from a single photograph of the board to executed joint motion on the real arm.
-            </p>
-            <div class="project-links">
-              <a class="project-link" href="writeups/mycobot-pro-600.html">Read the full writeup</a>
-              <a class="project-link" href="https://github.com/mohammadnsr1/Robotic-Systems-1" target="_blank" rel="noopener">Repository</a>
-              <a class="project-link" href="https://www.youtube.com/shorts/yxIhqgxqiWA" target="_blank" rel="noopener">Maze Solving Demo</a>
+        <article class="card card--feature">
+          <div class="card-media"><img src="images/MyCobot_foreground.png" alt="The MyCobot Pro 600 arm solving a physical maze board" loading="lazy" /></div>
+          <div class="card-body">
+            <span class="card-tag">Featured Case Study</span>
+            <h4>MyCobot Pro 600, From Digital Twin to Solving a Maze</h4>
+            <p>Solved a 4x4 maze end to end, from a single photograph of the board to executed joint motion on the real arm.</p>
+            <div class="link-row">
+              <a class="pill" href="writeups/mycobot-pro-600.html">Writeup</a>
+              <a class="pill" href="https://github.com/mohammadnsr1/Robotic-Systems-1" target="_blank" rel="noopener">Repository</a>
+              <a class="pill" href="https://www.youtube.com/shorts/yxIhqgxqiWA" target="_blank" rel="noopener">Demo</a>
             </div>
           </div>
         </article>
 
-        <div class="project-grid">
-          <article class="project-card project-feature project-arms reveal" style="--reveal-delay: 40ms">
-            <div class="project-content">
-              <div class="project-feature-header">
-                <span class="project-tag">Manipulation</span>
-                <h3>Robotic Manipulation</h3>
+        <div class="project-group">
+          <h3 class="subsection-title">Robotic Manipulation</h3>
+          <div class="card-grid">
+            <article class="card">
+              <div class="card-media"><img src="images/Ball_shoot_foreground.png" alt="The robotic arm positioned behind the ball, aiming toward the goal" loading="lazy" /></div>
+              <div class="card-body">
+                <span class="card-tag">Vision and Kinematics</span>
+                <h4>Ball Shooting Manipulator</h4>
+                <p>A camera guided robotic arm that finds a ball and a goal, then kicks the ball in using inverse kinematics and a timed servo sequence.</p>
+                <div class="link-row">
+                  <a class="pill" href="writeups/ball-shooting-manipulator.html">Writeup</a>
+                  <a class="pill" href="https://github.com/mohammadnsr1/Robotic_Manipulation_UNL" target="_blank" rel="noopener">Repository</a>
+                </div>
               </div>
-
-              <div class="mobile-subgrid mobile-subgrid--one">
-                <article class="mobile-subcard">
-                  <span class="project-tag">Vision and Kinematics</span>
-                  <h4>Ball Shooting Manipulator</h4>
-                  <figure class="mobile-subcard-media">
-                    <img src="images/Ball_shoot_foreground.png" alt="The robotic arm positioned behind the ball, aiming toward the goal, from the Ball Shooting Manipulator project" loading="lazy" />
-                  </figure>
-                  <p>
-                    A camera guided robotic arm that finds a ball and a goal, then kicks the ball in using inverse kinematics and a timed servo sequence.
-                  </p>
-                  <div class="project-links">
-                    <a class="project-link" href="https://github.com/mohammadnsr1/Robotic_Manipulation_UNL" target="_blank" rel="noopener">Repository</a>
-                    <a class="project-link" href="writeups/ball-shooting-manipulator.html">Writeup</a>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card project-feature project-mobile reveal" style="--reveal-delay: 80ms">
-            <div class="project-content">
-              <div class="project-feature-header">
-                <span class="project-tag">Mobile Robotics</span>
-                <h3>ROS 2 Practices with Mobile Robots</h3>
-              </div>
-
-              <div class="mobile-subgrid">
-                <article class="mobile-subcard">
-                  <span class="project-tag">Perception and Estimation</span>
-                  <h4>Perception, Planning, and Estimation</h4>
-                  <figure class="mobile-subcard-media">
-                    <img src="images/Active_perception_foreground.png" alt="The TurtleBot4 active perception system repositioning itself for a better view before trusting a pose estimate" loading="lazy" />
-                  </figure>
-                  <p>
-                    A semester of ROS 2 coursework in perception, planning, and estimation, applied in a TurtleBot4 system that repositions itself for a better view before trusting a pose estimate.
-                  </p>
-                  <div class="project-links">
-                    <a class="project-link" href="https://github.com/mohammadnsr1/MobileRobots" target="_blank" rel="noopener">Coursework Repository</a>
-                    <a class="project-link" href="https://github.com/mohammadnsr1/MobileRobots_Active_Perception/" target="_blank" rel="noopener">Project Repository</a>
-                    <a class="project-link" href="writeups/active-perception.html">Writeup</a>
-                    <a class="project-link" href="https://youtu.be/uHptjgO3Q7Y" target="_blank" rel="noopener">Perception Demo</a>
-                  </div>
-                </article>
-
-                <article class="mobile-subcard">
-                  <span class="project-tag">Vision and Reactive Navigation</span>
-                  <h4>Assistive Follower Robot</h4>
-                  <figure class="mobile-subcard-media">
-                    <img src="images/Assistive_foreground.png" alt="The TurtleBot4 assistive follower robot tracking and following a specific person" loading="lazy" />
-                  </figure>
-                  <p>
-                    A TurtleBot4 that follows a specific person by detecting their shoes, then fuses that heading with LiDAR based gap finding to avoid obstacles in real time.
-                  </p>
-                  <div class="project-links">
-                    <a class="project-link" href="https://github.com/RAS598-2025-S-Team07/Final_ROS2_Package" target="_blank" rel="noopener">Repository</a>
-                    <a class="project-link" href="writeups/assistive-follower.html">Writeup</a>
-                  </div>
-                </article>
-
-                <article class="mobile-subcard">
-                  <span class="project-tag">Reactive Driving</span>
-                  <h4>F1TENTH Autonomous Racing</h4>
-                  <figure class="mobile-subcard-media">
-                    <img src="images/F1_Tenth_foreground.png" alt="The F1TENTH autonomous racecar running on the physical track" loading="lazy" />
-                  </figure>
-                  <p>
-                    A 1:10 scale racecar running automatic emergency braking, PID wall following, and follow the gap obstacle avoidance, proven first in simulation, then on the real car.
-                  </p>
-                  <div class="project-links">
-                    <a class="project-link" href="https://github.com/mohammadnsr1/F1_Tenth_Race" target="_blank" rel="noopener">Repository</a>
-                    <a class="project-link" href="writeups/f1tenth.html">Writeup</a>
-                    <a class="project-link" href="https://youtu.be/KE6Gm_n-vx4" target="_blank" rel="noopener">Emergency Stop</a>
-                    <a class="project-link" href="https://youtu.be/sH-kk-u68Sw" target="_blank" rel="noopener">Wall Following</a>
-                    <a class="project-link" href="https://youtube.com/shorts/PTzITnJQ0x0?feature=share" target="_blank" rel="noopener">Gap Following</a>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card project-feature project-rl reveal" style="--reveal-delay: 120ms">
-            <div class="project-content">
-              <div class="project-feature-header">
-                <span class="project-tag">Reinforcement Learning</span>
-                <h3>RL and Optimization</h3>
-                <p class="project-summary">
-                  Two separate learning tracks, a numerical optimization course and a self driven Coursera specialization in reinforcement learning, taken to see the same ideas from both sides. Reinforcement learning turns out to be a form of optimization too, over policies and expected reward rather than a fixed loss surface, which is the thread connecting the Q-learning project below to the optimization coursework beside it.
-                </p>
-              </div>
-
-              <div class="mobile-subgrid mobile-subgrid--two">
-                <article class="mobile-subcard">
-                  <span class="project-tag">Q-Learning Navigation</span>
-                  <h4>Application of Reinforcement Learning in Robot Navigation</h4>
-                  <figure class="mobile-subcard-media">
-                    <img src="images/RL_navigation_foreground.png" alt="A Q-learning agent navigating the Cliff Walking grid world toward its goal" loading="lazy" />
-                  </figure>
-                  <p>
-                    Q-learning for shortest path navigation in a grid world, learned entirely through trial and error rather than labeled examples.
-                  </p>
-                  <div class="project-links">
-                    <a class="project-link" href="https://github.com/mohammadnsr1/RL-and-Optimization" target="_blank" rel="noopener">Repository</a>
-                    <a class="project-link" href="writeups/rl-robot-navigation.html">Writeup</a>
-                    <a class="project-link" href="https://www.coursera.org/account/accomplishments/specialization/GT99WLRD7AQ9" target="_blank" rel="noopener">Reinforcement Learning Specialization, Coursera</a>
-                  </div>
-                </article>
-
-                <article class="mobile-subcard">
-                  <span class="project-tag">Coursework</span>
-                  <h4>Numerical Optimization Coursework</h4>
-                  <p>
-                    Coursework in numerical optimization, covering line search, trust region, conjugate gradient, and constrained optimization methods.
-                  </p>
-                </article>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card project-feature project-acoustics reveal" style="--reveal-delay: 200ms">
-            <div class="project-content">
-              <div class="project-feature-header">
-                <span class="project-tag">Acoustics</span>
-                <h3>Acoustics and Bio-Inspired Hearing</h3>
-                <p class="project-summary">
-                  Acoustic sensing work built around a simple observation: biological hearing solves localization problems that still challenge engineered systems. This work applies that lens to sound source localization and to bio-inspired binaural hearing modeled on bat echolocation.
-                </p>
-              </div>
-
-              <div class="mobile-subgrid">
-                <article class="mobile-subcard">
-                  <span class="project-tag">Binaural Localization</span>
-                  <h4>Guided by Hearing</h4>
-                  <figure class="mobile-subcard-media">
-                    <img src="images/Guided_by_hearing_foreground.png" alt="A robot using two microphone binaural hearing to localize a gas leak" loading="lazy" />
-                  </figure>
-                  <p>
-                    Robotic motion planning for gas leak localization using two microphones mimicking binaural hearing to triangulate a sound source.
-                  </p>
-                  <div class="project-links">
-                    <a class="project-link" href="https://doi.org/10.32548/2025.me-04491" target="_blank" rel="noopener">Paper</a>
-                    <a class="project-link" href="writeups/guided-by-hearing.html">Writeup</a>
-                  </div>
-                </article>
-
-                <article class="mobile-subcard mobile-subcard-pending">
-                  <span class="project-tag">Coming Soon</span>
-                  <h4>Sound Source Localization II</h4>
-                  <p>
-                    Paper and write up in progress.
-                  </p>
-                </article>
-
-                <article class="mobile-subcard mobile-subcard-pending">
-                  <span class="project-tag">Coming Soon</span>
-                  <h4>Bio-Inspired Bat Hearing</h4>
-                  <p>
-                    Paper and write up in progress.
-                  </p>
-                </article>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card project-feature project-dynamics reveal" style="--reveal-delay: 240ms">
-            <div class="project-content">
-              <div class="project-feature-header">
-                <span class="project-tag">Dynamics</span>
-                <h3>Dynamics and Vibration</h3>
-                <p class="project-summary">
-                  Analytical and experimental dynamics work spanning orbital mechanics, automated modal analysis, and nonlinear vibration. Three different problems, but the same habit each time: derive the equations of motion, question every simplifying assumption, and check the model against something real.
-                </p>
-              </div>
-
-              <div class="mobile-subgrid">
-                <article class="mobile-subcard">
-                  <span class="project-tag">Orbital Mechanics</span>
-                  <h4>The Planar Circular Restricted Three Body Problem</h4>
-                  <figure class="mobile-subcard-media">
-                    <img src="images/PCR3BD_foreground.png" alt="The zero velocity curves and Lagrange points of the planar circular restricted three body problem for Earth and Moon" loading="lazy" />
-                  </figure>
-                  <p>
-                    The circular restricted three body problem for the Earth and Moon system, mapped through the Lagrange points and the Jacobi constant.
-                  </p>
-                  <div class="project-links">
-                    <a class="project-link" href="writeups/pcr3bp.html">Writeup</a>
-                  </div>
-                </article>
-
-                <article class="mobile-subcard">
-                  <span class="project-tag">Automated Modal Testing</span>
-                  <h4>Smart Automatic Modal Hammer</h4>
-                  <figure class="mobile-subcard-media">
-                    <img src="images/Modal_hammer_foreground.png" alt="The stepper motor driven modal hammer striking a test structure" loading="lazy" />
-                  </figure>
-                  <p>
-                    A stepper motor driven modal hammer that swings itself and corrects its own aim until it converges on a requested strike force.
-                  </p>
-                  <div class="project-links">
-                    <a class="project-link" href="https://github.com/mohammadnsr1/SmartAutomaticModalhammer" target="_blank" rel="noopener">Repository</a>
-                    <a class="project-link" href="https://doi.org/10.1007/s42417-024-01461-6" target="_blank" rel="noopener">Paper</a>
-                    <a class="project-link" href="writeups/smart-automatic-modal-hammer.html">Writeup</a>
-                  </div>
-                </article>
-
-                <article class="mobile-subcard mobile-subcard-pending">
-                  <span class="project-tag">Coming Soon</span>
-                  <h4>Nonlinear Vibration and Dynamics</h4>
-                  <p>
-                    Paper and write up in progress.
-                  </p>
-                </article>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- Keep toolkit tags short so the layout stays clean across screen sizes. -->
-      <section class="section" id="toolkit">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Technical Toolkit</p>
-          <h2>What I build with</h2>
-          <p>Platforms, methods, and tools used across research and implementation.</p>
-        </div>
-
-        <div class="toolkit-grid">
-          <article class="toolkit-card toolkit-robotics reveal" style="--reveal-delay: 30ms">
-            <h3>Robotics</h3>
-            <p class="toolkit-summary">Middleware, sensing, planning, and integration for full robotic systems.</p>
-            <div class="chip-group">
-              <span>ROS / ROS 2</span>
-              <span>MoveIt</span>
-              <span>SLAM</span>
-              <span>Motion Planning</span>
-              <span>Manipulation</span>
-              <span>Sensor Fusion</span>
-            </div>
-          </article>
-          <article class="toolkit-card toolkit-ml reveal" style="--reveal-delay: 60ms">
-            <h3>ML / AI</h3>
-            <p class="toolkit-summary">Modeling, representation learning, and multimodal reasoning pipelines.</p>
-            <div class="chip-group">
-              <span>PyTorch</span>
-              <span>Transformers</span>
-              <span>Vision-Language Models</span>
-              <span>LLMs</span>
-              <span>Reinforcement Learning</span>
-              <span>Evaluation Pipelines</span>
-            </div>
-          </article>
-          <article class="toolkit-card toolkit-sim reveal" style="--reveal-delay: 90ms">
-            <h3>Simulation</h3>
-            <p class="toolkit-summary">Simulation environments for iteration, transfer, benchmarking, and testing.</p>
-            <div class="chip-group">
-              <span>Gazebo</span>
-              <span>MuJoCo</span>
-              <span>Isaac Sim</span>
-              <span>MATLAB / Simulink</span>
-              <span>Digital Twins</span>
-              <span>Benchmarking</span>
-            </div>
-          </article>
-          <article class="toolkit-card toolkit-math reveal" style="--reveal-delay: 120ms">
-            <h3>Control / Math</h3>
-            <p class="toolkit-summary">Optimization, estimation, and analysis tools for physically grounded behavior.</p>
-            <div class="chip-group">
-              <span>Optimization</span>
-              <span>System Identification</span>
-              <span>State Estimation</span>
-              <span>Numerical Methods</span>
-              <span>Linear Algebra</span>
-              <span>Statistics</span>
-            </div>
-          </article>
-          <article class="toolkit-card toolkit-code reveal" style="--reveal-delay: 150ms">
-            <h3>Programming</h3>
-            <p class="toolkit-summary">Implementation, experimentation, and reproducible research workflows.</p>
-            <div class="chip-group">
-              <span>Python</span>
-              <span>C++</span>
-              <span>MATLAB</span>
-              <span>Linux</span>
-              <span>Git</span>
-              <span>Data Analysis</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="about">
-        <div class="section-heading reveal">
-          <p class="eyebrow">About</p>
-          <h2>How I think and work</h2>
-          <p>How the work is oriented, the problems that interest me, and where I like to contribute.</p>
-        </div>
-
-        <div class="about-grid">
-          <article class="about-intro reveal">
-            <figure class="about-portrait reveal">
-              <img src="images/profile_photo.jpeg" alt="Portrait of Mohammad Nasr" loading="lazy" />
-            </figure>
-            <p class="about-lead">
-              My PhD work sits at the meeting point of physical sensing and agentic AI. I build systems that let autonomous machines listen to, feel, and reason about the physical world they operate in, rather than relying only on cameras and predictions.
-            </p>
-            <p>
-              The direction I am pushing toward is giving AI agents a real sense of ground truth about the machines, structures, and environments around them, work that matters most in industries like manufacturing, energy, and infrastructure, where an autonomous system acting on a wrong read can be costly or dangerous.
-            </p>
-            <p>
-              I am always glad to talk with people building in this space, whether that is a research collaboration, an early conversation about a startup, or an industry team looking to bring real world sensing into their AI systems.
-            </p>
-            <p>
-              The throughline across all of it is physically grounded intelligence, systems that have to sense, reason, and act in the real, noisy, physical world.
-            </p>
-          </article>
-
-          <div class="about-notes">
-            <article class="about-card about-current reveal" style="--reveal-delay: 60ms">
-              <p class="micro-label">Current Work</p>
-              <h3>What I am building now</h3>
-              <p>Right now I am designing agentic architectures built on foundation models for robotic systems, aimed at making autonomous robots reliable and accountable in how they sense, decide, and act.</p>
             </article>
+          </div>
+        </div>
 
-            <article class="about-card about-hard reveal" style="--reveal-delay: 100ms">
-              <p class="micro-label">Hard Problems</p>
-              <h3>Questions I like to stay with</h3>
-              <p>How the solutions nature has already optimized over millions of years, in how animals sense, move, and adapt, can be translated into better designs for sensors, mechanisms, and decision making in robots.</p>
+        <div class="project-group">
+          <h3 class="subsection-title">Mobile Robots</h3>
+          <div class="card-grid">
+            <article class="card">
+              <div class="card-media"><img src="images/Active_perception_foreground.png" alt="The TurtleBot4 active perception system repositioning itself for a better view" loading="lazy" /></div>
+              <div class="card-body">
+                <span class="card-tag">Perception and Estimation</span>
+                <h4>Perception, Planning, and Estimation</h4>
+                <p>ROS 2 coursework applied in a TurtleBot4 that repositions itself for a better view before trusting a pose estimate.</p>
+                <div class="link-row">
+                  <a class="pill" href="writeups/active-perception.html">Writeup</a>
+                  <a class="pill" href="https://github.com/mohammadnsr1/MobileRobots_Active_Perception/" target="_blank" rel="noopener">Repository</a>
+                  <a class="pill" href="https://github.com/mohammadnsr1/MobileRobots" target="_blank" rel="noopener">Coursework</a>
+                  <a class="pill" href="https://youtu.be/uHptjgO3Q7Y" target="_blank" rel="noopener">Demo</a>
+                </div>
+              </div>
             </article>
-
-            <article class="about-card about-approach reveal" style="--reveal-delay: 140ms">
-              <p class="micro-label">Approach</p>
-              <h3>How I tend to work</h3>
-              <p>I brainstorm at every stage of a project, not just at the start, treating each step as a chance to find a better and more optimal path rather than settling for the first solution that works.</p>
+            <article class="card">
+              <div class="card-media"><img src="images/Assistive_foreground.png" alt="The TurtleBot4 assistive follower robot following a specific person" loading="lazy" /></div>
+              <div class="card-body">
+                <span class="card-tag">Vision and Reactive Navigation</span>
+                <h4>Assistive Follower Robot</h4>
+                <p>A TurtleBot4 that follows a specific person by detecting their shoes and avoids obstacles with LiDAR gap finding.</p>
+                <div class="link-row">
+                  <a class="pill" href="writeups/assistive-follower.html">Writeup</a>
+                  <a class="pill" href="https://github.com/RAS598-2025-S-Team07/Final_ROS2_Package" target="_blank" rel="noopener">Repository</a>
+                </div>
+              </div>
             </article>
+            <article class="card">
+              <div class="card-media"><img src="images/F1_Tenth_foreground.png" alt="The F1TENTH autonomous racecar on the physical track" loading="lazy" /></div>
+              <div class="card-body">
+                <span class="card-tag">Reactive Driving</span>
+                <h4>F1TENTH Autonomous Racing</h4>
+                <p>A 1:10 scale racecar running emergency braking, PID wall following, and follow-the-gap, proven in simulation, then on the real car.</p>
+                <div class="link-row">
+                  <a class="pill" href="writeups/f1tenth.html">Writeup</a>
+                  <a class="pill" href="https://github.com/mohammadnsr1/F1_Tenth_Race" target="_blank" rel="noopener">Repository</a>
+                  <a class="pill" href="https://youtu.be/KE6Gm_n-vx4" target="_blank" rel="noopener">Demo: Braking</a>
+                  <a class="pill" href="https://youtu.be/sH-kk-u68Sw" target="_blank" rel="noopener">Demo: Wall</a>
+                  <a class="pill" href="https://youtube.com/shorts/PTzITnJQ0x0?feature=share" target="_blank" rel="noopener">Demo: Gap</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
 
-            <article class="about-card about-open reveal" style="--reveal-delay: 180ms">
-              <p class="micro-label">Open To</p>
-              <h3>Collaborations and opportunities</h3>
-              <p>I am open to conversations about startups, research and development roles, or teaming up with others to build something new. I already have my own ideas that I am actively developing and I am looking for like minded people to build alongside, but I am just as open to hearing what others are building and finding where our ideas might fit together.</p>
+        <div class="project-group">
+          <h3 class="subsection-title">RL and Optimization</h3>
+          <div class="card-grid">
+            <article class="card">
+              <div class="card-media"><img src="images/RL_navigation_foreground.png" alt="A Q-learning agent navigating the Cliff Walking grid world" loading="lazy" /></div>
+              <div class="card-body">
+                <span class="card-tag">Q-Learning Navigation</span>
+                <h4>Reinforcement Learning in Robot Navigation</h4>
+                <p>Q-learning for shortest path navigation in a grid world, learned entirely through trial and error.</p>
+                <div class="link-row">
+                  <a class="pill" href="writeups/rl-robot-navigation.html">Writeup</a>
+                  <a class="pill" href="https://github.com/mohammadnsr1/RL-and-Optimization" target="_blank" rel="noopener">Repository</a>
+                  <a class="pill" href="https://www.coursera.org/account/accomplishments/specialization/GT99WLRD7AQ9" target="_blank" rel="noopener">Coursera Certificate</a>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-media card-media--empty">Coursework</div>
+              <div class="card-body">
+                <span class="card-tag">Coursework</span>
+                <h4>Numerical Optimization</h4>
+                <p>Line search, trust region, conjugate gradient, and constrained optimization methods.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="project-group">
+          <h3 class="subsection-title">Acoustics</h3>
+          <div class="card-grid">
+            <article class="card">
+              <div class="card-media"><img src="images/Guided_by_hearing_foreground.png" alt="A robot using two microphone binaural hearing to localize a gas leak" loading="lazy" /></div>
+              <div class="card-body">
+                <span class="card-tag">Binaural Localization</span>
+                <h4>Guided by Hearing</h4>
+                <p>Robotic motion planning for gas leak localization using two microphones that mimic binaural hearing.</p>
+                <div class="link-row">
+                  <a class="pill" href="writeups/guided-by-hearing.html">Writeup</a>
+                  <a class="pill" href="https://doi.org/10.32548/2025.me-04491" target="_blank" rel="noopener">Paper</a>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-media card-media--empty">Coming soon</div>
+              <div class="card-body">
+                <span class="card-tag">Coming Soon</span>
+                <h4>Sound Source Localization II</h4>
+                <p>Paper and writeup in progress.</p>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-media card-media--empty">Coming soon</div>
+              <div class="card-body">
+                <span class="card-tag">Coming Soon</span>
+                <h4>Bio-Inspired Bat Hearing</h4>
+                <p>Paper and writeup in progress.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="project-group">
+          <h3 class="subsection-title">Dynamics and Vibration</h3>
+          <div class="card-grid">
+            <article class="card">
+              <div class="card-media"><img src="images/PCR3BD_foreground.png" alt="Zero velocity curves and Lagrange points of the Earth and Moon system" loading="lazy" /></div>
+              <div class="card-body">
+                <span class="card-tag">Orbital Mechanics</span>
+                <h4>The Planar Circular Restricted Three Body Problem</h4>
+                <p>The Earth and Moon system mapped through the Lagrange points and the Jacobi constant.</p>
+                <div class="link-row">
+                  <a class="pill" href="writeups/pcr3bp.html">Writeup</a>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-media"><img src="images/Modal_hammer_foreground.png" alt="The stepper motor driven modal hammer striking a test structure" loading="lazy" /></div>
+              <div class="card-body">
+                <span class="card-tag">Automated Modal Testing</span>
+                <h4>Smart Automatic Modal Hammer</h4>
+                <p>A stepper motor driven modal hammer that corrects its own aim until it converges on a requested strike force.</p>
+                <div class="link-row">
+                  <a class="pill" href="writeups/smart-automatic-modal-hammer.html">Writeup</a>
+                  <a class="pill" href="https://github.com/mohammadnsr1/SmartAutomaticModalhammer" target="_blank" rel="noopener">Repository</a>
+                  <a class="pill" href="https://doi.org/10.1007/s42417-024-01461-6" target="_blank" rel="noopener">Paper</a>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-media card-media--empty">Coming soon</div>
+              <div class="card-body">
+                <span class="card-tag">Coming Soon</span>
+                <h4>Nonlinear Vibration and Dynamics</h4>
+                <p>Paper and writeup in progress.</p>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section section-emphasis" id="beyond">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Beyond the Lab</p>
-          <p>
-            A few things from outside the research that still say something about how I think.
-          </p>
-        </div>
+      <!-- 5. Publications -->
+      <section class="section" id="publications">
+        <h2 class="section-title">Publications</h2>
 
-        <div class="beyond-grid">
-          <article class="beyond-card beyond-practice reveal" style="--reveal-delay: 40ms">
-            <!-- Replace this optional image with a speedcubing or personal visual if you want the section to feel more personal. -->
-            <figure class="beyond-media">
-              <img
-                src="images/beyond-practice.svg"
-                alt="Isometric wireframe illustration of a Rubik's cube with a recorded time of 17.27 seconds"
-                loading="lazy"
-              />
-            </figure>
-            <p class="micro-label">Practice</p>
-            <h3>Speedcubing / WCA</h3>
-            <p>
-              I competed in two official World Cube Association events, with a recorded 3x3 single of 17.27 seconds, and I also competed in the one handed and blindfolded categories. I stopped competing after 2012, but the cubes never went away. I still solve every day across a range of puzzle types, for the same reason I loved it as a kid: finding patterns.
-            </p>
-            <p><a href="https://www.worldcubeassociation.org/persons/2012NASR01">View my WCA profile</a></p>
-          </article>
+        <h3 class="subsection-title">Journal Publications</h3>
+        <ul class="pub-list">
+          <li>
+            <div class="pub-title">Guided by Hearing: Robotic Motion Planning for Precision in Gas Leakage Localization</div>
+            <div class="pub-authors"><strong>Nasr, M.</strong>, Masurkar, N., Meshkizadeh, P., &amp; Dehghan-Niri, E.</div>
+            <div class="pub-venue">Journal of Material Evaluations, 2025</div>
+            <div class="link-row"><a class="pill" href="https://doi.org/10.32548/2025.me-04491" target="_blank" rel="noopener">Paper</a></div>
+          </li>
+          <li>
+            <div class="pub-title">Smart Automatic Modal Hammer: Predictor-Corrector Approach for Accurate Excitation of Dynamical Systems</div>
+            <div class="pub-authors"><strong>Nasr, M.</strong>, Singh, A., &amp; Moore, K.J.</div>
+            <div class="pub-venue">Journal of Vibration Engineering &amp; Technologies, 12 (Suppl 1), 1045–1063, 2024</div>
+            <div class="link-row"><a class="pill" href="https://doi.org/10.1007/s42417-024-01461-6" target="_blank" rel="noopener">Paper</a></div>
+          </li>
+        </ul>
 
-          <article class="beyond-card beyond-thinking reveal" style="--reveal-delay: 80ms">
-            <figure class="beyond-media">
-              <img src="images/beyond-thinking.svg" alt="Three domains, nature, art, and engineering, converging through analogy into a single idea" loading="lazy" />
-            </figure>
-            <p class="micro-label">Working Style</p>
-            <h3>How I like to think and work</h3>
-            <p>
-              I think best across boundaries. I am drawn to interdisciplinary work, and I often look to other fields for ideas. Analogy is my main tool for it: noticing how one domain solves a problem and asking what the same move would look like somewhere else.
-            </p>
-          </article>
-
-          <article class="beyond-card beyond-curiosity reveal" style="--reveal-delay: 120ms">
-            <figure class="beyond-media">
-              <img src="images/beyond-curiosity.jpg" alt="A Mars rover replica on exhibit, camera mast raised against a red Mars backdrop" loading="lazy" />
-            </figure>
-            <p class="micro-label">Curiosity</p>
-            <h3>What keeps me curious</h3>
-            <p>
-              My curiosity runs wide and likes to wander. Lately it keeps circling flight, space, and biology. I love how the most agile birds fly with so little wasted effort, the design problems behind becoming a multi planetary species, and how unsettlingly clever viruses are at getting their way. I am just as curious about people: the ones who ask odd questions, or who see things from an angle I would never have found alone, are usually the ones I want to talk to.
-            </p>
-          </article>
-
-          <article class="beyond-card beyond-interests reveal" style="--reveal-delay: 160ms">
-            <figure class="beyond-media">
-              <img src="images/beyond-interests.jpg" alt="Aerial view of Horseshoe Bend, a sweeping curve of the Colorado River" loading="lazy" />
-            </figure>
-            <p class="micro-label">Outside Research</p>
-            <h3>Away from the desk</h3>
-            <p>
-              Away from work I am usually out in nature or camping, or playing something with a bit of strategy to it: video games, chess, and of course cubes. I also read constantly and widely, psychology and personal development, economics, general history, and novels. Different shelf, same habit: trying to understand how things and people actually work.
-            </p>
-          </article>
-        </div>
+        <h3 class="subsection-title">Conference Presentations</h3>
+        <ul class="pub-list">
+          <li>
+            <div class="pub-title">Gas Leakage Localization Through Bio-Inspired Motion Strategy on Robotic Platforms</div>
+            <div class="pub-authors"><strong>Nasr, M.</strong>, Masurkar, N., Meshkizadeh, P., &amp; Dehghan-Niri, E.</div>
+            <div class="pub-venue">ASNT Research Symposium, Indiana, June 2025</div>
+          </li>
+          <li>
+            <div class="pub-title">Smart Automatic Modal Hammer for Studying Nonlinear Dynamical Systems</div>
+            <div class="pub-authors"><strong>Nasr, M.</strong>, Singh, A., &amp; Moore, K.J.</div>
+            <div class="pub-venue">International Modal Analysis Conference XLII, Orlando, FL, 2024</div>
+          </li>
+        </ul>
       </section>
 
-      <section class="section" id="contact">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Contact</p>
-        </div>
+      <!-- Beyond the Lab: short teaser; the full text lives on beyond.html. -->
+      <section class="section beyond" id="beyond">
+        <h2 class="section-title">Beyond the Lab</h2>
+        <p>Former WCA speedcuber (3x3 single: 17.27 s), still solving daily.</p>
+        <p>Usually outdoors, camping, or playing chess and strategy games; reading widely in between.</p>
+        <p><a href="beyond.html">More about me &rarr;</a> &middot; <a href="https://www.worldcubeassociation.org/persons/2012NASR01" target="_blank" rel="noopener">WCA profile</a></p>
+      </section>
 
-        <div class="contact-layout">
-          <article class="contact-intro reveal">
-            <p class="micro-label">Get In Touch</p>
-            <h2>Interested in my work?</h2>
-            <p>
-              I am always open to discussing new research ideas, collaborations, or opportunities. Please feel free to contact me via email, LinkedIn, or GitHub.
-            </p>
-          </article>
-
-          <div class="contact-grid">
-            <a class="contact-card reveal" href="mailto:nasrmohammad661@gmail.com" style="--reveal-delay: 40ms">
-              <span class="contact-label">Email</span>
-              <span class="contact-value">nasrmohammad661@gmail.com</span>
-            </a>
-            <a class="contact-card reveal" href="https://github.com/mohammadnsr1" target="_blank" rel="noreferrer" style="--reveal-delay: 80ms">
-              <span class="contact-label">GitHub</span>
-              <span class="contact-value">github.com/mohammadnsr1</span>
-            </a>
-            <a
-              class="contact-card reveal"
-              href="https://www.linkedin.com/in/mohammad-nasr-359a68147/"
-              target="_blank"
-              rel="noreferrer"
-              style="--reveal-delay: 120ms"
-            >
-              <span class="contact-label">LinkedIn</span>
-              <span class="contact-value">linkedin.com/in/mohammad-nasr</span>
-            </a>
-            <a class="contact-card reveal" href="docs/mohammad-nasr-cv.pdf" style="--reveal-delay: 160ms">
-              <span class="contact-label">CV</span>
-              <span class="contact-value">Download PDF</span>
-            </a>
-            <a class="contact-card reveal" href="https://scholar.google.com/citations?user=4rzGs6wAAAAJ&hl=en" target="_blank" rel="noreferrer" style="--reveal-delay: 200ms">
-              <span class="contact-label">Google Scholar</span>
-              <span class="contact-value">Google Scholar</span>
-            </a>
-          </div>
-        </div>
+      <!-- 6. Contact -->
+      <section class="section contact" id="contact">
+        <h2 class="section-title">Contact</h2>
+        <a class="contact-email" href="mailto:nasrmohammad661@gmail.com">nasrmohammad661@gmail.com</a>
+        <ul class="icon-row" aria-label="Links">
+          <li><a href="mailto:nasrmohammad661@gmail.com" aria-label="Email" title="Email"><svg aria-hidden="true"><use href="#i-mail" /></svg></a></li>
+          <li><a href="https://github.com/mohammadnsr1" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg aria-hidden="true"><use href="#i-github" /></svg></a></li>
+          <li><a href="https://www.linkedin.com/in/mohammad-nasr-359a68147/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin" /></svg></a></li>
+          <li><a href="https://scholar.google.com/citations?user=4rzGs6wAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg aria-hidden="true"><use href="#i-scholar" /></svg></a></li>
+          <li><a href="docs/mohammad-nasr-cv.pdf" target="_blank" rel="noopener" aria-label="CV (PDF)" title="CV (PDF)"><svg aria-hidden="true"><use href="#i-cv" /></svg></a></li>
+        </ul>
       </section>
     </main>
 
     <footer class="site-footer">
       <p>&copy; <span data-current-year></span> Mohammad Nasr</p>
-      <div class="footer-links">
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#beyond">Beyond the Lab</a>
-        <a href="#contact">Contact</a>
-      </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
