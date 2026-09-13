@@ -85,6 +85,15 @@
         <img class="home-photo" src="images/portfolio_portrait_option_3.png" alt="Portrait of Mohammad Nasr" width="184" height="184" />
         <h1>Mohammad Nasr</h1>
         <p class="home-role">Robotics PhD Student, Arizona State University</p>
+        <p class="home-identity">
+          Robotics PhD student working on embodied and agentic AI and Robotics with direct applications in industry.
+        </p>
+        <p class="home-summary">
+          Earlier I worked on nonlinear dynamics and vibration developing a system for autonomous testing of vibrating systems that makes characterizing nonlinear, real-world dynamical behavior far more tractable. In acoustics, I have worked on binaural hearing, specifically on animals auditory systems leading to potential bioinspired hearing designs. For me, working across disciplines isn't a detour, it's how I think.
+        </p>
+        <div class="chips home-tags" aria-label="Core identity tags">
+          <span>Robotics</span><span>Embodied AI</span><span>Dynamics &amp; Vibration</span><span>Acoustics</span>
+        </div>
         <ul class="icon-row" aria-label="Links">
           <li><a href="mailto:nasrmohammad661@gmail.com" aria-label="Email" title="Email"><svg aria-hidden="true"><use href="#i-mail" /></svg></a></li>
           <li><a href="https://github.com/mohammadnsr1" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg aria-hidden="true"><use href="#i-github" /></svg></a></li>
@@ -100,9 +109,16 @@
         <div class="about-grid">
           <div class="about-text">
             <p>
-              I am a robotics PhD student at Arizona State University working on embodied and agentic AI with direct
-              applications in industry. My background is in mechanical engineering, with earlier work in dynamics and
-              vibration and in acoustics.
+              My PhD work sits at the meeting point of physical sensing and agentic AI. I build systems that let autonomous machines listen to, feel, and reason about the physical world they operate in, rather than relying only on cameras and predictions.
+            </p>
+            <p>
+              The direction I am pushing toward is giving AI agents a real sense of ground truth about the machines, structures, and environments around them, work that matters most in industries like manufacturing, energy, and infrastructure, where an autonomous system acting on a wrong read can be costly or dangerous.
+            </p>
+            <p>
+              I am always glad to talk with people building in this space, whether that is a research collaboration, an early conversation about a startup, or an industry team looking to bring real world sensing into their AI systems.
+            </p>
+            <p>
+              The throughline across all of it is physically grounded intelligence, systems that have to sense, reason, and act in the real, noisy, physical world.
             </p>
             <p class="list-title">I work on:</p>
             <ul class="topic-list">
@@ -113,8 +129,34 @@
             </ul>
           </div>
 
-          <!-- id="toolkit" kept so the writeup pages' "Toolkit" nav link still lands here. -->
-          <div class="toolkit" id="toolkit" aria-label="Toolkit">
+          <div class="note-list">
+            <article class="note">
+              <span class="card-tag">Current Work</span>
+              <h3>What I am building now</h3>
+              <p>Right now I am designing agentic architectures built on foundation models for robotic systems, aimed at making autonomous robots reliable and accountable in how they sense, decide, and act.</p>
+            </article>
+            <article class="note">
+              <span class="card-tag">Hard Problems</span>
+              <h3>Questions I like to stay with</h3>
+              <p>How the solutions nature has already optimized over millions of years, in how animals sense, move, and adapt, can be translated into better designs for sensors, mechanisms, and decision making in robots.</p>
+            </article>
+            <article class="note">
+              <span class="card-tag">Approach</span>
+              <h3>How I tend to work</h3>
+              <p>I brainstorm at every stage of a project, not just at the start, treating each step as a chance to find a better and more optimal path rather than settling for the first solution that works.</p>
+            </article>
+            <article class="note">
+              <span class="card-tag">Open To</span>
+              <h3>Collaborations and opportunities</h3>
+              <p>I am open to conversations about startups, research and development roles, or teaming up with others to build something new. I already have my own ideas that I am actively developing and I am looking for like minded people to build alongside, but I am just as open to hearing what others are building and finding where our ideas might fit together.</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- id="toolkit" kept so the writeup pages' "Toolkit" nav link still lands here. -->
+        <div class="toolkit-block" id="toolkit">
+          <h3 class="subsection-title">Toolkit</h3>
+          <div class="toolkit">
             <div class="toolkit-row">
               <h3>Robotics</h3>
               <div class="chips"><span>ROS / ROS 2</span><span>MoveIt</span><span>SLAM</span><span>Motion Planning</span><span>Sensor Fusion</span></div>
@@ -139,12 +181,12 @@
         </div>
       </section>
 
-      <!-- 3. Education. Swap each .edu-logo div for <img class="edu-logo" src="images/logos/..." alt="..."> later. -->
+      <!-- 3. Education -->
       <section class="section" id="education">
         <h2 class="section-title">Education</h2>
         <div class="edu-list">
           <div class="edu-item">
-            <div class="edu-logo" aria-hidden="true"></div>
+            <img class="edu-logo" src="images/ASU.png" alt="Arizona State University logo" loading="lazy" />
             <div>
               <div class="edu-degree">Ph.D. in Robotics and Autonomous Systems</div>
               <div class="edu-school">Arizona State University</div>
@@ -152,7 +194,7 @@
             <div class="edu-years">2024 – present (expected 2029)</div>
           </div>
           <div class="edu-item">
-            <div class="edu-logo" aria-hidden="true"></div>
+            <img class="edu-logo" src="images/UNL.jpg" alt="University of Nebraska-Lincoln logo" loading="lazy" />
             <div>
               <div class="edu-degree">M.Sc. in Mechanical Engineering and Applied Mechanics</div>
               <div class="edu-school">University of Nebraska-Lincoln</div>
@@ -164,7 +206,7 @@
             <div class="edu-years">2024</div>
           </div>
           <div class="edu-item">
-            <div class="edu-logo" aria-hidden="true"></div>
+            <img class="edu-logo" src="images/University_of_Tabriz.jpg" alt="University of Tabriz logo" loading="lazy" />
             <div>
               <div class="edu-degree">B.Sc. in Mechanical Engineering</div>
               <div class="edu-school">University of Tabriz</div>
@@ -178,23 +220,22 @@
       <section class="section" id="projects">
         <h2 class="section-title">Projects</h2>
 
-        <article class="card card--feature">
-          <div class="card-media"><img src="images/MyCobot_foreground.png" alt="The MyCobot Pro 600 arm solving a physical maze board" loading="lazy" /></div>
-          <div class="card-body">
-            <span class="card-tag">Featured Case Study</span>
-            <h4>MyCobot Pro 600, From Digital Twin to Solving a Maze</h4>
-            <p>Solved a 4x4 maze end to end, from a single photograph of the board to executed joint motion on the real arm.</p>
-            <div class="link-row">
-              <a class="pill" href="writeups/mycobot-pro-600.html">Writeup</a>
-              <a class="pill" href="https://github.com/mohammadnsr1/Robotic-Systems-1" target="_blank" rel="noopener">Repository</a>
-              <a class="pill" href="https://www.youtube.com/shorts/yxIhqgxqiWA" target="_blank" rel="noopener">Demo</a>
-            </div>
-          </div>
-        </article>
-
         <div class="project-group">
           <h3 class="subsection-title">Robotic Manipulation</h3>
           <div class="card-grid">
+            <article class="card">
+              <div class="card-media"><img src="images/MyCobot_foreground.png" alt="The MyCobot Pro 600 arm solving a physical maze board" loading="lazy" /></div>
+              <div class="card-body">
+                <span class="card-tag">Digital Twin and Vision</span>
+                <h4>MyCobot Pro 600, From Digital Twin to Solving a Maze</h4>
+                <p>Solved a 4x4 maze end to end, from a single photograph of the board to executed joint motion on the real arm.</p>
+                <div class="link-row">
+                  <a class="pill" href="writeups/mycobot-pro-600.html">Writeup</a>
+                  <a class="pill" href="https://github.com/mohammadnsr1/Robotic-Systems-1" target="_blank" rel="noopener">Repository</a>
+                  <a class="pill" href="https://www.youtube.com/shorts/yxIhqgxqiWA" target="_blank" rel="noopener">Demo</a>
+                </div>
+              </div>
+            </article>
             <article class="card">
               <div class="card-media"><img src="images/Ball_shoot_foreground.png" alt="The robotic arm positioned behind the ball, aiming toward the goal" loading="lazy" /></div>
               <div class="card-body">
@@ -392,12 +433,46 @@
         </ul>
       </section>
 
-      <!-- Beyond the Lab: short teaser; the full text lives on beyond.html. -->
-      <section class="section beyond" id="beyond">
+      <section class="section" id="beyond">
         <h2 class="section-title">Beyond the Lab</h2>
-        <p>Former WCA speedcuber (3x3 single: 17.27 s), still solving daily.</p>
-        <p>Usually outdoors, camping, or playing chess and strategy games; reading widely in between.</p>
-        <p><a href="beyond.html">More about me &rarr;</a> &middot; <a href="https://www.worldcubeassociation.org/persons/2012NASR01" target="_blank" rel="noopener">WCA profile</a></p>
+        <p class="section-lead">A few things from outside the research that still say something about how I think.</p>
+        <div class="card-grid card-grid--two">
+          <article class="card">
+            <div class="card-media"><img src="images/beyond-practice.svg" alt="Isometric wireframe illustration of a Rubik's cube with a recorded time of 17.27 seconds" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-tag">Practice</span>
+              <h4>Speedcubing / WCA</h4>
+              <p>I competed in two official World Cube Association events, with a recorded 3x3 single of 17.27 seconds, and I also competed in the one handed and blindfolded categories. I stopped competing after 2012, but the cubes never went away. I still solve every day across a range of puzzle types, for the same reason I loved it as a kid: finding patterns.</p>
+              <div class="link-row">
+                <a class="pill" href="https://www.worldcubeassociation.org/persons/2012NASR01" target="_blank" rel="noopener">WCA Profile</a>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-media"><img src="images/beyond-thinking.svg" alt="Three domains, nature, art, and engineering, converging through analogy into a single idea" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-tag">Working Style</span>
+              <h4>How I like to think and work</h4>
+              <p>I think best across boundaries. I am drawn to interdisciplinary work, and I often look to other fields for ideas. Analogy is my main tool for it: noticing how one domain solves a problem and asking what the same move would look like somewhere else.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-media"><img src="images/beyond-curiosity.jpg" alt="A Mars rover replica on exhibit, camera mast raised against a red Mars backdrop" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-tag">Curiosity</span>
+              <h4>What keeps me curious</h4>
+              <p>My curiosity runs wide and likes to wander. Lately it keeps circling flight, space, and biology. I love how the most agile birds fly with so little wasted effort, the design problems behind becoming a multi planetary species, and how unsettlingly clever viruses are at getting their way. I am just as curious about people: the ones who ask odd questions, or who see things from an angle I would never have found alone, are usually the ones I want to talk to.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-media"><img src="images/beyond-interests.jpg" alt="Aerial view of Horseshoe Bend, a sweeping curve of the Colorado River" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="card-tag">Outside Research</span>
+              <h4>Away from the desk</h4>
+              <p>Away from work I am usually out in nature or camping, or playing something with a bit of strategy to it: video games, chess, and of course cubes. I also read constantly and widely, psychology and personal development, economics, general history, and novels. Different shelf, same habit: trying to understand how things and people actually work.</p>
+            </div>
+          </article>
+        </div>
       </section>
 
       <!-- 6. Contact -->

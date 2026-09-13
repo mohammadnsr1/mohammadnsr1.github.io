@@ -280,6 +280,24 @@ main {
   font-size: 1.1rem;
 }
 
+.home-identity {
+  max-width: 60ch;
+  margin: 0 auto 0.9rem;
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+
+.home-summary {
+  max-width: 70ch;
+  margin: 0 auto 1.5rem;
+  color: var(--muted);
+}
+
+.home-tags {
+  justify-content: center;
+  margin-bottom: 1.75rem;
+}
+
 .icon-row {
   list-style: none;
   margin: 0;
@@ -343,6 +361,38 @@ main {
   color: var(--accent);
 }
 
+.note-list {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+}
+
+.note {
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent);
+}
+
+.note h3 {
+  font-size: 1rem;
+  margin: 0.2rem 0 0.35rem;
+}
+
+.note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.toolkit-block {
+  margin-top: 3rem;
+}
+
+.toolkit {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
 .toolkit-row {
   margin-bottom: 1rem;
 }
@@ -384,13 +434,14 @@ main {
   align-items: start;
 }
 
-/* Replace the placeholder div with <img class="edu-logo" src="..."> when logos are added. */
+/* Logos sit on a white tile in both themes, since the source files have white backgrounds. */
 .edu-logo {
   width: 64px;
   height: 64px;
+  padding: 6px;
   border-radius: 10px;
-  border: 1px dashed var(--rule);
-  background: var(--chip);
+  border: 1px solid var(--rule);
+  background: #ffffff;
   object-fit: contain;
 }
 
@@ -516,31 +567,13 @@ main {
   text-decoration: none;
 }
 
-/* Featured case study: one wide horizontal card above the groups. */
-.card--feature {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  margin-bottom: 3rem;
+.card-grid--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.card--feature .card-media {
-  aspect-ratio: auto;
-  min-height: 100%;
-  border-bottom: 0;
-  border-right: 1px solid var(--rule);
-}
-
-.card--feature .card-body {
-  justify-content: center;
-  padding: 1.75rem 2rem;
-}
-
-.card--feature h4 {
-  font-size: 1.3rem;
-}
-
-.card--feature p {
-  font-size: 1rem;
+.section-lead {
+  margin: -1.25rem 0 2rem;
+  color: var(--muted);
 }
 
 /* ---------- Publications ---------- */
@@ -610,37 +643,6 @@ main {
   margin: 0;
 }
 
-/* ---------- Standalone subpage (beyond.html) ---------- */
-.subpage {
-  max-width: 760px;
-  padding-block: 3.5rem 4rem;
-}
-
-.subpage .back {
-  display: inline-block;
-  margin-bottom: 1.5rem;
-  font-size: 0.93rem;
-}
-
-.subpage h1 {
-  font-size: 2rem;
-  margin-bottom: 2.5rem;
-}
-
-.subpage article {
-  padding-block: 1.75rem;
-  border-top: 1px solid var(--rule);
-}
-
-.subpage article h2 {
-  font-size: 1.2rem;
-  margin-bottom: 0.6rem;
-}
-
-.subpage article p {
-  margin: 0 0 0.6rem;
-}
-
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
   .card-grid {
@@ -649,6 +651,9 @@ main {
   .about-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+  .toolkit {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -682,13 +687,8 @@ main {
     padding-block: 3.5rem;
   }
   .card-grid,
-  .card--feature {
+  .toolkit {
     grid-template-columns: 1fr;
-  }
-  .card--feature .card-media {
-    aspect-ratio: 16 / 9;
-    border-right: 0;
-    border-bottom: 1px solid var(--rule);
   }
   .edu-item {
     grid-template-columns: 48px minmax(0, 1fr);
