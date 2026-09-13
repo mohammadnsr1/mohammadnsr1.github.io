@@ -2,21 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script>
-      (function () {
-        var stored = localStorage.getItem("theme");
-        var theme = stored || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
-        document.documentElement.setAttribute("data-theme", theme);
-      })();
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Mohammad Nasr, Robotics PhD student at Arizona State University working on embodied and agentic AI."
-    />
     <title>Mohammad Nasr | Robotics PhD Student</title>
-    <link rel="canonical" href="https://mohammadnsr1.github.io/" />
-    <!-- Link previews (LinkedIn, Slack, X, etc.). Image URLs must be absolute. -->
+    <!-- Link previews (LinkedIn, Slack, X, etc.). Keep these before any <script>: LinkedIn's
+         scraper stops early on some pages. Image URLs must be absolute. -->
+    <meta property="og:site_name" content="Mohammad Nasr" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mohammadnsr1.github.io/" />
     <meta property="og:title" content="Mohammad Nasr | Robotics PhD Student" />
@@ -26,6 +15,16 @@
     <meta property="og:image:height" content="627" />
     <meta property="og:image:alt" content="Mohammad Nasr, Robotics PhD Student at Arizona State University" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="description" content="Robotics PhD student at Arizona State University working on embodied and agentic AI, with a background in dynamics, vibration, and acoustics." />
+    <link rel="canonical" href="https://mohammadnsr1.github.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var theme = stored || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
