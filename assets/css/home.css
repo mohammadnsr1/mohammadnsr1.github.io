@@ -330,24 +330,6 @@ main {
   font-weight: 600;
 }
 
-.list-title {
-  font-weight: 700;
-  margin: 0 0 0.5rem;
-}
-
-.topic-list {
-  margin: 0;
-  padding-left: 1.2rem;
-}
-
-.topic-list li {
-  margin: 0.3rem 0;
-}
-
-.topic-list li::marker {
-  color: var(--accent);
-}
-
 .note-list {
   display: grid;
   gap: 1.5rem;
