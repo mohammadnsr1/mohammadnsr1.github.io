@@ -280,24 +280,6 @@ main {
   font-size: 1.1rem;
 }
 
-.home-identity {
-  max-width: 60ch;
-  margin: 0 auto 0.9rem;
-  font-size: 1.12rem;
-  font-weight: 600;
-}
-
-.home-summary {
-  max-width: 70ch;
-  margin: 0 auto 1.5rem;
-  color: var(--muted);
-}
-
-.home-tags {
-  justify-content: center;
-  margin-bottom: 1.75rem;
-}
-
 .icon-row {
   list-style: none;
   margin: 0;
@@ -341,6 +323,11 @@ main {
 .about-text p {
   margin: 0 0 1.5rem;
   font-size: 1.05rem;
+}
+
+.about-text .about-lead {
+  font-size: 1.15rem;
+  font-weight: 600;
 }
 
 .list-title {
@@ -621,12 +608,6 @@ main {
 
 .contact {
   text-align: center;
-}
-
-.contact .contact-email {
-  display: inline-block;
-  font-size: 1.1rem;
-  margin-bottom: 1.25rem;
 }
 
 .site-footer {
