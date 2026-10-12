@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-labelledby="wd-title wd-desc" font-family="Manrope, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="wd-title">Watchdog agent hierarchy</title>
+  <desc id="wd-desc">The robot and its policy sit at the bottom and stream state and actions to the Watchdog, a fast monitoring loop. The Watchdog can halt the robot directly and sends flags up to the Judge, a slow reasoning loop. The Judge sends its verdict to the Orchestrator, which sends recover or replan commands back down to the robot.</desc>
+  <defs>
+    <marker id="wd-arrow" viewBox="0 0 16 16" refX="14" refY="8" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M2,2 L14,8 L2,14" fill="none" stroke="#e8b04a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="750" fill="#000000" />
+
+  <g fill="none" stroke="#e8b04a" stroke-width="2">
+    <!-- Agent boxes, top to bottom -->
+    <rect x="380" y="50" width="440" height="100" rx="6" />
+    <rect x="380" y="230" width="440" height="100" rx="6" />
+    <rect x="380" y="410" width="440" height="100" rx="6" />
+    <rect x="380" y="600" width="440" height="100" rx="6" />
+
+    <!-- Timescale boundary -->
+    <line x1="60" y1="370" x2="960" y2="370" stroke="#8a6a2e" stroke-width="1.5" stroke-dasharray="6 8" />
+
+    <!-- state, actions: robot up to watchdog -->
+    <line x1="540" y1="600" x2="540" y2="510" marker-end="url(#wd-arrow)" />
+    <!-- halt: watchdog straight down to robot -->
+    <line x1="660" y1="510" x2="660" y2="600" stroke-dasharray="10 7" marker-end="url(#wd-arrow)" />
+    <!-- flag: watchdog up to judge -->
+    <line x1="600" y1="410" x2="600" y2="330" marker-end="url(#wd-arrow)" />
+    <!-- verdict: judge up to orchestrator -->
+    <line x1="600" y1="230" x2="600" y2="150" marker-end="url(#wd-arrow)" />
+    <!-- recover / replan: orchestrator back down to robot -->
+    <path d="M820,100 H1000 V650 H820" marker-end="url(#wd-arrow)" />
+  </g>
+
+  <g text-anchor="middle">
+    <text x="600" y="96" font-size="30" font-weight="600" fill="#f2c66d">Orchestrator</text>
+    <text x="600" y="128" font-size="20" fill="#b8913f">mission plan and recovery</text>
+
+    <text x="600" y="276" font-size="30" font-weight="600" fill="#f2c66d">Judge</text>
+    <text x="600" y="308" font-size="20" fill="#b8913f">slow loop: foundation model review</text>
+
+    <text x="600" y="456" font-size="30" font-weight="600" fill="#f2c66d">Watchdog</text>
+    <text x="600" y="488" font-size="20" fill="#b8913f">fast loop: always on monitoring</text>
+
+    <text x="600" y="646" font-size="30" font-weight="600" fill="#f2c66d">Robot / policy</text>
+    <text x="600" y="678" font-size="20" fill="#b8913f">real time motion control</text>
+  </g>
+
+  <g font-size="21" fill="#e8b04a">
+    <text x="614" y="198">verdict</text>
+    <text x="614" y="400">flag</text>
+    <text x="674" y="563">halt</text>
+    <text x="526" y="563" text-anchor="end">state, actions</text>
+    <text x="1014" y="368">recover /</text>
+    <text x="1014" y="396">replan</text>
+  </g>
+
+  <g font-size="16" fill="#8a6a2e" letter-spacing="2.5">
+    <text x="60" y="354">SLOW LOOP: REASONING</text>
+    <text x="60" y="398">FAST LOOP: REAL TIME</text>
+  </g>
+</svg>

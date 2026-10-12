@@ -48,6 +48,7 @@
           </button>
 
           <div class="nav-links" id="nav-links">
+            <a href="#current">Current Projects</a>
             <a href="#projects">Projects</a>
             <a href="#toolkit">Toolkit</a>
             <a href="#about">About</a>
@@ -83,11 +84,12 @@
               </div>
             </div>
             <p class="hero-identity">
-              Robotics PhD student working on embodied and agentic AI and Robotics with direct applications in industry.
+              Robotics PhD candidate building the trust layer for physical AI.
             </p>
             <p class="hero-summary">
-              Earlier I worked on nonlinear dynamics and vibration developing a system for autonomous testing of vibrating systems that makes characterizing nonlinear, real-world dynamical behavior far more tractable. In acoustics, I have worked on binaural hearing, specifically on animals auditory systems leading to potential bioinspired hearing designs. For me, working across disciplines isn't a detour, it's how I think.
+              I design agentic architectures in which independent watchdog, judge and orchestrator agents check what a robot is doing and step in when its behavior drifts from the mission. My background is in nonlinear dynamics and vibration, and in acoustics, where I study animal hearing to design bioinspired robotic listening. Working across disciplines isn't a detour, it's how I think.
             </p>
+            <p class="hero-availability">Open to Summer 2027 research internships (US)</p>
             <div class="hero-actions">
               <a class="button button-primary button-arrow" href="#projects">View Projects</a>
               <a class="button button-secondary button-arrow" href="docs/mohammad-nasr-cv.pdf">Download CV</a>
@@ -140,6 +142,32 @@
           <div class="grid-haze"></div>
           <div class="technical-lines"></div>
         </div>
+      </section>
+
+      <section class="section" id="current">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Current Projects</p>
+          <h2>What I am building now.</h2>
+        </div>
+
+        <article class="featured-case project-current reveal">
+          <figure class="featured-case-media featured-case-media--diagram">
+            <img src="images/writeups/watchdog/architecture.svg" alt="Agent hierarchy: the robot streams state to a fast Watchdog that can halt it, the Watchdog flags events to a slower Judge, and the Judge's verdict goes to an Orchestrator that recovers or replans" loading="lazy" />
+          </figure>
+          <div class="featured-case-content">
+            <span class="micro-label">Ongoing PhD Research</span>
+            <h3>Watchdog: Physically Grounded Conformance Monitoring for Robotic Agentic AI</h3>
+            <p class="featured-case-quote">
+              Independent watchdog, judge and orchestrator agents that check whether a robot's behavior still matches its mission, and step in when it drifts.
+            </p>
+            <p class="featured-case-status">
+              Arizona State University &middot; working prototype &middot; paper in preparation for IEEE RA&#8209;L
+            </p>
+            <div class="project-links">
+              <a class="project-link" href="writeups/watchdog.html">Read the project page</a>
+            </div>
+          </div>
+        </article>
       </section>
 
       <!-- Replace the project images with real snapshots whenever you have them. -->
@@ -627,6 +655,7 @@
     <footer class="site-footer">
       <p>&copy; <span data-current-year></span> Mohammad Nasr</p>
       <div class="footer-links">
+        <a href="#current">Current Projects</a>
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
         <a href="#beyond">Beyond the Lab</a>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var theme = stored || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ongoing PhD research: a hierarchy of independent watchdog, judge and orchestrator agents that checks whether a robot's behavior still matches its mission."
+    />
+    <title>Watchdog: Conformance Monitoring for Robotic Agentic AI | Mohammad Nasr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/refined.css" />
+    <link rel="stylesheet" href="../assets/css/writeup.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="brand-mark" href="../index.html" aria-label="Homepage">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-text">Mohammad Nasr</span>
+        </a>
+        <div class="nav-actions">
+          <div class="nav-links" id="nav-links">
+          <a href="../index.html#current">Current Projects</a>
+          <a href="../index.html#projects">Projects</a>
+          <a href="../index.html#toolkit">Toolkit</a>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#contact">Contact</a>
+          </div>
+
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
+            <svg class="theme-toggle-icon theme-toggle-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+            </svg>
+            <svg class="theme-toggle-icon theme-toggle-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="writeup-main writeup-current">
+      <div class="writeup-back">
+        <a href="../index.html#current">Back to current projects</a>
+      </div>
+
+      <section class="writeup-hero">
+        <span class="project-tag">Current Projects &middot; Agentic AI</span>
+        <h1>Watchdog: Physically Grounded Conformance Monitoring for Robotic Agentic AI</h1>
+        <p class="writeup-dek">
+          A hierarchy of independent agents that checks whether what a robot is doing still matches its mission, and steps in when its behavior drifts.
+        </p>
+
+        <dl class="writeup-meta">
+          <li>
+            <dt>Status</dt>
+            <dd>Ongoing PhD research, working prototype</dd>
+          </li>
+          <li>
+            <dt>Institution</dt>
+            <dd>Arizona State University</dd>
+          </li>
+          <li>
+            <dt>Paper</dt>
+            <dd>In preparation for IEEE Robotics and Automation Letters (RA&#8209;L)</dd>
+          </li>
+          <li>
+            <dt>Interface</dt>
+            <dd>Agent tools exposed over the Model Context Protocol (MCP)</dd>
+          </li>
+        </dl>
+      </section>
+
+      <section class="writeup-section">
+        <h2>The problem</h2>
+        <p>
+          Foundation model driven robots can plan and act in open environments, but nothing independent checks whether what they are doing still matches the mission. A robot that grades its own work is not a trust layer.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>The idea</h2>
+        <p>
+          Instead of one model that both acts and judges itself, the system is a hierarchy of agents with separate jobs.
+        </p>
+        <ul class="writeup-module-list">
+          <li>
+            <strong>Watchdog</strong>
+            <span>Fast, always on monitoring of the robot's state and actions against mission intent and constraints. It flags drift and can halt or hold the robot.</span>
+          </li>
+          <li>
+            <strong>Judge</strong>
+            <span>Slower reasoning with a foundation model. It reviews flagged events, weighs context and decides whether the behavior is acceptable.</span>
+          </li>
+          <li>
+            <strong>Orchestrator</strong>
+            <span>Owns the mission plan and decides how to recover: replan, retry, ask a human or stop.</span>
+          </li>
+        </ul>
+
+        <figure class="writeup-figure writeup-diagram">
+          <div class="writeup-diagram-panel">
+            <svg viewBox="0 0 1200 750" role="img" aria-labelledby="wd-title wd-desc" font-family="Manrope, 'Segoe UI', Helvetica, Arial, sans-serif">
+              <title id="wd-title">Watchdog agent hierarchy</title>
+              <desc id="wd-desc">The robot and its policy sit at the bottom and stream state and actions to the Watchdog, a fast monitoring loop. The Watchdog can halt the robot directly and sends flags up to the Judge, a slow reasoning loop. The Judge sends its verdict to the Orchestrator, which sends recover or replan commands back down to the robot.</desc>
+              <defs>
+                <marker id="wd-arrow" viewBox="0 0 16 16" refX="14" refY="8" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+                  <path d="M2,2 L14,8 L2,14" fill="none" stroke="#e8b04a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </marker>
+              </defs>
+
+              <rect x="0" y="0" width="1200" height="750" fill="#000000" />
+
+              <g fill="none" stroke="#e8b04a" stroke-width="2">
+                <rect x="380" y="50" width="440" height="100" rx="6" />
+                <rect x="380" y="230" width="440" height="100" rx="6" />
+                <rect x="380" y="410" width="440" height="100" rx="6" />
+                <rect x="380" y="600" width="440" height="100" rx="6" />
+
+                <line x1="60" y1="370" x2="960" y2="370" stroke="#8a6a2e" stroke-width="1.5" stroke-dasharray="6 8" />
+
+                <line x1="540" y1="600" x2="540" y2="510" marker-end="url(#wd-arrow)" />
+                <line x1="660" y1="510" x2="660" y2="600" stroke-dasharray="10 7" marker-end="url(#wd-arrow)" />
+                <line x1="600" y1="410" x2="600" y2="330" marker-end="url(#wd-arrow)" />
+                <line x1="600" y1="230" x2="600" y2="150" marker-end="url(#wd-arrow)" />
+                <path d="M820,100 H1000 V650 H820" marker-end="url(#wd-arrow)" />
+              </g>
+
+              <g text-anchor="middle">
+                <text x="600" y="96" font-size="30" font-weight="600" fill="#f2c66d">Orchestrator</text>
+                <text x="600" y="128" font-size="20" fill="#b8913f">mission plan and recovery</text>
+
+                <text x="600" y="276" font-size="30" font-weight="600" fill="#f2c66d">Judge</text>
+                <text x="600" y="308" font-size="20" fill="#b8913f">slow loop: foundation model review</text>
+
+                <text x="600" y="456" font-size="30" font-weight="600" fill="#f2c66d">Watchdog</text>
+                <text x="600" y="488" font-size="20" fill="#b8913f">fast loop: always on monitoring</text>
+
+                <text x="600" y="646" font-size="30" font-weight="600" fill="#f2c66d">Robot / policy</text>
+                <text x="600" y="678" font-size="20" fill="#b8913f">real time motion control</text>
+              </g>
+
+              <g font-size="21" fill="#e8b04a">
+                <text x="614" y="198">verdict</text>
+                <text x="614" y="400">flag</text>
+                <text x="674" y="563">halt</text>
+                <text x="526" y="563" text-anchor="end">state, actions</text>
+                <text x="1014" y="368">recover /</text>
+                <text x="1014" y="396">replan</text>
+              </g>
+
+              <g font-size="16" fill="#8a6a2e" letter-spacing="2.5">
+                <text x="60" y="354">SLOW LOOP: REASONING</text>
+                <text x="60" y="398">FAST LOOP: REAL TIME</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption>The Watchdog runs a fast loop beside the robot and can halt it directly. Flagged events go up to the Judge, whose verdict reaches the Orchestrator, which decides how the robot recovers.</figcaption>
+        </figure>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Design principles</h2>
+        <p>
+          Each boundary between agents has to earn its place, for one of three reasons:
+        </p>
+        <ol class="writeup-module-list">
+          <li>
+            <strong>Adversarial independence</strong>
+            <span>The actor and the checker are kept separate, so the robot is not grading its own work.</span>
+          </li>
+          <li>
+            <strong>Different timescales</strong>
+            <span>Fast monitoring and slow reasoning run at different rates and may need different hardware.</span>
+          </li>
+          <li>
+            <strong>Authority boundaries</strong>
+            <span>Legal or certifiable lines of authority that need to stay distinct.</span>
+          </li>
+        </ol>
+        <p>
+          Agents are extracted gradually from a near monolith as natural seams prove stable, rather than designed top down. Reasoning never blocks real time motion control.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Implementation</h2>
+        <p>
+          A working prototype in which the agents act through tools exposed over the Model Context Protocol (MCP). There are no metrics on this page yet. They will be added once the paper is out.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>Why it matters</h2>
+        <p>
+          Trust is what stands between capable robots and deployment in inspection, aviation maintenance and other safety critical work. This project aims to make that trust something you can check, not just assume.
+        </p>
+      </section>
+
+      <section class="writeup-section">
+        <h2>What's next</h2>
+        <p>
+          Submit the paper, "Watchdog: Physically Grounded Conformance Monitoring for Robotic Agentic AI," to IEEE Robotics and Automation Letters (RA&#8209;L), then apply the hierarchy to acoustic inspection robots for aviation maintenance.
+        </p>
+      </section>
+    </main>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
