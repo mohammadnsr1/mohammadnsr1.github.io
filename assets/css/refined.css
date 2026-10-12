@@ -514,27 +514,6 @@ a:focus-visible {
   max-width: 42rem;
 }
 
-.hero-availability {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin: 1.1rem 0 0;
-  padding: 0.38rem 0.85rem;
-  border: 1px solid rgba(var(--accent-amber-rgb), 0.32);
-  border-radius: 999px;
-  background: rgba(var(--accent-amber-rgb), 0.07);
-  color: var(--muted-strong);
-  font-size: 0.86rem;
-}
-
-.hero-availability::before {
-  content: "";
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 50%;
-  background: rgb(var(--accent-amber-rgb));
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -1035,28 +1014,6 @@ a:focus-visible {
 .featured-case .project-links {
   margin-top: 0.4rem;
   padding-top: 0;
-}
-
-.project-current {
-  --card-accent-rgb: var(--accent-amber-rgb);
-  --card-accent-2-rgb: var(--accent-violet-rgb);
-}
-
-.featured-case-media--diagram {
-  display: flex;
-  align-items: center;
-  background: #000;
-}
-
-.featured-case-media--diagram img {
-  height: auto;
-  object-fit: contain;
-}
-
-.featured-case-status {
-  margin: 0;
-  color: var(--muted-strong);
-  font-size: 0.88rem;
 }
 
 @media (max-width: 760px) {
