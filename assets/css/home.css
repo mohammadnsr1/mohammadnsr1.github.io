@@ -536,37 +536,9 @@ main {
   text-decoration: none;
 }
 
-/* Current project: one wide card, diagram on a black panel in both themes. */
-.card--feature {
-  flex-direction: row;
-}
-
-.card--feature .card-media {
-  flex: 0 0 55%;
-  border-bottom: 0;
-  border-right: 1px solid var(--rule);
-}
-
-.card-media--diagram {
-  aspect-ratio: 16 / 10;
-  background: #000000;
-}
-
-.card-media--diagram img {
-  object-fit: contain;
-}
-
-.card--feature .card-body {
-  justify-content: center;
-  padding: 1.6rem 1.8rem;
-}
-
-.card--feature h4 {
-  font-size: 1.25rem;
-}
-
-.card .card-meta {
-  font-size: 0.85rem;
+.project-note {
+  margin: 0;
+  max-width: 72ch;
 }
 
 .home-availability {
@@ -696,17 +668,6 @@ main {
   .card-grid,
   .toolkit {
     grid-template-columns: 1fr;
-  }
-  .card--feature {
-    flex-direction: column;
-  }
-  .card--feature .card-media {
-    flex-basis: auto;
-    border-right: 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .card--feature .card-body {
-    padding: 1.1rem 1.2rem 1.25rem;
   }
   .edu-item {
     grid-template-columns: 48px minmax(0, 1fr);

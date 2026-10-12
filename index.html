@@ -63,7 +63,6 @@
 
         <div class="nav-links" id="nav-links">
           <a href="#home">Home</a>
-          <a href="#current">Current Projects</a>
           <a href="#about">About</a>
           <a href="#education">Education</a>
           <a href="#projects">Projects</a>
@@ -105,23 +104,6 @@
           <li><a href="https://scholar.google.com/citations?user=4rzGs6wAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg aria-hidden="true"><use href="#i-scholar" /></svg></a></li>
           <li><a href="docs/mohammad-nasr-cv.pdf" target="_blank" rel="noopener" aria-label="Resume (PDF)" title="Resume (PDF)"><svg aria-hidden="true"><use href="#i-cv" /></svg></a></li>
         </ul>
-      </section>
-
-      <!-- Current Projects -->
-      <section class="section" id="current">
-        <h2 class="section-title">Current Projects</h2>
-        <article class="card card--feature">
-          <div class="card-media card-media--diagram"><img src="images/writeups/watchdog/architecture.svg" alt="Agent hierarchy: the robot streams state to a fast Watchdog that can halt it, the Watchdog flags events to a slower Judge, and the Judge's verdict goes to an Orchestrator that recovers or replans" loading="lazy" /></div>
-          <div class="card-body">
-            <span class="card-tag">Ongoing PhD Research</span>
-            <h4>Watchdog: Physically Grounded Conformance Monitoring for Robotic Agentic AI</h4>
-            <p>Independent watchdog, judge and orchestrator agents that check whether a robot's behavior still matches its mission, and step in when it drifts.</p>
-            <p class="card-meta">Arizona State University &middot; working prototype &middot; paper in preparation for IEEE RA&#8209;L</p>
-            <div class="link-row">
-              <a class="pill" href="writeups/watchdog.html">Project page</a>
-            </div>
-          </div>
-        </article>
       </section>
 
       <!-- 2. About -->
@@ -217,6 +199,14 @@
       <!-- 4. Projects -->
       <section class="section" id="projects">
         <h2 class="section-title">Projects</h2>
+
+        <div class="project-group">
+          <h3 class="subsection-title">Current Projects</h3>
+          <p class="project-note">
+            <strong>Watchdog: Physically Grounded Conformance Monitoring for Robotic Agentic AI.</strong>
+            I am building a hierarchy of independent agents that checks whether what a robot is doing still matches its mission. A fast Watchdog monitors the robot's state and actions and can halt it, a slower Judge reviews flagged events with a foundation model, and an Orchestrator decides how to recover. There is a working prototype, and a paper is in preparation for IEEE Robotics and Automation Letters.
+          </p>
+        </div>
 
         <div class="project-group">
           <h3 class="subsection-title">Robotic Manipulation</h3>
